@@ -10,5 +10,4 @@ import java.util.List;
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
     List<Author> findDistinctByBooksReleaseDateBefore(LocalDate releaseDate);
-
 }
