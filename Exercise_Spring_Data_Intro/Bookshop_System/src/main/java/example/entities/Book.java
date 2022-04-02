@@ -2,7 +2,6 @@ package example.entities;
 
 import example.enums.AgeRestriction;
 import example.enums.EditionType;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -43,7 +42,14 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, EditionType editionType, BigDecimal price, int copies, LocalDate releaseDate, AgeRestriction ageRestriction, Author author, Set<Category> categories) {
+    public Book(String title, 
+                EditionType editionType, 
+                BigDecimal price, 
+                int copies, 
+                LocalDate releaseDate, 
+                AgeRestriction ageRestriction, 
+                Author author, 
+                Set<Category> categories) {
         this.title = title;
         this.editionType = editionType;
         this.price = price;
