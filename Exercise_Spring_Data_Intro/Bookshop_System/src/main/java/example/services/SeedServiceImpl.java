@@ -10,7 +10,6 @@ import example.repositories.BookRepository;
 import example.repositories.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.nio.file.Files;
@@ -97,6 +96,5 @@ public class SeedServiceImpl implements SeedService {
 
         return new Book(title, editionType, price, copies, publishDate, ageRestriction, author, categories);
     }
-
 
 }
