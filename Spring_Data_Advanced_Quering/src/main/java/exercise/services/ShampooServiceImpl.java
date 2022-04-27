@@ -1,0 +1,53 @@
+package exercise.services;
+
+
+import exercise.entities.Ingredient;
+import exercise.entities.Shampoo;
+import exercise.entities.Size;
+import exercise.repositories.ShampooRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.List;
+import java.util.Set;
+
+@Service
+public class ShampooServiceImpl implements ShampooService {
+
+    @Autowired
+    private ShampooRepository shampooRepository;
+
+
+    @Override
+    public List<Shampoo> selectBySize(Size size) {
+        return this.shampooRepository.findBySize(size);
+    }
+
+    @Override
+    public List<Shampoo> selectBySizeORLabelId(Size size, int labelId) {
+        // Label label = this.labelRepository.findById(labelId);
+        return this.shampooRepository.findBySizeOrLabelIdOrderByPriceAsc(size, labelId);
+    }
+
+    @Override
+    public List<Shampoo> selectMoreExpensiveThan(BigDecimal price) {
+        return this.shampooRepository.findByPriceGreaterThanOrderByPriceDesc(price);
+    }
+
+    @Override
+    public int countByPriceLowerThan(BigDecimal price) {
+        return this.shampooRepository.countByPriceLessThan(price);
+    }
+
+    @Override
+    public List<Shampoo> selectByIngredientCount(int count) {
+        return this.shampooRepository.findByIngredientCountLessThan(count);
+    }
+
+    // 07
+    @Override
+    public List<String> findByIngredientsNames(List<String> names) {
+        return this.shampooRepository.findByIngredients(names);
+    }
+}
