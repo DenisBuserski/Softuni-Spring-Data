@@ -3,7 +3,6 @@ package entities;
 import annotations.Column;
 import annotations.Entity;
 import annotations.Id;
-
 import java.time.LocalDate;
 
 @Entity(name = "users")
