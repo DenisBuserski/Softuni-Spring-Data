@@ -1,6 +1,6 @@
 # Softuni Spring Data
 
-![programming-basics-softuni](programming-basics-softuni.png)
+![spring-data-softuni](spring-data-softuni.png)
 
 ## Intro
 The Programming Basics was my first touch with programming. In this course I wrote my first program ("Hello World"), learned the most basic things like if-else statements, for and while loops.
