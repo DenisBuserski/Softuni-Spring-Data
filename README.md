@@ -9,10 +9,8 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 
 
 ## Course topics
-### First Steps In Coding
-- [Lab](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/First_Steps_In_Coding_Lab)
-- [Exercise](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/First_Steps_In_Coding_Exercise)
-- [More Exercise](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/First_Steps_In_Coding_More_Exercise)
+### Java DB Apps Introduction
+- [Lab](https://github.com/DenisBuserski/Softuni_Spring_Data/tree/main/Exercise-Java-DB-Apps-Introduction-04)
 ### Conditional Statements
 - [Lab](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Conditional_Statements_Lab)
 - [Exercise](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Conditional_Statements_Exercise)
