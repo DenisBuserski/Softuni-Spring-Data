@@ -12,9 +12,7 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 ### Java DB Apps Introduction
 - [Link](https://github.com/DenisBuserski/Softuni_Spring_Data/tree/main/Exercise-Java-DB-Apps-Introduction-04)
 ### Custom ORM
-- [Lab](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Conditional_Statements_Lab)
-- [Exercise](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Conditional_Statements_Exercise)
-- [More Exercise](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Conditional_Statements_More_Exercises)
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Custom-ORM)
 
 
 ## Exams
