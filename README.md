@@ -13,6 +13,7 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 - [Link](https://github.com/DenisBuserski/Softuni_Spring_Data/tree/main/Exercise-Java-DB-Apps-Introduction-04)
 ### Custom ORM
 - [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Custom-ORM)
+### Introduction to Hibernate
 
 
 ## Exams
