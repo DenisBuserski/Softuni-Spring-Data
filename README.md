@@ -14,6 +14,7 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 ### Custom ORM
 - [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Custom-ORM)
 ### Introduction to Hibernate
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Introduction-To-Hibernate-08)
 
 
 ## Exams
