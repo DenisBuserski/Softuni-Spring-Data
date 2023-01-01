@@ -38,12 +38,12 @@ public class Adding_A_New_Address_And_Updating_Employee_06 {
                 .executeUpdate();
 
         System.out.printf("%n%n");
-
-
-        entityManager.getTransaction().commit();
-
+        
+        entityManager.refresh(employee);
         employee = findEmployee(entityManager, lastName);
         printEmployeeData(employee);
+
+        entityManager.getTransaction().commit();
         entityManager.close();
     }
 
