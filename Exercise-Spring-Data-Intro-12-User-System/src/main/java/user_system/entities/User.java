@@ -1,8 +1,10 @@
 package user_system.entities;
 
-import user_system.Annotations.Email;
+import user_system.annotations.Email;
+import user_system.annotations.Password;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -11,7 +13,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Size(min = 4, max = 30)
     private String username;
+
+    @Password
     private String password;
 
     @Email
@@ -22,6 +28,8 @@ public class User {
 
     @Column(name = "last_time_logged_in")
     private LocalDateTime lastTimeLoggedIn;
+
+    @Size(min = 1, max = 120)
     private int age;
 
     @Column(name = "is_deleted")

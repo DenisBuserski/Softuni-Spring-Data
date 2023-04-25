@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3776713b-54d0-4294-8420-521d60aa226b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/user_system/Annotations/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user_system/annotations/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/user_system/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user_system/entities/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,6 +43,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="user_system.Annotations" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\HP\Desktop\Softuni-Spring-Data\Exercise-Spring-Data-Intro-12-User-System" />
     </key>
