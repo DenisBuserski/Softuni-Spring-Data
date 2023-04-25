@@ -5,5 +5,5 @@ public class Album {
     private String name;
     private String backgroundColor;
     private boolean isPublic;
-    
+
 }
