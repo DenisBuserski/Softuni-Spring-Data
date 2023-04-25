@@ -15,4 +15,5 @@ public class User {
     private Town currentlyLiving;
     private String firstName;
     private String lastName;
+    private User friends;
 }
