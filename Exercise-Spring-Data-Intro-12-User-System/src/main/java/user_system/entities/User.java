@@ -11,4 +11,6 @@ public class User {
     private LocalDateTime lastTimeLoggedIn;
     private int age;
     private boolean isDeleted;
+    private Town bornTown;
+    private Town currentlyLiving;
 }
