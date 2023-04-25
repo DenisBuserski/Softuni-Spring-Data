@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity(name = "users")
 public class User {
     @Id
-    @@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
@@ -26,7 +26,7 @@ public class User {
     @ManyToOne(optional = false)
     @JoinColumn(name = "born_town", referencedColumnName = "id")
     private Town bornTown;
-    
+
     @ManyToMany
     @JoinTable(name = "users_living_towns",
     joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
