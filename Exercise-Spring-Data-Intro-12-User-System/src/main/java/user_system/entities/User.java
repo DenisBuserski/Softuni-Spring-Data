@@ -1,5 +1,7 @@
 package user_system.entities;
 
+import user_system.Annotations.Email;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -11,6 +13,8 @@ public class User {
     private int id;
     private String username;
     private String password;
+
+    @Email
     private String email;
 
     @Column(name = "registered_on")
