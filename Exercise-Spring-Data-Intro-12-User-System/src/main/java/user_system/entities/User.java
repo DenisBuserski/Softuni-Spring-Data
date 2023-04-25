@@ -39,5 +39,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
+    @ManyToMany
     private User friends;
 }
