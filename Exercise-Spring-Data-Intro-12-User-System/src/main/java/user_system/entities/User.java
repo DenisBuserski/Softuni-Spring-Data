@@ -13,4 +13,6 @@ public class User {
     private boolean isDeleted;
     private Town bornTown;
     private Town currentlyLiving;
+    private String firstName;
+    private String lastName;
 }
