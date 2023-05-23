@@ -24,13 +24,30 @@ public class ConsoleRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         addCountries();
-
-        this.townService.createTown("Sofia", this.countryService.getCountryByName("Bulgaria"));
-
+        addTowns();
 
 
 //        this.userService.createUser("test-1", "password-test-1", "test@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 20, null, null, "TestFirst1", "TestLast1");
 //        System.out.println(this.userService.getUserFullName("TestFirst1", "TestLast1"));
+    }
+
+    private void addTowns() {
+        this.townService.createTown("Sofia", this.countryService.getCountryByName("Bulgaria"));
+        this.townService.createTown("Pleven", this.countryService.getCountryByName("Bulgaria"));
+        this.townService.createTown("Varna", this.countryService.getCountryByName("Bulgaria"));
+        this.townService.createTown("Burgas", this.countryService.getCountryByName("Bulgaria"));
+        this.townService.createTown("Plovdiv", this.countryService.getCountryByName("Bulgaria"));
+        this.townService.createTown("New York", this.countryService.getCountryByName("USA"));
+        this.townService.createTown("Las Vegas", this.countryService.getCountryByName("USA"));
+        this.townService.createTown("Miami", this.countryService.getCountryByName("USA"));
+        this.townService.createTown("Newcastle", this.countryService.getCountryByName("England"));
+        this.townService.createTown("Manchester", this.countryService.getCountryByName("England"));
+        this.townService.createTown("Liverpool", this.countryService.getCountryByName("England"));
+        this.townService.createTown("London", this.countryService.getCountryByName("England"));
+        this.townService.createTown("Berlin", this.countryService.getCountryByName("Germany"));
+        this.townService.createTown("Frankfurt", this.countryService.getCountryByName("Germany"));
+        this.townService.createTown("Tokyo", this.countryService.getCountryByName("Japan"));
+        this.townService.createTown("Paris", this.countryService.getCountryByName("France"));
     }
 
     private void addCountries() {
