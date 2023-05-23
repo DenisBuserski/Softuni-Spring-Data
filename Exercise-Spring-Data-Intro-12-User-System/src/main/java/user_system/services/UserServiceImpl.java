@@ -19,4 +19,9 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         userRepository.save(user);
     }
+
+    @Override
+    public String getUserFullName(String firstName, String lastName) {
+        return firstName + " " + lastName;
+    }
 }
