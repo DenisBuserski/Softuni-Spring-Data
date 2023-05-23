@@ -42,4 +42,13 @@ public class User {
     @ManyToOne(optional = false)
     @JoinColumn(name = "current_town_id", referencedColumnName = "id")
     private Town currentlyLivingTown;
+
+    @Column(name = "first_name")
+    private String firstName;
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Transient
+    private String fullName; // firstName + " " + lastName - Shown only when asked for
 }
