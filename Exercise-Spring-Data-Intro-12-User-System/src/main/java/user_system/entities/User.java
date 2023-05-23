@@ -35,6 +35,11 @@ public class User {
     @Column(name = "is_deleted")
     private boolean isDeleted;
 
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "born_town_id", referencedColumnName = "id")
     private Town bornTown;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "current_town_id", referencedColumnName = "id")
     private Town currentlyLivingTown;
 }
