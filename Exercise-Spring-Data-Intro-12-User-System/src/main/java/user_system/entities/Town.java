@@ -1,9 +1,6 @@
 package user_system.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "towns")
 public class Town {
@@ -11,5 +8,8 @@ public class Town {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "country_id", referencedColumnName = "id")
     private Country country;
 }
