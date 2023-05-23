@@ -13,5 +13,6 @@ public class Picture {
     private String title;
     private String caption;
     private String path;
+    private Album album;
 
 }

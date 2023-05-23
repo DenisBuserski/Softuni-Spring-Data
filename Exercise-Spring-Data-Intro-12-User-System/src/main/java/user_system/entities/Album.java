@@ -1,9 +1,7 @@
 package user_system.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "albums")
 public class Album {
@@ -13,4 +11,10 @@ public class Album {
     private String name;
     private String backgroundColor;
     private boolean isPublic;
+
+    @OneToMany(mappedBy = "album",
+            targetEntity = Picture.class,
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<Picture> pictures;
 }
