@@ -7,6 +7,7 @@ import user_system.annotations.Password;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity(name = "users")
@@ -58,4 +59,18 @@ public class User {
             joinColumns = @JoinColumn(name = "id"),
             inverseJoinColumns = @JoinColumn(name = "friend_id"))
     private Set<User> friends;
+
+    public User(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.registrationDateTime = registrationDateTime;
+        this.lastTimeLoggedIn = lastTimeLoggedIn;
+        this.age = age;
+        this.bornTown = bornTown;
+        this.currentlyLivingTown = currentlyLivingTown;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.friends = new HashSet<>();
+    }
 }

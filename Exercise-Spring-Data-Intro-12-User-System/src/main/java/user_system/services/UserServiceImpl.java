@@ -16,7 +16,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
-        User user = new User();
+        User user = new User(username, password, email, registrationDateTime, lastTimeLoggedIn, age, bornTown, currentlyLivingTown, firstName, lastName);
         userRepository.save(user);
     }
 
