@@ -7,6 +7,7 @@ import user_system.annotations.Password;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity(name = "users")
 public class User {
@@ -51,4 +52,10 @@ public class User {
 
     @Transient
     private String fullName; // firstName + " " + lastName - Shown only when asked for
+
+    @ManyToMany()
+    @JoinTable(name = "user_friends",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "friend_id"))
+    private Set<User> friends;
 }
