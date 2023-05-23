@@ -16,4 +16,9 @@ public class TownServiceImpl implements TownService {
         Town town = new Town(name, country);
         this.townRepository.save(town);
     }
+
+    @Override
+    public Town getTownByName(String name) {
+        return this.townRepository.getTownByName(name);
+    }
 }

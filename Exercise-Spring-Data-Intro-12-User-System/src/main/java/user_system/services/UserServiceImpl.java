@@ -24,4 +24,9 @@ public class UserServiceImpl implements UserService {
     public String getUserFullName(String firstName, String lastName) {
         return firstName + " " + lastName;
     }
+
+    @Override
+    public User getUserByid(int id) {
+        return this.userRepository.getUserById(id);
+    }
 }
