@@ -6,4 +6,6 @@ import user_system.entities.Country;
 
 @Repository
 public interface CountryRepository extends JpaRepository<Country, Integer> {
+    Country getCountryByName(String name);
+
 }

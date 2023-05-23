@@ -15,4 +15,9 @@ public class CountryServiceImpl implements CountryService {
         Country country = new Country(name);
         countryRepository.save(country);
     }
+
+    @Override
+    public Country getCountryByName(String name) {
+        return this.countryRepository.getCountryByName(name);
+    }
 }
