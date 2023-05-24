@@ -7,12 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Exercise-Spring-Data-Intro-12" />
+        <module name="Exercise-Spring-Data-Intro-12-Bookshop-System" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Exercise-Spring-Data-Intro-12" options="-parameters" />
+      <module name="Exercise-Spring-Data-Intro-12-Bookshop-System" options="-parameters" />
     </option>
   </component>
 </project>
