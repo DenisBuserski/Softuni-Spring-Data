@@ -7,6 +7,7 @@ import user_system.entities.User;
 import user_system.repositories.UserRepository;
 
 import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.List;
 
 @Service
@@ -43,9 +44,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(int id) {
+    public User setToDeleteUser(int id) {
         User user = this.userRepository.getUserById(id);
-        user.setDeleted(true);
-        this.userRepository.save(user);
+        if (user.getLastTimeLoggedIn().isBefore(LocalDateTime.of(2020, 1, 1, 12, 00))) {
+            user.setDeleted(true);
+            this.userRepository.save(user);
+            return user;
+        } else {
+            System.out.println("User cannot be set to deleted");
+            return null;
+        }
+
+    }
+
+    @Override
+    public void deleteUserById(int id) {
+        this.userRepository.deleteById(id);
     }
 }

@@ -17,6 +17,8 @@ public interface UserService {
 
     List<User> getUserByEmail(String email);
 
-    void deleteUser(int id);
+    User setToDeleteUser(int id);
+
+    void deleteUserById(int id);
 
 }

@@ -42,7 +42,8 @@ public class ConsoleRunner implements CommandLineRunner {
         // getUsersByEmailProvider("@abv.bg");
         // getUsersByEmailProvider("HAHA");
 
-        this.userService.deleteUser(1);
+        User user = this.userService.setToDeleteUser(7);
+        this.userService.deleteUserById(user.getId());
 
 
         // Test password and Email
