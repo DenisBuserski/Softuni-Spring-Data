@@ -16,4 +16,9 @@ public class AlbumServiceImpl implements AlbumService {
         Album album = new Album(name, backgroundColor, isPublic, user);
         this.albumRepository.save(album);
     }
+
+    @Override
+    public Album getAlbumById(int id) {
+        return this.albumRepository.getAlbumById(id);
+    }
 }

@@ -21,12 +21,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String getUserFullName(String firstName, String lastName) {
-        return firstName + " " + lastName;
+    public String getUserFullNameById(int id) {
+        return this.userRepository.getFirstAndLastNameById(id);
     }
 
     @Override
-    public User getUserByid(int id) {
+    public User getUserById(int id) {
         return this.userRepository.getUserById(id);
     }
 }

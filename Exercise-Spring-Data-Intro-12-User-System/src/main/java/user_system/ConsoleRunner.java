@@ -3,12 +3,10 @@ package user_system;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import user_system.entities.Album;
 import user_system.entities.Town;
 import user_system.entities.User;
-import user_system.services.AlbumService;
-import user_system.services.CountryService;
-import user_system.services.TownService;
-import user_system.services.UserService;
+import user_system.services.*;
 
 import java.time.LocalDateTime;
 
@@ -18,45 +16,37 @@ public class ConsoleRunner implements CommandLineRunner {
     private final CountryService countryService;
     private final TownService townService;
     private final AlbumService albumService;
+    private final PictureService pictureService;
 
     @Autowired
-    public ConsoleRunner(UserService userService, CountryService countryService, TownService townService, AlbumService albumService) {
+    public ConsoleRunner(UserService userService, CountryService countryService, TownService townService, AlbumService albumService, PictureService pictureService) {
         this.userService = userService;
         this.countryService = countryService;
         this.townService = townService;
         this.albumService = albumService;
+        this.pictureService = pictureService;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
-        addCountries();
-        addTowns();
-        addUsers();
-        addAlbums();
-//        printUserFirstAndLastName();
+//        addCountries();
+//        addTowns();
+//        addUsers();
+//        addAlbums();
+//        addPictures();
+        printUserFirstAndLastName();
 
 
 
 
     }
 
-    private void addAlbums() {
-        User user = this.userService.getUserByid(1);
-        this.albumService.createAlbum("My album", "Blue", true, user);
-        this.albumService.createAlbum("My album 1", "Red", false, user);
-        this.albumService.createAlbum("My album 2", "Green", true, user);
 
-        User user1 = this.userService.getUserByid(2);
-        this.albumService.createAlbum("My pics", "Yellow", true, user1);
-        this.albumService.createAlbum("Private pics", "Brown", false, user1);
 
-        User user2 = this.userService.getUserByid(3);
-        this.albumService.createAlbum("Sexy pics", "Black", false, user2);
-    }
 
     private void printUserFirstAndLastName() {
-        System.out.println(this.userService.getUserFullName("TestFirst1", "TestLast1"));
+        System.out.println(this.userService.getUserFullNameById(1));
     }
 
     private void addUsers() {
@@ -120,4 +110,28 @@ public class ConsoleRunner implements CommandLineRunner {
         this.countryService.createCountry("Germany");
         this.countryService.createCountry("Canada");
     }
+
+    private void addAlbums() {
+        User user = this.userService.getUserById(1);
+        this.albumService.createAlbum("My album", "Blue", true, user);
+        this.albumService.createAlbum("My album 1", "Red", false, user);
+        this.albumService.createAlbum("My album 2", "Green", true, user);
+
+        User user1 = this.userService.getUserById(2);
+        this.albumService.createAlbum("My pics", "Yellow", true, user1);
+        this.albumService.createAlbum("Private pics", "Brown", false, user1);
+
+        User user2 = this.userService.getUserById(3);
+        this.albumService.createAlbum("Sexy pics", "Black", false, user2);
+    }
+
+    private void addPictures() {
+        Album album = this.albumService.getAlbumById(1);
+        this.pictureService.createPicture("Pic-1", "Test-1", "Path-1", album);
+        this.pictureService.createPicture("Pic-2", "Test-2", "Path-2", album);
+        this.pictureService.createPicture("Pic-3", "Test-3", "Path-3", album);
+        this.pictureService.createPicture("Pic-4", "Test-4", "Path-4", album);
+        this.pictureService.createPicture("Pic-5", "Test-5", "Path-5", album);
+    }
+
 }
