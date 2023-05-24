@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import user_system.entities.Album;
+import user_system.entities.Country;
 import user_system.entities.Town;
 import user_system.entities.User;
 import user_system.services.*;
@@ -42,11 +43,15 @@ public class ConsoleRunner implements CommandLineRunner {
         // getUsersByEmailProvider("@abv.bg");
         // getUsersByEmailProvider("HAHA");
 
-        User user = this.userService.setToDeleteUser(7);
-        this.userService.deleteUserById(user.getId());
+//        User user = this.userService.setToDeleteUser(7);
+//        this.userService.deleteUserById(user.getId());
 
+//        this.countryService.createCountry("TEST");
+//        Country co = this.countryService.getCountryByName("TEST");
+//        this.townService.createTown("MAIKA", co);
+//        Town maika = this.townService.getTownByName("MAIKA");
+//        this.userService.createUser("AAA", "Denis123!", ".noemail@for.me", LocalDateTime.now(), LocalDateTime.now(), 60, false, maika, maika, "Kuh", "Pun");
 
-        // Test password and Email
 
 
     }

@@ -2,10 +2,13 @@ package user_system.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import user_system.annotations.Email;
+import user_system.annotations.Password;
 import user_system.entities.Town;
 import user_system.entities.User;
 import user_system.repositories.UserRepository;
 
+import javax.xml.validation.Validator;
 import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.List;
@@ -18,8 +21,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void createUser(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, boolean isDeleted, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
-        User user = new User(username, password, email, registrationDateTime, lastTimeLoggedIn, age, isDeleted, bornTown, currentlyLivingTown, firstName, lastName);
-        userRepository.save(user);
+        boolean passwordValidator = Password.PasswordValidator.isValid(password);
+        boolean emailValidation = Email.EmailValidator.isValid(email);
+        if (passwordValidator == false) {
+            System.out.println("Invalid password");
+        } else if (emailValidation == false) {
+            System.out.println("Invalid email");
+
+        } else {
+            User user = new User(username, password, email, registrationDateTime, lastTimeLoggedIn, age, isDeleted, bornTown, currentlyLivingTown, firstName, lastName);
+            userRepository.save(user);
+        }
+
     }
 
     @Override
