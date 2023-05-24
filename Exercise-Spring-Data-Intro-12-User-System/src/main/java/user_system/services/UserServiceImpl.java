@@ -7,6 +7,7 @@ import user_system.entities.User;
 import user_system.repositories.UserRepository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -34,5 +35,10 @@ public class UserServiceImpl implements UserService {
     public void addFriends(User user, User user1) {
         user.getFriends().add(user1);
         this.userRepository.save(user);
+    }
+
+    @Override
+    public List<User> getUserByEmail(String email) {
+        return this.userRepository.getUserByEmail(email);
     }
 }

@@ -9,6 +9,7 @@ import user_system.entities.User;
 import user_system.services.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
@@ -36,12 +37,23 @@ public class ConsoleRunner implements CommandLineRunner {
 //        addAlbums();
 //        addPictures();
 //        addFriends();
-//        printUserFirstAndLastName(1);
+//        printUserFirstAndLastName(2);
+
+        // getUsersByEmailProvider("@abv.bg");
+         getUsersByEmailProvider("HAHA");
 
         // Test password and Email
 
 
+    }
 
+    private void getUsersByEmailProvider(String domain) {
+        List<User> users = this.userService.getUserByEmail(domain);
+        if (users.isEmpty()) {
+            System.out.println("No users found with email domain " + domain);
+        } else {
+            users.stream().map(user -> user.getUsername() + " " + user.getEmail()).forEach(System.out::println);
+        }
 
     }
 

@@ -4,6 +4,7 @@ import user_system.entities.Town;
 import user_system.entities.User;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public interface UserService {
     void createUser(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, Town bornTown, Town currentlyLivingTown, String firstName, String lastName);
@@ -13,5 +14,7 @@ public interface UserService {
     User getUserById(int id);
 
     void addFriends(User user, User user1);
+
+    List<User> getUserByEmail(String email);
 
 }
