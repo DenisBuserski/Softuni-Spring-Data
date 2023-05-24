@@ -29,4 +29,10 @@ public class UserServiceImpl implements UserService {
     public User getUserById(int id) {
         return this.userRepository.getUserById(id);
     }
+
+    @Override
+    public void addFriends(User user, User user1) {
+        user.getFriends().add(user1);
+        this.userRepository.save(user);
+    }
 }

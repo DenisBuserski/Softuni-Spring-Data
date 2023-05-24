@@ -35,7 +35,10 @@ public class ConsoleRunner implements CommandLineRunner {
 //        addUsers();
 //        addAlbums();
 //        addPictures();
-        printUserFirstAndLastName();
+//        addFriends();
+//        printUserFirstAndLastName(1);
+
+        // Test password and Email
 
 
 
@@ -43,10 +46,8 @@ public class ConsoleRunner implements CommandLineRunner {
     }
 
 
-
-
-    private void printUserFirstAndLastName() {
-        System.out.println(this.userService.getUserFullNameById(1));
+    private void printUserFirstAndLastName(int id) {
+        System.out.println(this.userService.getUserFullNameById(id));
     }
 
     private void addUsers() {
@@ -134,4 +135,9 @@ public class ConsoleRunner implements CommandLineRunner {
         this.pictureService.createPicture("Pic-5", "Test-5", "Path-5", album);
     }
 
+    private void addFriends() {
+        User user = this.userService.getUserById(1);
+        User user1 = this.userService.getUserById(2);
+        this.userService.addFriends(user, user1);
+    }
 }

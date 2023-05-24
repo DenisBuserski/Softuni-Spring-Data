@@ -12,4 +12,6 @@ public interface UserService {
 
     User getUserById(int id);
 
+    void addFriends(User user, User user1);
+
 }

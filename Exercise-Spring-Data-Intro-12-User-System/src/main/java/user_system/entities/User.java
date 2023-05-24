@@ -54,7 +54,7 @@ public class User {
     @Transient
     private String fullName; // firstName + " " + lastName - Shown only when asked for
 
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_friends",
             joinColumns = @JoinColumn(name = "id"),
             inverseJoinColumns = @JoinColumn(name = "friend_id"))
