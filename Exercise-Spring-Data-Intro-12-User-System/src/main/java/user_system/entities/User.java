@@ -67,14 +67,14 @@ public class User {
     private Set<Album> albums;
 
     public User() {}
-    public User(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
+    public User(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, boolean isDeleted, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.registrationDateTime = registrationDateTime;
         this.lastTimeLoggedIn = lastTimeLoggedIn;
         this.age = age;
-        this.isDeleted = setDeleted(this.albums);
+        setDeleted(isDeleted);
         this.bornTown = bornTown;
         this.currentlyLivingTown = currentlyLivingTown;
         this.firstName = firstName;
@@ -143,11 +143,8 @@ public class User {
         return isDeleted;
     }
 
-    public boolean setDeleted(Set<Album> albums) {
-        if (albums == null || albums.size() <= 0) {
-            return true;
-        }
-        return false;
+    public void setDeleted(boolean deleted) {
+        isDeleted = deleted;
     }
 
     public Town getBornTown() {

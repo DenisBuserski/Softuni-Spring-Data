@@ -40,7 +40,10 @@ public class ConsoleRunner implements CommandLineRunner {
 //        printUserFirstAndLastName(2);
 
         // getUsersByEmailProvider("@abv.bg");
-         getUsersByEmailProvider("HAHA");
+        // getUsersByEmailProvider("HAHA");
+
+        this.userService.deleteUser(1);
+
 
         // Test password and Email
 
@@ -57,7 +60,6 @@ public class ConsoleRunner implements CommandLineRunner {
 
     }
 
-
     private void printUserFirstAndLastName(int id) {
         System.out.println(this.userService.getUserFullNameById(id));
     }
@@ -65,31 +67,31 @@ public class ConsoleRunner implements CommandLineRunner {
     private void addUsers() {
         Town bornTown = this.townService.getTownByName("Sofia");
         Town currentlyLivingTown = this.townService.getTownByName("Pleven");
-        this.userService.createUser("denis123", "password-test-1", "denis@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 20, bornTown, currentlyLivingTown, "Denis", "Petrov");
+        this.userService.createUser("denis123", "password-test-1", "denis@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 20, false, bornTown, currentlyLivingTown, "Denis", "Petrov");
 
         Town bornTown1 = this.townService.getTownByName("Sofia");
         Town currentlyLivingTown1 = this.townService.getTownByName("Varna");
-        this.userService.createUser("alex4o", "password-test-2", "alex_dimitrov@gmail.com", LocalDateTime.now(), LocalDateTime.now(), 25, bornTown1, currentlyLivingTown1, "Alex", "Dimitrov");
+        this.userService.createUser("alex4o", "password-test-2", "alex_dimitrov@gmail.com", LocalDateTime.now(), LocalDateTime.now(), 25, false, bornTown1, currentlyLivingTown1, "Alex", "Dimitrov");
 
         Town bornTown2 = this.townService.getTownByName("Sofia");
         Town currentlyLivingTown2 = this.townService.getTownByName("Burgas");
-        this.userService.createUser("mimito", "password-test-3", "maria@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 30, bornTown2, currentlyLivingTown2, "Maria", "Ivanov");
+        this.userService.createUser("mimito", "password-test-3", "maria@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 30, false, bornTown2, currentlyLivingTown2, "Maria", "Ivanov");
 
         Town bornTown3 = this.townService.getTownByName("Pleven");
         Town currentlyLivingTown3 = this.townService.getTownByName("New York");
-        this.userService.createUser("ivan40", "password-test-4", "ivan.ivanov@abv.bg", LocalDateTime.now(), LocalDateTime.now(), 35, bornTown3, currentlyLivingTown3, "Ivan", "Ivanov");
+        this.userService.createUser("ivan40", "password-test-4", "ivan.ivanov@abv.bg", LocalDateTime.now(), LocalDateTime.now(), 35, false, bornTown3, currentlyLivingTown3, "Ivan", "Ivanov");
 
         Town bornTown4 = this.townService.getTownByName("London");
         Town currentlyLivingTown4 = this.townService.getTownByName("New York");
-        this.userService.createUser("pehata99", "password-test-5", "peshko@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 40, bornTown4, currentlyLivingTown4, "Petar", "Vasilev");
+        this.userService.createUser("pehata99", "password-test-5", "peshko@mail.bg", LocalDateTime.now(), LocalDateTime.now(), 40, false, bornTown4, currentlyLivingTown4, "Petar", "Vasilev");
 
         Town bornTown5 = this.townService.getTownByName("Paris");
         Town currentlyLivingTown5 = this.townService.getTownByName("Pleven");
-        this.userService.createUser("sexxxypencho123", "password-test-6", "sexy-pencho@mymail.bg", LocalDateTime.now(), LocalDateTime.now(), 45, bornTown5, currentlyLivingTown5, "Pencho", "Traikov");
+        this.userService.createUser("sexxxypencho123", "password-test-6", "sexy-pencho@mymail.bg", LocalDateTime.now(), LocalDateTime.now(), 45, false, bornTown5, currentlyLivingTown5, "Pencho", "Traikov");
 
         Town bornTown6 = this.townService.getTownByName("Berlin");
         Town currentlyLivingTown6 = this.townService.getTownByName("Pleven");
-        this.userService.createUser("pencheto", "password-test-7", "penka.penkova@abv.bg", LocalDateTime.now(), LocalDateTime.now(), 50, bornTown6, currentlyLivingTown6, "Penka", "Penkova");
+        this.userService.createUser("pencheto", "password-test-7", "penka.penkova@abv.bg", LocalDateTime.now(), LocalDateTime.now(), 50, false, bornTown6, currentlyLivingTown6, "Penka", "Penkova");
     }
 
     private void addTowns() {

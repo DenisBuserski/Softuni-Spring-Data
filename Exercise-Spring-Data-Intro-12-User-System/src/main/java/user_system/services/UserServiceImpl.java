@@ -16,8 +16,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public void createUser(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
-        User user = new User(username, password, email, registrationDateTime, lastTimeLoggedIn, age, bornTown, currentlyLivingTown, firstName, lastName);
+    public void createUser(String username, String password, String email, LocalDateTime registrationDateTime, LocalDateTime lastTimeLoggedIn, int age, boolean isDeleted, Town bornTown, Town currentlyLivingTown, String firstName, String lastName) {
+        User user = new User(username, password, email, registrationDateTime, lastTimeLoggedIn, age, isDeleted, bornTown, currentlyLivingTown, firstName, lastName);
         userRepository.save(user);
     }
 
@@ -40,5 +40,12 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUserByEmail(String email) {
         return this.userRepository.getUserByEmail(email);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        User user = this.userRepository.getUserById(id);
+        user.setDeleted(true);
+        this.userRepository.save(user);
     }
 }
