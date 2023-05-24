@@ -30,15 +30,29 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-//        addCountries();
-//        addTowns();
-//        addUsers();
+        addCountries();
+        addTowns();
+        addUsers();
+        addAlbums();
 //        printUserFirstAndLastName();
 
+
+
+
+    }
+
+    private void addAlbums() {
         User user = this.userService.getUserByid(1);
         this.albumService.createAlbum("My album", "Blue", true, user);
+        this.albumService.createAlbum("My album 1", "Red", false, user);
+        this.albumService.createAlbum("My album 2", "Green", true, user);
 
+        User user1 = this.userService.getUserByid(2);
+        this.albumService.createAlbum("My pics", "Yellow", true, user1);
+        this.albumService.createAlbum("Private pics", "Brown", false, user1);
 
+        User user2 = this.userService.getUserByid(3);
+        this.albumService.createAlbum("Sexy pics", "Black", false, user2);
     }
 
     private void printUserFirstAndLastName() {
