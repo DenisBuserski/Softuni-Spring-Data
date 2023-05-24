@@ -6,7 +6,6 @@ import java.util.Set;
 @Entity
 @Table(name = "shampoos")
 public class Shampoo extends BaseEntity {
-
     private String brand;
     private BigDecimal price;
     private Size size;
@@ -44,7 +43,8 @@ public class Shampoo extends BaseEntity {
         this.size = size;
     }
 
-    @ManyToOne(optional = true, cascade = CascadeType.ALL,
+    @ManyToOne(optional = true,
+            cascade = CascadeType.ALL,
             fetch = FetchType.EAGER)
     @JoinColumn(name = "label", referencedColumnName = "id")
     public Label getLabel() {
@@ -65,5 +65,10 @@ public class Shampoo extends BaseEntity {
 
     public void setIngredients(Set<Ingredient> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %.2f lv", this.getLabel().getTitle(), this.getSize().name(), this,getPrice());
     }
 }
