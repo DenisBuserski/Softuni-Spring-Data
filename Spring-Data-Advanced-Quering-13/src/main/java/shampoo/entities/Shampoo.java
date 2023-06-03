@@ -1,4 +1,6 @@
 package shampoo.entities;
+import shampoo.enums.Size;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Set;
@@ -69,6 +71,6 @@ public class Shampoo extends BaseEntity {
 
     @Override
     public String toString() {
-        return String.format("%s %s %.2f lv", this.getLabel().getTitle(), this.getSize().name(), this,getPrice());
+        return String.format("%s %s %.2f lv", this.getBrand(), this.getSize().name(), this.getPrice());
     }
 }

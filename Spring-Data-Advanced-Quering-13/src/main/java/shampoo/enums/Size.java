@@ -1,4 +1,4 @@
-package shampoo.entities;
+package shampoo.enums;
 public enum Size {
     SMALL,
     MEDIUM,
