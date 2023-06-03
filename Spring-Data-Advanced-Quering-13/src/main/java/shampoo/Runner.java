@@ -12,7 +12,6 @@ import java.util.Scanner;
 
 @Component
 public class Runner implements CommandLineRunner {
-
     private final ShampooRepository shampooRepository;
 
     @Autowired
