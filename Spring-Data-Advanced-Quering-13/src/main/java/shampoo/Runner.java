@@ -3,22 +3,22 @@ package shampoo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import shampoo.entities.Shampoo;
 import shampoo.enums.Size;
-import shampoo.repositories.ShampooRepository;
+import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
 
 import java.math.BigDecimal;
-import java.util.List;
 import java.util.Scanner;
 
 @Component
 public class Runner implements CommandLineRunner {
     private final ShampooService shampooService;
+    private final IngredientService ingredientService;
 
     @Autowired
-    public Runner(ShampooService shampooService) {
+    public Runner(ShampooService shampooService, IngredientService ingredientService) {
         this.shampooService = shampooService;
+        this.ingredientService = ingredientService;
     }
 
     @Override
@@ -57,6 +57,7 @@ public class Runner implements CommandLineRunner {
     }
 
     public void selectIngredientsByName_04(Scanner scanner) {
-
+        String input = scanner.nextLine();
+        this.ingredientService.selectNameStartsWith(input).forEach(i -> System.out.println(i.getName()));
     }
 }
