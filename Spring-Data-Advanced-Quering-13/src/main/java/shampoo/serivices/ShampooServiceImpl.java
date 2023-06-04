@@ -44,7 +44,7 @@ public class ShampooServiceImpl implements ShampooService {
     }
 
     @Override
-    public int selectByIngredientsCount(int count) {
+    public List<Shampoo> selectByIngredientsCount(int count) {
         return this.shampooRepository.findByIngredientCountBiggerThan(count);
     }
 

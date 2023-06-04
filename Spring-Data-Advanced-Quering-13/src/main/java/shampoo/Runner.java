@@ -85,6 +85,6 @@ public class Runner implements CommandLineRunner {
 
     public void selectShampoosByIngredientsCount_08(Scanner scanner) {
         int count = Integer.parseInt(scanner.nextLine());
-        System.out.println(this.shampooService.selectByIngredientsCount(count));
+        this.shampooService.selectByIngredientsCount(count).forEach(System.out::println);
     }
 }

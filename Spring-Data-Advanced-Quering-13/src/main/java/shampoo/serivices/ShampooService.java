@@ -17,7 +17,7 @@ public interface ShampooService {
 
     List<Shampoo> findByIngredientsIn(List<String> names);
 
-    int selectByIngredientsCount(int count);
+    List<Shampoo> selectByIngredientsCount(int count);
 
     List<Shampoo> findByIngredientsNames(List<String> ingredientNames);
 }
