@@ -8,7 +8,6 @@ import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -74,6 +73,6 @@ public class Runner implements CommandLineRunner {
 
     public void countShampoosByPrice_06(Scanner scanner) {
         BigDecimal price = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
-
+        System.out.println(this.shampooService.countPriceLowerThan(price));
     }
 }

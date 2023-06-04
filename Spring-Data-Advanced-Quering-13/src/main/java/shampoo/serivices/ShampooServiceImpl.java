@@ -2,10 +2,8 @@ package shampoo.serivices;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import shampoo.entities.Label;
 import shampoo.entities.Shampoo;
 import shampoo.enums.Size;
-import shampoo.repositories.LabelRepository;
 import shampoo.repositories.ShampooRepository;
 
 import java.math.BigDecimal;
@@ -33,5 +31,10 @@ public class ShampooServiceImpl implements ShampooService {
     @Override
     public List<Shampoo> selectMoreExpensiveThan(BigDecimal price) {
         return this.shampooRepository.findByPriceGreaterThanOrderByPriceDesc(price);
+    }
+
+    @Override
+    public int countPriceLowerThan(BigDecimal price) {
+        return this.shampooRepository.countByPriceLessThan(price);
     }
 }

@@ -2,7 +2,6 @@ package shampoo.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import shampoo.entities.Label;
 import shampoo.entities.Shampoo;
 import shampoo.enums.Size;
 
@@ -20,4 +19,6 @@ public interface ShampooRepository extends JpaRepository<Shampoo, Long> {
     List<Shampoo> findBySizeOrLabelIdOrderByPriceAsc(Size size, long label);
 
     List<Shampoo> findByPriceGreaterThanOrderByPriceDesc(BigDecimal price);
+
+    int countByPriceLessThan(BigDecimal price);
 }
