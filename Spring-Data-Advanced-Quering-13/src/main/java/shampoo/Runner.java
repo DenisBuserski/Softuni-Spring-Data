@@ -38,6 +38,7 @@ public class Runner implements CommandLineRunner {
             case 3 -> selectShampoosByPrice_03(scanner);
             case 4 -> selectIngredientsByName_04(scanner);
             case 5 -> selectIngredientsByNames_05(scanner);
+            case 6 -> countShampoosByPrice_06(scanner);
         }
 
 
@@ -69,6 +70,10 @@ public class Runner implements CommandLineRunner {
     public void selectIngredientsByNames_05(Scanner scanner) {
         List<String> names = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
         this.ingredientService.selectInNames(names).forEach(i -> System.out.println(i.getName()));
+    }
+
+    public void countShampoosByPrice_06(Scanner scanner) {
+        BigDecimal price = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
 
     }
 }
