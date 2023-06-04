@@ -29,7 +29,7 @@ public class Runner implements CommandLineRunner {
         int exerciseNumber = Integer.parseInt(scanner.nextLine());
         switch (exerciseNumber) {
             case 1 -> selectShampoosBySize_01(scanner);
-            case 2 -> selectShampoosBySizeOrLabel(scanner);
+            case 2 -> selectShampoosBySizeOrLabel_02(scanner);
         }
 
 
@@ -41,10 +41,10 @@ public class Runner implements CommandLineRunner {
         this.shampooService.findBySizeOrderById(size).forEach(System.out::println);
     }
 
-    private void selectShampoosBySizeOrLabel(Scanner scanner) {
+    private void selectShampoosBySizeOrLabel_02(Scanner scanner) {
         String sizeName = scanner.nextLine().toUpperCase();
         Size size = Size.valueOf(sizeName);
         int labelId = Integer.parseInt(scanner.nextLine());
-        
+        this.shampooService.selectBySizeOrLabelId(size, labelId).forEach(System.out::println);
     }
 }
