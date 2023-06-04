@@ -38,6 +38,7 @@ public class Runner implements CommandLineRunner {
             case 4 -> selectIngredientsByName_04(scanner);
             case 5 -> selectIngredientsByNames_05(scanner);
             case 6 -> countShampoosByPrice_06(scanner);
+            case 7 -> selectShampoosByIngredients_07(scanner);
         }
 
 
@@ -74,5 +75,9 @@ public class Runner implements CommandLineRunner {
     public void countShampoosByPrice_06(Scanner scanner) {
         BigDecimal price = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
         System.out.println(this.shampooService.countPriceLowerThan(price));
+    }
+
+    public void selectShampoosByIngredients_07(Scanner scanner) {
+
     }
 }
