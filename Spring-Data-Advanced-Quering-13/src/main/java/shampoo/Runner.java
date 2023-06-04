@@ -39,6 +39,7 @@ public class Runner implements CommandLineRunner {
             case 5 -> selectIngredientsByNames_05(scanner);
             case 6 -> countShampoosByPrice_06(scanner);
             case 7 -> selectShampoosByIngredients_07(scanner);
+            case 8 -> selectShampoosByIngredientsCount_08(scanner);
         }
 
 
@@ -78,6 +79,10 @@ public class Runner implements CommandLineRunner {
     }
 
     public void selectShampoosByIngredients_07(Scanner scanner) {
-        
+
+    }
+
+    public void selectShampoosByIngredientsCount_08(Scanner scanner) {
+
     }
 }
