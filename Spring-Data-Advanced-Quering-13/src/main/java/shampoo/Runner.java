@@ -40,6 +40,9 @@ public class Runner implements CommandLineRunner {
             case 6 -> countShampoosByPrice_06(scanner);
             case 7 -> selectShampoosByIngredients_07(scanner);
             case 8 -> selectShampoosByIngredientsCount_08(scanner);
+            case 9 -> deleteIngredientsByName_09(scanner);
+            case 10 -> updateIngredientsByPrice_10(scanner);
+            case 11 -> updateIngredientsByNames_11(scanner);
         }
 
 
@@ -86,5 +89,17 @@ public class Runner implements CommandLineRunner {
     public void selectShampoosByIngredientsCount_08(Scanner scanner) {
         int count = Integer.parseInt(scanner.nextLine());
         this.shampooService.selectByIngredientsCount(count).forEach(System.out::println);
+    }
+
+    public void deleteIngredientsByName_09(Scanner scanner) {
+
+    }
+
+    public void updateIngredientsByPrice_10(Scanner scanner) {
+
+    }
+
+    public void updateIngredientsByNames_11(Scanner scanner) {
+
     }
 }
