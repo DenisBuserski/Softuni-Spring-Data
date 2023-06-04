@@ -8,6 +8,7 @@ import shampoo.enums.Size;
 import shampoo.repositories.ShampooRepository;
 import shampoo.serivices.ShampooService;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,6 +51,7 @@ public class Runner implements CommandLineRunner {
     }
 
     public void selectShampoosByPrice_03(Scanner scanner) {
-
+        BigDecimal price = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
+        this.shampooService.selectMoreExpensiveThan(price).forEach(System.out::println);
     }
 }

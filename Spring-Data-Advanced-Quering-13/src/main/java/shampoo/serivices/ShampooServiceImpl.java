@@ -8,17 +8,16 @@ import shampoo.enums.Size;
 import shampoo.repositories.LabelRepository;
 import shampoo.repositories.ShampooRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
 public class ShampooServiceImpl implements ShampooService {
     private final ShampooRepository shampooRepository;
-    private final LabelRepository labelRepository;
 
     @Autowired
-    public ShampooServiceImpl(ShampooRepository shampooRepository, LabelRepository labelRepository) {
+    public ShampooServiceImpl(ShampooRepository shampooRepository) {
         this.shampooRepository = shampooRepository;
-        this.labelRepository = labelRepository;
     }
 
     @Override
@@ -28,7 +27,11 @@ public class ShampooServiceImpl implements ShampooService {
 
     @Override
     public List<Shampoo> selectBySizeOrLabelId(Size size, int labelId) {
-        // Label label = this.labelRepository.findById(labelId);
         return this.shampooRepository.findBySizeOrLabelIdOrderByPriceAsc(size, labelId);
+    }
+
+    @Override
+    public List<Shampoo> selectMoreExpensiveThan(BigDecimal price) {
+        return this.shampooRepository.findByPriceGreaterThanOrderByPriceDesc(price);
     }
 }
