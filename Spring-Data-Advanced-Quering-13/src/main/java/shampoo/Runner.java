@@ -6,17 +6,18 @@ import org.springframework.stereotype.Component;
 import shampoo.entities.Shampoo;
 import shampoo.enums.Size;
 import shampoo.repositories.ShampooRepository;
+import shampoo.serivices.ShampooService;
 
 import java.util.List;
 import java.util.Scanner;
 
 @Component
 public class Runner implements CommandLineRunner {
-    private final ShampooRepository shampooRepository;
+    private final ShampooService shampooService;
 
     @Autowired
-    public Runner(ShampooRepository shampooRepository) {
-        this.shampooRepository = shampooRepository;
+    public Runner(ShampooService shampooService) {
+        this.shampooService = shampooService;
     }
 
     @Override
@@ -36,6 +37,6 @@ public class Runner implements CommandLineRunner {
     private void selectShampoosBySize_01(Scanner scanner) {
         String sizeName = scanner.nextLine().toUpperCase();
         Size size = Size.valueOf(sizeName);
-        this.shampooRepository.findBySizeOrderById(size).forEach(System.out::println);
+        this.shampooService.findBySizeOrderById(size).forEach(System.out::println);
     }
 }
