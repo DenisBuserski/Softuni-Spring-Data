@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IngredientService {
     List<Ingredient> selectNameStartsWith(String letter);
+
+    List<Ingredient> selectInNames(List<String> names);
 }

@@ -8,7 +8,11 @@ import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 @Component
 public class Runner implements CommandLineRunner {
@@ -33,6 +37,7 @@ public class Runner implements CommandLineRunner {
             case 2 -> selectShampoosBySizeOrLabel_02(scanner);
             case 3 -> selectShampoosByPrice_03(scanner);
             case 4 -> selectIngredientsByName_04(scanner);
+            case 5 -> selectIngredientsByNames_05(scanner);
         }
 
 
@@ -59,5 +64,11 @@ public class Runner implements CommandLineRunner {
     public void selectIngredientsByName_04(Scanner scanner) {
         String input = scanner.nextLine();
         this.ingredientService.selectNameStartsWith(input).forEach(i -> System.out.println(i.getName()));
+    }
+
+    public void selectIngredientsByNames_05(Scanner scanner) {
+        List<String> names = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
+        this.ingredientService.selectInNames(names).forEach(i -> System.out.println(i.getName()));
+
     }
 }

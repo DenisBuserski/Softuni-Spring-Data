@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     List<Ingredient> findByNameStartingWith(String letter);
+
+    List<Ingredient> findByNameInOrderByPriceAsc(List<String> names);
 }
