@@ -42,4 +42,14 @@ public class ShampooServiceImpl implements ShampooService {
     public List<Shampoo> findByIngredientsIn(List<String> names) {
         return this.shampooRepository.findShampooByIngredientsIn(names);
     }
+
+    @Override
+    public int selectByIngredientsCount(int count) {
+        return this.shampooRepository.findByIngredientCountBiggerThan(count);
+    }
+
+    @Override
+    public List<Shampoo> findByIngredientsNames(List<String> ingredientNames) {
+        return this.shampooRepository.findByIngredientsNames(ingredientNames);
+    }
 }

@@ -79,10 +79,12 @@ public class Runner implements CommandLineRunner {
     }
 
     public void selectShampoosByIngredients_07(Scanner scanner) {
-
+        List<String> ingredientNames = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
+        this.shampooService.findByIngredientsNames(ingredientNames).forEach(s -> System.out.println(s.getBrand()));
     }
 
     public void selectShampoosByIngredientsCount_08(Scanner scanner) {
-
+        int count = Integer.parseInt(scanner.nextLine());
+        System.out.println(this.shampooService.selectByIngredientsCount(count));
     }
 }
