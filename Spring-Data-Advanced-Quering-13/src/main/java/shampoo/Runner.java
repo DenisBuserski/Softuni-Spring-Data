@@ -3,6 +3,7 @@ package shampoo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import shampoo.enums.Size;
 import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
@@ -26,8 +27,6 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // this.shampooRepository.findByBrand("Cotton Fresh").forEach(shampoo -> System.out.println(shampoo.getId()));
-        // this.shampooRepository.findAllByBrandAndSize("Cotton Fresh", Size.SMALL).forEach(s -> System.out.println(s.getId()));
 
         Scanner scanner = new Scanner(System.in);
         int exerciseNumber = Integer.parseInt(scanner.nextLine());
@@ -40,8 +39,8 @@ public class Runner implements CommandLineRunner {
             case 6 -> countShampoosByPrice_06(scanner);
             case 7 -> selectShampoosByIngredients_07(scanner);
             case 8 -> selectShampoosByIngredientsCount_08(scanner);
-            case 9 -> deleteIngredientsByName_09(scanner);
-            case 10 -> updateIngredientsByPrice_10(scanner);
+            case 9 -> deleteIngredientsByName_09(scanner); // Test Nettle
+            case 10 -> updateIngredientsByPrice_10(scanner); // Test 10%
             case 11 -> updateIngredientsByNames_11(scanner);
         }
 
@@ -92,10 +91,20 @@ public class Runner implements CommandLineRunner {
     }
 
     public void deleteIngredientsByName_09(Scanner scanner) {
+        String name = scanner.nextLine();
+        int num = this.ingredientService.deleteByName(name);
+        if (num != 0) {
+            System.out.println("Successfully deleted " + name);
+        }
 
     }
 
     public void updateIngredientsByPrice_10(Scanner scanner) {
+        BigDecimal percentage = BigDecimal.valueOf(Double.parseDouble(scanner.nextLine()));
+        int num = this.ingredientService.increasePriceByPercentage(percentage.divide(BigDecimal.valueOf(100)));
+        if (num != 0) {
+            System.out.println("Successful update");
+        }
 
     }
 
