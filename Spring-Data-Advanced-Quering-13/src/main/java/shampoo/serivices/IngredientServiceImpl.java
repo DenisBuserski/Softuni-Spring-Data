@@ -25,4 +25,6 @@ public class IngredientServiceImpl implements IngredientService {
     public List<Ingredient> selectInNames(List<String> names) {
         return this.ingredientRepository.findByNameInOrderByPriceAsc(names);
     }
+
+
 }

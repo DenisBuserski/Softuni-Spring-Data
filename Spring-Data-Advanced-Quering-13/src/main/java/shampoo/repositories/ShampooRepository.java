@@ -21,4 +21,6 @@ public interface ShampooRepository extends JpaRepository<Shampoo, Long> {
     List<Shampoo> findByPriceGreaterThanOrderByPriceDesc(BigDecimal price);
 
     int countByPriceLessThan(BigDecimal price);
+
+    List<Shampoo> findShampooByIngredientsIn(List<String> names);
 }

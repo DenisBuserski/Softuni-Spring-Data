@@ -78,6 +78,6 @@ public class Runner implements CommandLineRunner {
     }
 
     public void selectShampoosByIngredients_07(Scanner scanner) {
-
+        
     }
 }
