@@ -2,13 +2,22 @@ package shampoo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import shampoo.enums.Size;
 import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
 
+import javax.annotation.Resources;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.net.URL;
+import java.sql.SQLData;
+import java.sql.SQLInput;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -31,19 +40,18 @@ public class Runner implements CommandLineRunner {
         Scanner scanner = new Scanner(System.in);
         int exerciseNumber = Integer.parseInt(scanner.nextLine());
         switch (exerciseNumber) {
-            case 1 -> selectShampoosBySize_01(scanner);
-            case 2 -> selectShampoosBySizeOrLabel_02(scanner);
-            case 3 -> selectShampoosByPrice_03(scanner);
-            case 4 -> selectIngredientsByName_04(scanner);
-            case 5 -> selectIngredientsByNames_05(scanner);
-            case 6 -> countShampoosByPrice_06(scanner);
-            case 7 -> selectShampoosByIngredients_07(scanner);
-            case 8 -> selectShampoosByIngredientsCount_08(scanner);
-            case 9 -> deleteIngredientsByName_09(scanner); // Test Nettle
-            case 10 -> updateIngredientsByPrice_10(scanner); // Test 10%
+            case 1 -> selectShampoosBySize_01(scanner); // TEST - MEDIUM
+            case 2 -> selectShampoosBySizeOrLabel_02(scanner); // TEST - MEDIUM 10
+            case 3 -> selectShampoosByPrice_03(scanner); // TEST - 5
+            case 4 -> selectIngredientsByName_04(scanner); // TEST - m
+            case 5 -> selectIngredientsByNames_05(scanner); // TEST - Lavender, Herbs, Apple
+            case 6 -> countShampoosByPrice_06(scanner); // TEST - 8.50
+            case 7 -> selectShampoosByIngredients_07(scanner); // TEST - Berry Mineral-Collagen
+            case 8 -> selectShampoosByIngredientsCount_08(scanner); // TEST - 2
+            case 9 -> deleteIngredientsByName_09(scanner); // TEST = Nettle
+            case 10 -> updateIngredientsByPrice_10(scanner); // TEST - 10
             case 11 -> updateIngredientsByNames_11(scanner);
         }
-
 
     }
 
@@ -96,7 +104,6 @@ public class Runner implements CommandLineRunner {
         if (num != 0) {
             System.out.println("Successfully deleted " + name);
         }
-
     }
 
     public void updateIngredientsByPrice_10(Scanner scanner) {
@@ -105,7 +112,6 @@ public class Runner implements CommandLineRunner {
         if (num != 0) {
             System.out.println("Successful update");
         }
-
     }
 
     public void updateIngredientsByNames_11(Scanner scanner) {
