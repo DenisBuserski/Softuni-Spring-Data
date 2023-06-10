@@ -14,4 +14,6 @@ public interface IngredientService {
     int deleteByName(String name);
 
     int increasePriceByPercentage(BigDecimal percent);
+
+    int updatePriceForGivenNames(List<String> ingredientNames);
 }

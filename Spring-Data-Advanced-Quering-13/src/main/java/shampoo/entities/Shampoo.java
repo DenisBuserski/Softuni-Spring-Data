@@ -1,4 +1,5 @@
 package shampoo.entities;
+
 import shampoo.enums.Size;
 
 import javax.persistence.*;

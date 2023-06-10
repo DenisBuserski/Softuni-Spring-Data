@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import shampoo.entities.Ingredient;
-import shampoo.entities.Shampoo;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -24,4 +23,12 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
             " SET i.price = i.price + i.price * :multiplier")
     int increasePriceByPercent(
             @Param("multiplier") BigDecimal percent);
+
+    @Modifying
+    @Query("UPDATE Ingredient i " +
+            " SET i.price = i.price + 5 " +
+            " WHERE i.name IN :ingredientNames")
+    int updatePriceForGivenNames(
+            @Param("ingredientNames") List<String> ingredientNames);
+
 }

@@ -2,22 +2,12 @@ package shampoo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 import shampoo.enums.Size;
 import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
 
-import javax.annotation.Resources;
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.math.BigDecimal;
-import java.net.URL;
-import java.sql.SQLData;
-import java.sql.SQLInput;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -50,7 +40,7 @@ public class Runner implements CommandLineRunner {
             case 8 -> selectShampoosByIngredientsCount_08(scanner); // TEST - 2
             case 9 -> deleteIngredientsByName_09(scanner); // TEST = Nettle
             case 10 -> updateIngredientsByPrice_10(scanner); // TEST - 10
-            case 11 -> updateIngredientsByNames_11(scanner);
+            case 11 -> updateIngredientsByNames_11(scanner); // TEST - Apple Nettle
         }
 
     }
@@ -115,6 +105,11 @@ public class Runner implements CommandLineRunner {
     }
 
     public void updateIngredientsByNames_11(Scanner scanner) {
-
+        System.out.println("Please insert ingredients:");
+        List<String> ingredientNames = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
+        int num = this.ingredientService.updatePriceForGivenNames(ingredientNames);
+        if (num != 0) {
+            System.out.println("Successful update");
+        }
     }
 }

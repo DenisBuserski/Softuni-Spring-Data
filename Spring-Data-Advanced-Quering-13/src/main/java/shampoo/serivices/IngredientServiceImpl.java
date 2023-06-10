@@ -40,5 +40,10 @@ public class IngredientServiceImpl implements IngredientService {
         return this.ingredientRepository.increasePriceByPercent(percent);
     }
 
+    @Override
+    @Transactional
+    public int updatePriceForGivenNames(List<String> ingredientNames) {
+        return this.ingredientRepository.updatePriceForGivenNames(ingredientNames);
+    }
 
 }
