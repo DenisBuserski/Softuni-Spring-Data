@@ -1,8 +1,9 @@
-package com.example.springintro.model.entity;
+package org.example.model.entity;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import com.example.springintro.model.entity.EditionType;
 import java.util.Set;
 
 @Entity
@@ -24,7 +25,6 @@ public class Book extends BaseEntity {
 
     public Book(EditionType editionType, LocalDate releaseDate, Integer copies, BigDecimal price,
                 AgeRestriction ageRestriction, String title, Author author, Set<Category> categories) {
-
         this.editionType = editionType;
         this.releaseDate = releaseDate;
         this.copies = copies;
@@ -54,11 +54,11 @@ public class Book extends BaseEntity {
     }
 
     @Enumerated()
-    public EditionType getEditionType() {
+    public com.example.springintro.model.entity.EditionType getEditionType() {
         return editionType;
     }
 
-    public void setEditionType(EditionType editionType) {
+    public void setEditionType(com.example.springintro.model.entity.EditionType editionType) {
         this.editionType = editionType;
     }
 

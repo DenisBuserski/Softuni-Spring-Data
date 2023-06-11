@@ -1,8 +1,8 @@
-package com.example.springintro.service.impl;
+package org.example.service.impl;
 
-import com.example.springintro.model.entity.Author;
 import com.example.springintro.repository.AuthorRepository;
-import com.example.springintro.service.AuthorService;
+import org.example.model.entity.Author;
+import org.example.service.AuthorService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;

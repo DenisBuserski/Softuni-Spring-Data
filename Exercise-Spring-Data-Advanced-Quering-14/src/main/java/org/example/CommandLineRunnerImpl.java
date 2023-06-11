@@ -1,9 +1,9 @@
-package com.example.springintro;
+package org.example;
 
-import com.example.springintro.model.entity.Book;
-import com.example.springintro.service.AuthorService;
-import com.example.springintro.service.BookService;
-import com.example.springintro.service.CategoryService;
+import org.example.model.entity.Book;
+import org.example.service.AuthorService;
+import org.example.service.BookService;
+import org.example.service.CategoryService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -28,7 +28,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
         //printAllBooksAfterYear(2000);
 //        printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
-     //   printAllAuthorsAndNumberOfTheirBooks();
+        //   printAllAuthorsAndNumberOfTheirBooks();
         pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }

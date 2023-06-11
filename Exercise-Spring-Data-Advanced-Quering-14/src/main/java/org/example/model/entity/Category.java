@@ -1,4 +1,4 @@
-package com.example.springintro.model.entity;
+package org.example.model.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "categories")
-public class Category extends BaseEntity{
+public class Category extends BaseEntity {
 
     private String name;
 

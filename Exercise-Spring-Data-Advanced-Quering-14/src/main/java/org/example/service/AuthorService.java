@@ -1,6 +1,6 @@
-package com.example.springintro.service;
+package org.example.service;
 
-import com.example.springintro.model.entity.Author;
+import org.example.model.entity.Author;
 
 import java.io.IOException;
 import java.util.List;

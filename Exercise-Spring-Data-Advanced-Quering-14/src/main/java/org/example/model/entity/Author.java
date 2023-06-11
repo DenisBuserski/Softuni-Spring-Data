@@ -1,4 +1,4 @@
-package com.example.springintro.model.entity;
+package org.example.model.entity;
 
 import javax.persistence.*;
 import java.util.Set;

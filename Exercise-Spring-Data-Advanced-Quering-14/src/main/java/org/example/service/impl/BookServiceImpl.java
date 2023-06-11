@@ -1,10 +1,13 @@
-package com.example.springintro.service.impl;
+package org.example.service.impl;
 
-import com.example.springintro.model.entity.*;
 import com.example.springintro.repository.BookRepository;
-import com.example.springintro.service.AuthorService;
-import com.example.springintro.service.BookService;
-import com.example.springintro.service.CategoryService;
+import org.example.model.entity.AgeRestriction;
+import org.example.model.entity.Author;
+import org.example.model.entity.Book;
+import org.example.model.entity.Category;
+import org.example.service.AuthorService;
+import org.example.service.BookService;
+import org.example.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -69,7 +72,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(String firstName, String lastName) {
-       return bookRepository
+        return bookRepository
                 .findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(firstName, lastName)
                 .stream()
                 .map(book -> String.format("%s %s %d",
@@ -80,7 +83,7 @@ public class BookServiceImpl implements BookService {
     }
 
     private Book createBookFromInfo(String[] bookInfo) {
-        EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
+        com.example.springintro.model.entity.EditionType editionType = com.example.springintro.model.entity.EditionType.values()[Integer.parseInt(bookInfo[0])];
         LocalDate releaseDate = LocalDate
                 .parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
         Integer copies = Integer.parseInt(bookInfo[2]);

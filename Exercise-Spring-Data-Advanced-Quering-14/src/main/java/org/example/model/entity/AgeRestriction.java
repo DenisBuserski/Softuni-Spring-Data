@@ -1,4 +1,4 @@
-package com.example.springintro.model.entity;
+package org.example.model.entity;
 
 public enum AgeRestriction {
     MINOR, TEEN, ADULT

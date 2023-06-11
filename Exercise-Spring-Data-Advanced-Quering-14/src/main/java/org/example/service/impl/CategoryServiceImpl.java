@@ -1,18 +1,16 @@
-package com.example.springintro.service.impl;
+package org.example.service.impl;
 
-import com.example.springintro.model.entity.Category;
 import com.example.springintro.repository.CategoryRepository;
-import com.example.springintro.service.CategoryService;
+import org.example.model.entity.Category;
+import org.example.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {

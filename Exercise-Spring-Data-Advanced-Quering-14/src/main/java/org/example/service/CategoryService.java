@@ -1,6 +1,6 @@
-package com.example.springintro.service;
+package org.example.service;
 
-import com.example.springintro.model.entity.Category;
+import org.example.model.entity.Category;
 
 import java.io.IOException;
 import java.util.Set;
