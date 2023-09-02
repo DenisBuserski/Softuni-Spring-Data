@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @MappedSuperclass
 public abstract class BaseEntity {
-
     private Long id;
 
     protected BaseEntity() {

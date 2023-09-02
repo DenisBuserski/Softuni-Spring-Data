@@ -9,7 +9,6 @@ import java.util.Set;
 @Entity
 @Table(name = "labels")
 public class Label extends BaseEntity {
-
     private String title;
     private String subtitle;
     private Set<Shampoo> shampoos;

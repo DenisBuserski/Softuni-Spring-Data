@@ -7,7 +7,6 @@ import java.util.Set;
 @Entity
 @Table(name = "ingredients")
 public class Ingredient extends BaseEntity {
-
     private String name;
     private BigDecimal price;
     private Set<Shampoo> shampoos;
