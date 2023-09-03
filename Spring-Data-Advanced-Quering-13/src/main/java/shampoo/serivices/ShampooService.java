@@ -5,6 +5,7 @@ import shampoo.enums.Size;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 public interface ShampooService {
     List<Shampoo> findBySizeOrderById(Size size);
@@ -19,5 +20,5 @@ public interface ShampooService {
 
     List<Shampoo> selectByIngredientsCount(int count);
 
-    List<Shampoo> findByIngredientsNames(List<String> ingredientNames);
+    List<String> findByIngredientsNames(List<String> ingredientNames);
 }

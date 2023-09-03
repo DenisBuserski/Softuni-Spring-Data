@@ -3,6 +3,8 @@ package shampoo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import shampoo.entities.Ingredient;
+import shampoo.entities.Shampoo;
 import shampoo.enums.Size;
 import shampoo.serivices.IngredientService;
 import shampoo.serivices.ShampooService;
@@ -11,6 +13,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,6 +29,7 @@ public class Runner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println("Please select exercise(1 - 11):");
         Scanner scanner = new Scanner(System.in);
         int exerciseNumber = Integer.parseInt(scanner.nextLine());
         switch (exerciseNumber) {
@@ -79,7 +83,7 @@ public class Runner implements CommandLineRunner {
 
     public void selectShampoosByIngredients_07(Scanner scanner) {
         List<String> ingredientNames = Arrays.stream(scanner.nextLine().split("\\s+")).collect(Collectors.toList());
-        this.shampooService.findByIngredientsNames(ingredientNames).forEach(s -> System.out.println(s.getBrand()));
+        this.shampooService.findByIngredientsNames(ingredientNames).forEach(System.out::println);
     }
 
     public void selectShampoosByIngredientsCount_08(Scanner scanner) {

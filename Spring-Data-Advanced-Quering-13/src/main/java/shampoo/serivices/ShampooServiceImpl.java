@@ -8,6 +8,7 @@ import shampoo.repositories.ShampooRepository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class ShampooServiceImpl implements ShampooService {
@@ -49,7 +50,7 @@ public class ShampooServiceImpl implements ShampooService {
     }
 
     @Override
-    public List<Shampoo> findByIngredientsNames(List<String> ingredientNames) {
+    public List<String> findByIngredientsNames(List<String> ingredientNames) {
         return this.shampooRepository.findByIngredientsNames(ingredientNames);
     }
 }

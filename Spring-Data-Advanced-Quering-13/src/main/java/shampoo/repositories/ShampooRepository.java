@@ -9,6 +9,7 @@ import shampoo.enums.Size;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public interface ShampooRepository extends JpaRepository<Shampoo, Long> {
@@ -31,9 +32,9 @@ public interface ShampooRepository extends JpaRepository<Shampoo, Long> {
             " WHERE s.ingredients.size < :count")
     List<Shampoo> findByIngredientCountLessThan(int count);
 
-    @Query("SELECT s FROM Shampoo s " +
+    @Query("SELECT DISTINCT(s.brand) FROM Shampoo s " +
             " JOIN s.ingredients AS i " +
             " WHERE i.name IN :ingredientNames")
-    List<Shampoo> findByIngredientsNames(
+    List<String> findByIngredientsNames(
             @Param("ingredientNames") List<String> ingredientNames);
 }

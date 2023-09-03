@@ -16,4 +16,6 @@ public interface IngredientService {
     int increasePriceByPercentage(BigDecimal percent);
 
     int updatePriceForGivenNames(List<String> ingredientNames);
+
+    Ingredient findByName(String name);
 }

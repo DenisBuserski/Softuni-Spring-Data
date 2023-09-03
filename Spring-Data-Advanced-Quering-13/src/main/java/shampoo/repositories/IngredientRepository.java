@@ -16,6 +16,7 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
 
     List<Ingredient> findByNameInOrderByPriceAsc(List<String> names);
 
+
     int deleteByName(String name);
 
     @Modifying
@@ -31,4 +32,5 @@ public interface IngredientRepository extends JpaRepository<Ingredient, Long> {
     int updatePriceForGivenNames(
             @Param("ingredientNames") List<String> ingredientNames);
 
+    Ingredient findByName(String name);
 }
