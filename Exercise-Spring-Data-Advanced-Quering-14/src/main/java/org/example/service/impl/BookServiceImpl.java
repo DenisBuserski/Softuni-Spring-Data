@@ -122,6 +122,11 @@ public class BookServiceImpl implements BookService {
         return this.bookRepository.findBookCountByTitleLengthGreaterThan(number);
     }
 
+    @Override
+    public List<Book> findAllCopiesOrderByDesc() {
+        return this.bookRepository.findAllCopiesOrderByDesc();
+    }
+
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
         LocalDate releaseDate = LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));

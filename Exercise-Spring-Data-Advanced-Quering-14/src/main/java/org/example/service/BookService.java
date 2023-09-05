@@ -32,4 +32,6 @@ public interface BookService {
     List<String> findTitlesByAuthorLastNameStartsWith(String input);
 
     int findBookCountByTitleLengthGreaterThan(int number);
+
+    List<Book> findAllCopiesOrderByDesc();
 }
