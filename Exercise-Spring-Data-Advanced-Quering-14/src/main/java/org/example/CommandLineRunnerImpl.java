@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.model.entity.Book;
+import org.example.model.entity.EditionType;
 import org.example.service.AuthorService;
 import org.example.service.BookService;
 import org.example.service.CategoryService;
@@ -33,7 +34,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         int exercise = Integer.parseInt(scanner.nextLine());
         switch (exercise) {
             case 1 -> booksTitlesByAgeRestriction01(scanner);
-            case 2 -> goldenBooks02(scanner);
+            case 2 -> goldenBooks02();
+            case 3 -> booksByPrice03();
         }
 
 
@@ -43,6 +45,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
+
 
 
 
@@ -56,8 +59,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         String ageRestriction = scanner.nextLine().toUpperCase();
         this.bookService.findAllTitlesByAgeRestriction(ageRestriction).forEach(System.out::println);
     }
-    
-    private void goldenBooks02(Scanner scanner) {
+
+    private void goldenBooks02() {
+        this.bookService.findAllTitlesByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000).forEach(System.out::println);
+    }
+
+    private void booksByPrice03() {
 
     }
 
@@ -86,6 +93,4 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                 .map(Book::getTitle)
                 .forEach(System.out::println);
     }
-
-
 }

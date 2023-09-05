@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.entity.Book;
+import org.example.model.entity.EditionType;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,4 +16,6 @@ public interface BookService {
     List<String> findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(String firstName, String lastName);
 
     List<String> findAllTitlesByAgeRestriction(String ageRestriction);
+
+    List<String> findAllTitlesByEditionTypeAndCopiesLessThan(EditionType editionType, int copies);
 }
