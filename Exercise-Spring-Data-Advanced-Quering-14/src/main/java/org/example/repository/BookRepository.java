@@ -58,4 +58,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             " WHERE b.author.lastName LIKE :input")
     List<String> findTitlesByAuthorLastNameStartsWith(
             @Param("input") String input);
+
+    @Query("SELECT COUNT(b) " +
+            " FROM Book b " +
+            " WHERE LENGTH(b.title) > :number")
+    int findBookCountByTitleLengthGreaterThan(
+            @Param("number") int number);
 }

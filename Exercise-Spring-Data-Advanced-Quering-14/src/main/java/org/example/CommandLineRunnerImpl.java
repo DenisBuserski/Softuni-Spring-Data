@@ -45,6 +45,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 7 -> booksSearch07(scanner);
             case 8 -> bookTitlesSearch08(scanner);
             case 9 -> countBooks09(scanner);
+            case 10 -> totalBookCopies10();
         }
 
 
@@ -55,9 +56,6 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     }
 
-
-
-
     private void seedData() throws IOException {
         categoryService.seedCategories();
         authorService.seedAuthors();
@@ -66,11 +64,13 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private void booksTitlesByAgeRestriction01(Scanner scanner) {
         String ageRestriction = scanner.nextLine().toUpperCase();
-        this.bookService.findAllTitlesByAgeRestriction(ageRestriction).forEach(System.out::println);
+        this.bookService.findAllTitlesByAgeRestriction(ageRestriction)
+                .forEach(System.out::println);
     }
 
     private void goldenBooks02() {
-        this.bookService.findAllTitlesByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000).forEach(System.out::println);
+        this.bookService.findAllTitlesByEditionTypeAndCopiesLessThan(EditionType.GOLD, 5000)
+                .forEach(System.out::println);
     }
 
     private void booksByPrice03() {
@@ -80,7 +80,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private void notReleasedBooks04(Scanner scanner) {
         int year = Integer.parseInt(scanner.nextLine());
-        this.bookService.findTitlesByYearNotIn(year).forEach(System.out::println);
+        this.bookService.findTitlesByYearNotIn(year)
+                .forEach(System.out::println);
     }
 
     private void booksReleasedBeforeDate05(Scanner scanner) {
@@ -101,7 +102,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private void booksSearch07(Scanner scanner) {
         String input = scanner.nextLine();
-        this.bookService.findAllByTitleLike("%" + input + "%").forEach(System.out::println);
+        this.bookService.findAllByTitleLike("%" + input + "%")
+                .forEach(System.out::println);
     }
 
     private void bookTitlesSearch08(Scanner scanner) {
@@ -111,6 +113,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void countBooks09(Scanner scanner) {
+        int number = Integer.parseInt(scanner.nextLine());
+        int count = this.bookService.findBookCountByTitleLengthGreaterThan(number);
+        System.out.printf("There are %d books with longer title than %d symbols%n", count, number);
+    }
+
+    private void totalBookCopies10() {
 
     }
 
