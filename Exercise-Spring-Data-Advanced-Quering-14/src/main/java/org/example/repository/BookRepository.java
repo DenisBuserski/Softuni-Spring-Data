@@ -52,4 +52,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             " WHERE b.title LIKE :input")
     List<String> findTitlesLike(
             @Param("input") String input);
+
+    @Query("SELECT b.title, b.author.lastName " +
+            " FROM Book b " +
+            " WHERE b.author.lastName LIKE :input")
+    List<String> findTitlesByAuthorLastNameStartsWith(
+            @Param("input") String input);
 }

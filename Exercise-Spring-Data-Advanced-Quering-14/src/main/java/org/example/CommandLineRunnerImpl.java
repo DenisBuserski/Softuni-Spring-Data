@@ -104,7 +104,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void bookTitlesSearch08(Scanner scanner) {
-
+        String input = scanner.nextLine();
+        this.bookService.findTitlesByAuthorLastNameStartsWith(input + "%")
+                .forEach(System.out::println);
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {

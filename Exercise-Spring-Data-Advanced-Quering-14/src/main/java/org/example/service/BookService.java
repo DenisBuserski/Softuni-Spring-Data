@@ -28,4 +28,6 @@ public interface BookService {
     List<Book> findAllBooksBefore(LocalDate newLocalDate);
 
     List<String> findAllByTitleLike(String input);
+
+    List<String> findTitlesByAuthorLastNameStartsWith(String input);
 }
