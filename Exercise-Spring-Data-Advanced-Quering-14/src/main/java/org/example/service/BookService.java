@@ -4,6 +4,7 @@ import org.example.model.entity.Book;
 import org.example.model.entity.EditionType;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface BookService {
@@ -18,4 +19,6 @@ public interface BookService {
     List<String> findAllTitlesByAgeRestriction(String ageRestriction);
 
     List<String> findAllTitlesByEditionTypeAndCopiesLessThan(EditionType editionType, int copies);
+
+    List<Book> findAllTitlesAndPriceBetween(BigDecimal low, BigDecimal high);
 }

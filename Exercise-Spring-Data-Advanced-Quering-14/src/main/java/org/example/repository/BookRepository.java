@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -24,9 +25,16 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query("SELECT b.title " +
             " FROM Book b " +
-            " WHERE b.editionType LIKE :editionType" +
+            " WHERE b.editionType LIKE :editionType " +
             " AND b.copies <= :copies")
     List<String> findAllTitlesByEditionTypeAndCopiesLessThan(
             @Param("editionType") EditionType editionType,
             @Param("copies") int copies);
+
+    @Query("SELECT b " +
+            " FROM Book b " +
+            " WHERE b.price NOT BETWEEN :low AND :high")
+    List<Book> findAllBooksWithPriceNotBetween(
+            @Param("low") BigDecimal low,
+            @Param("high") BigDecimal high);
 }

@@ -10,6 +10,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Scanner;
 
@@ -65,7 +66,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void booksByPrice03() {
-
+        this.bookService.findAllTitlesAndPriceBetween(BigDecimal.valueOf(5), BigDecimal.valueOf(40))
+                .forEach(book -> System.out.println(book.getTitle() + " - " + book.getPrice()));
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
