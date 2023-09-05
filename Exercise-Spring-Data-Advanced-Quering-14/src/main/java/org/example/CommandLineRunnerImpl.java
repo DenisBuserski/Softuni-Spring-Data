@@ -44,6 +44,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 6 -> authorsSearch06(scanner);
             case 7 -> booksSearch07(scanner);
             case 8 -> bookTitlesSearch08(scanner);
+            case 9 -> countBooks09(scanner);
         }
 
 
@@ -107,6 +108,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         String input = scanner.nextLine();
         this.bookService.findTitlesByAuthorLastNameStartsWith(input + "%")
                 .forEach(System.out::println);
+    }
+
+    private void countBooks09(Scanner scanner) {
+
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
