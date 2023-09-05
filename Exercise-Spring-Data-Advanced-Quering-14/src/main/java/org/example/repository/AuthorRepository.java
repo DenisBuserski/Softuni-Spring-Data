@@ -1,7 +1,7 @@
 package org.example.repository;
 
 import org.example.model.entity.Author;
-import org.example.model.entity.AuthorNamesWithTotalCopies;
+import org.example.model.entity.AuthorNamesWithTotalCopiesDTO;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,7 +20,6 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
             " FROM Author a " +
             " JOIN a.books AS b " +
             " GROUP BY b.author " +
-            " ORDER BY totalCopies")
-    List<AuthorNamesWithTotalCopies> getWithTotalCopies();
-
+            " ORDER BY totalCopies DESC")
+    List<AuthorNamesWithTotalCopiesDTO> getWithTotalCopies();
 }

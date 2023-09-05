@@ -1,7 +1,7 @@
 package org.example.service;
 
 import org.example.model.entity.Author;
-import org.example.model.entity.AuthorNamesWithTotalCopies;
+import org.example.model.entity.AuthorNamesWithTotalCopiesDTO;
 
 import java.io.IOException;
 import java.util.List;
@@ -15,5 +15,5 @@ public interface AuthorService {
 
     List<Author> findAllByNameLike(String input);
 
-    List<AuthorNamesWithTotalCopies> getWithTotalCopies();
+    List<AuthorNamesWithTotalCopiesDTO> getWithTotalCopies();
 }
