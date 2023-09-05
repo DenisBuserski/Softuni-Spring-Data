@@ -1,13 +1,11 @@
 package org.example.service.impl;
 
-import com.example.springintro.repository.BookRepository;
-import org.example.model.entity.AgeRestriction;
-import org.example.model.entity.Author;
-import org.example.model.entity.Book;
-import org.example.model.entity.Category;
+import org.example.model.entity.*;
+import org.example.repository.BookRepository;
 import org.example.service.AuthorService;
 import org.example.service.BookService;
 import org.example.service.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -30,6 +28,7 @@ public class BookServiceImpl implements BookService {
     private final AuthorService authorService;
     private final CategoryService categoryService;
 
+    @Autowired
     public BookServiceImpl(BookRepository bookRepository, AuthorService authorService, CategoryService categoryService) {
         this.bookRepository = bookRepository;
         this.authorService = authorService;
@@ -42,11 +41,9 @@ public class BookServiceImpl implements BookService {
             return;
         }
 
-        Files
-                .readAllLines(Path.of(BOOKS_FILE_PATH))
+        Files.readAllLines(Path.of(BOOKS_FILE_PATH))
                 .forEach(row -> {
                     String[] bookInfo = row.split("\\s+");
-
                     Book book = createBookFromInfo(bookInfo);
 
                     bookRepository.save(book);
@@ -55,8 +52,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> findAllBooksAfterYear(int year) {
-        return bookRepository
-                .findAllByReleaseDateAfter(LocalDate.of(year, 12, 31));
+        return bookRepository.findAllByReleaseDateAfter(LocalDate.of(year, 12, 31));
     }
 
     @Override
@@ -82,23 +78,28 @@ public class BookServiceImpl implements BookService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public List<String> findAllTitlesByAgeRestriction(String ageRestriction) {
+        AgeRestriction restriction = AgeRestriction.valueOf(ageRestriction);
+        return this.bookRepository.findByAgeRestriction(restriction)
+                .stream()
+                .map(book -> book.getTitle())
+                .collect(Collectors.toList());
+    }
+
     private Book createBookFromInfo(String[] bookInfo) {
-        com.example.springintro.model.entity.EditionType editionType = com.example.springintro.model.entity.EditionType.values()[Integer.parseInt(bookInfo[0])];
-        LocalDate releaseDate = LocalDate
-                .parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
+        EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
+        LocalDate releaseDate = LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));
         Integer copies = Integer.parseInt(bookInfo[2]);
         BigDecimal price = new BigDecimal(bookInfo[3]);
-        AgeRestriction ageRestriction = AgeRestriction
-                .values()[Integer.parseInt(bookInfo[4])];
+        AgeRestriction ageRestriction = AgeRestriction.values()[Integer.parseInt(bookInfo[4])];
         String title = Arrays.stream(bookInfo)
                 .skip(5)
                 .collect(Collectors.joining(" "));
 
         Author author = authorService.getRandomAuthor();
-        Set<Category> categories = categoryService
-                .getRandomCategories();
+        Set<Category> categories = categoryService.getRandomCategories();
 
         return new Book(editionType, releaseDate, copies, price, ageRestriction, title, author, categories);
-
     }
 }

@@ -1,8 +1,9 @@
 package org.example.service.impl;
 
-import com.example.springintro.repository.CategoryRepository;
 import org.example.model.entity.Category;
+import org.example.repository.CategoryRepository;
 import org.example.service.CategoryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
 
+    @Autowired
     public CategoryServiceImpl(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }

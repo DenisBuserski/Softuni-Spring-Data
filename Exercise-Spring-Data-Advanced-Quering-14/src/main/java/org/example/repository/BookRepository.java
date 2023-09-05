@@ -1,5 +1,6 @@
-package com.example.springintro.repository;
+package org.example.repository;
 
+import org.example.model.entity.AgeRestriction;
 import org.example.model.entity.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -15,4 +16,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
 
     List<Book> findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(String author_firstName, String author_lastName);
+
+    List<Book> findByAgeRestriction(AgeRestriction ageRestriction);
 }

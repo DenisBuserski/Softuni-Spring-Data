@@ -8,12 +8,10 @@ import java.util.Objects;
 @Entity
 @Table(name = "categories")
 public class Category extends BaseEntity {
-
     private String name;
 
     public Category() {
     }
-
     public Category(String name) {
         this.name = name;
     }

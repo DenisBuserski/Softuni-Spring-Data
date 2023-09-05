@@ -1,8 +1,9 @@
 package org.example.service.impl;
 
-import com.example.springintro.repository.AuthorRepository;
 import org.example.model.entity.Author;
+import org.example.repository.AuthorRepository;
 import org.example.service.AuthorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class AuthorServiceImpl implements AuthorService {
 
     private final AuthorRepository authorRepository;
 
+    @Autowired
     public AuthorServiceImpl(AuthorRepository authorRepository) {
         this.authorRepository = authorRepository;
     }
@@ -29,8 +31,7 @@ public class AuthorServiceImpl implements AuthorService {
             return;
         }
 
-        Files
-                .readAllLines(Path.of(AUTHORS_FILE_PATH))
+        Files.readAllLines(Path.of(AUTHORS_FILE_PATH))
                 .forEach(row -> {
                     String[] fullName = row.split("\\s+");
                     Author author = new Author(fullName[0], fullName[1]);

@@ -3,13 +3,11 @@ package org.example.model.entity;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import com.example.springintro.model.entity.EditionType;
 import java.util.Set;
 
 @Entity
 @Table(name = "books")
 public class Book extends BaseEntity {
-
     private String title;
     private String description;
     private EditionType editionType;
@@ -54,11 +52,11 @@ public class Book extends BaseEntity {
     }
 
     @Enumerated()
-    public com.example.springintro.model.entity.EditionType getEditionType() {
+    public EditionType getEditionType() {
         return editionType;
     }
 
-    public void setEditionType(com.example.springintro.model.entity.EditionType editionType) {
+    public void setEditionType(EditionType editionType) {
         this.editionType = editionType;
     }
 

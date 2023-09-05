@@ -6,7 +6,6 @@ import java.util.Set;
 @Entity
 @Table(name = "authors")
 public class Author extends BaseEntity {
-
     private String firstName;
     private String lastName;
     private Set<Book> books;
