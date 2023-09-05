@@ -102,6 +102,11 @@ public class BookServiceImpl implements BookService {
         return this.bookRepository.findTitlesByYearNotIn(year);
     }
 
+    @Override
+    public List<Book> findAllBooksBefore(LocalDate newLocalDate) {
+        return this.bookRepository.findAllByReleaseDateBefore(newLocalDate);
+    }
+
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];
         LocalDate releaseDate = LocalDate.parse(bookInfo[1], DateTimeFormatter.ofPattern("d/M/yyyy"));

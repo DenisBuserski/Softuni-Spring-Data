@@ -17,7 +17,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findAllByReleaseDateAfter(LocalDate releaseDateAfter);
 
-    List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
+    // List<Book> findAllByReleaseDateBefore(LocalDate releaseDateBefore);
 
     List<Book> findAllByAuthor_FirstNameAndAuthor_LastNameOrderByReleaseDateDescTitle(String author_firstName, String author_lastName);
 
@@ -43,4 +43,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             " WHERE YEAR(b.releaseDate) != :year")
     List<String> findTitlesByYearNotIn(
             @Param("year") int year);
+
+    List<Book> findAllByReleaseDateBefore(LocalDate newLocalDate);
 }

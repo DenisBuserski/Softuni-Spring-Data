@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -39,6 +41,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 3 -> booksByPrice03();
             case 4 -> notReleasedBooks04(scanner);
             case 5 -> booksReleasedBeforeDate05(scanner);
+            case 6 -> authorsSearch06(scanner);
         }
 
 
@@ -48,7 +51,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
-    
+
+
+
     private void seedData() throws IOException {
         categoryService.seedCategories();
         authorService.seedAuthors();
@@ -75,7 +80,18 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void booksReleasedBeforeDate05(Scanner scanner) {
+        LocalDate localDate = LocalDate.parse(scanner.nextLine(), DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        LocalDate newLocalDate = LocalDate.parse(
+                localDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd")),
+                DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        this.bookService.findAllBooksBefore(newLocalDate)
+                .forEach(book -> System.out.println(
+                        book.getTitle() + " " + book.getEditionType().name() + " " + book.getPrice()));
+    }
 
+    private void authorsSearch06(Scanner scanner) {
+        String input = scanner.nextLine();
+        this.authorService.findAllByNameEndsWith();
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
