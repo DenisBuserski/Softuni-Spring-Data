@@ -26,4 +26,6 @@ public interface BookService {
     List<String> findTitlesByYearNotIn(int year);
 
     List<Book> findAllBooksBefore(LocalDate newLocalDate);
+
+    List<String> findAllByTitleLike(String input);
 }

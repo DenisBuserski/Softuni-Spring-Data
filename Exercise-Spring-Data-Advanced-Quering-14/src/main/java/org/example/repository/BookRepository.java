@@ -45,4 +45,11 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             @Param("year") int year);
 
     List<Book> findAllByReleaseDateBefore(LocalDate newLocalDate);
+
+
+    @Query("SELECT b.title " +
+            " FROM Book b " +
+            " WHERE b.title LIKE :input")
+    List<String> findTitlesLike(
+            @Param("input") String input);
 }

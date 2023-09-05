@@ -42,6 +42,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 4 -> notReleasedBooks04(scanner);
             case 5 -> booksReleasedBeforeDate05(scanner);
             case 6 -> authorsSearch06(scanner);
+            case 7 -> booksSearch07(scanner);
+            case 8 -> bookTitlesSearch08(scanner);
         }
 
 
@@ -51,6 +53,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
+
 
 
 
@@ -93,6 +96,15 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         String input = scanner.nextLine();
         this.authorService.findAllByNameLike("%" + input)
                 .forEach(author -> System.out.println(author.getFirstName() + " " + author.getLastName()));
+    }
+
+    private void booksSearch07(Scanner scanner) {
+        String input = scanner.nextLine();
+        this.bookService.findAllByTitleLike("%" + input + "%").forEach(System.out::println);
+    }
+
+    private void bookTitlesSearch08(Scanner scanner) {
+
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
