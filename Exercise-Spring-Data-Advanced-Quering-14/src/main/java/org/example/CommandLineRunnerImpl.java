@@ -38,6 +38,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 2 -> goldenBooks02();
             case 3 -> booksByPrice03();
             case 4 -> notReleasedBooks04(scanner);
+            case 5 -> booksReleasedBeforeDate05(scanner);
         }
 
 
@@ -47,10 +48,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
-
-
-
-
+    
     private void seedData() throws IOException {
         categoryService.seedCategories();
         authorService.seedAuthors();
@@ -74,6 +72,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private void notReleasedBooks04(Scanner scanner) {
         int year = Integer.parseInt(scanner.nextLine());
         this.bookService.findTitlesByYearNotIn(year).forEach(System.out::println);
+    }
+
+    private void booksReleasedBeforeDate05(Scanner scanner) {
+
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
