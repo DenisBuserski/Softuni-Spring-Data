@@ -62,4 +62,9 @@ public class AuthorServiceImpl implements AuthorService {
                         author.getBooks().size()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public List<Author> findAllByNameLike(String input) {
+        return this.authorRepository.findAllByFirstNameLike(input);
+    }
 }

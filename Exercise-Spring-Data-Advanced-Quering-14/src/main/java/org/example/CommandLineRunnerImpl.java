@@ -91,7 +91,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
 
     private void authorsSearch06(Scanner scanner) {
         String input = scanner.nextLine();
-        this.authorService.findAllByNameEndsWith();
+        this.authorService.findAllByNameLike("%" + input)
+                .forEach(author -> System.out.println(author.getFirstName() + " " + author.getLastName()));
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
