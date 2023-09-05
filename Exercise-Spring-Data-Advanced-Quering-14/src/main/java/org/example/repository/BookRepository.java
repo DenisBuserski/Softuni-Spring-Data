@@ -37,4 +37,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     List<Book> findAllBooksWithPriceNotBetween(
             @Param("low") BigDecimal low,
             @Param("high") BigDecimal high);
+
+    @Query("SELECT b.title " +
+            " FROM Book b " +
+            " WHERE YEAR(b.releaseDate) != :year")
+    List<String> findTitlesByYearNotIn(
+            @Param("year") int year);
 }

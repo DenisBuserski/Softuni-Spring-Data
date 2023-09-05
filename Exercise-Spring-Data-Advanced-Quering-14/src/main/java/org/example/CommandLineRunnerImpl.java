@@ -37,6 +37,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 1 -> booksTitlesByAgeRestriction01(scanner);
             case 2 -> goldenBooks02();
             case 3 -> booksByPrice03();
+            case 4 -> notReleasedBooks04(scanner);
         }
 
 
@@ -68,6 +69,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private void booksByPrice03() {
         this.bookService.findAllTitlesAndPriceBetween(BigDecimal.valueOf(5), BigDecimal.valueOf(40))
                 .forEach(book -> System.out.println(book.getTitle() + " - " + book.getPrice()));
+    }
+
+    private void notReleasedBooks04(Scanner scanner) {
+        int year = Integer.parseInt(scanner.nextLine());
+        this.bookService.findTitlesByYearNotIn(year).forEach(System.out::println);
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {

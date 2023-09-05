@@ -21,4 +21,6 @@ public interface BookService {
     List<String> findAllTitlesByEditionTypeAndCopiesLessThan(EditionType editionType, int copies);
 
     List<Book> findAllTitlesAndPriceBetween(BigDecimal low, BigDecimal high);
+
+    List<String> findTitlesByYearNotIn(int year);
 }
