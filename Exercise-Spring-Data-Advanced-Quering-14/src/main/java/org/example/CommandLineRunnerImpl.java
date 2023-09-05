@@ -119,10 +119,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void totalBookCopies10() {
-        this.bookService.findAllCopiesOrderByDesc()
-                .forEach(book -> System.out.println(
-                        book.getAuthor().getFirstName() + " " +
-                        book.getAuthor().getLastName() + " - " + book.getCopies()));
+        this.authorService.getWithTotalCopies().forEach(author -> System.out.println(
+                author.getFirstName() + " " + author.getLastName() + " - " + author.getTotalCopies()));
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {

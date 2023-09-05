@@ -33,5 +33,4 @@ public interface BookService {
 
     int findBookCountByTitleLengthGreaterThan(int number);
 
-    List<Book> findAllCopiesOrderByDesc();
 }
