@@ -23,6 +23,7 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 ### Spring Data Advanced Querying
 - [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Spring-Data-Advanced-Quering-13)
 - [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Spring-Data-Advanced-Quering-14)
+### Spring Data Auto Mapping Objects
 
 
 ## Exams
