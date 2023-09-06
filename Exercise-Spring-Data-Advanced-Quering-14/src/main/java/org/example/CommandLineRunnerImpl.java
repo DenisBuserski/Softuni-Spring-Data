@@ -51,6 +51,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 10 -> totalBookCopies10();
             case 11 -> reducedBook11(scanner);
             case 12 -> increaseBookCopies12(scanner);
+            case 13 -> removeBooks13();
+            case 14 -> storedProcedure14(scanner);
             default -> System.out.println("You have entered an invalid number!");
         }
 
@@ -61,6 +63,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
+
 
 
 
@@ -148,7 +151,16 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         int monthNumber = calender.get(Calendar.MONTH) + 1;
         LocalDate localDate = LocalDate.of(year, monthNumber, day);
         int number = Integer.parseInt(scanner.nextLine());
-        System.out.println(localDate);
+
+
+
+    }
+
+    private void removeBooks13() {
+
+    }
+
+    private void storedProcedure14(Scanner scanner) {
 
     }
 
