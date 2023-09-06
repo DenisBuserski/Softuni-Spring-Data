@@ -51,7 +51,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 10 -> totalBookCopies10();
             case 11 -> reducedBook11(scanner);
             case 12 -> increaseBookCopies12(scanner);
-            case 13 -> removeBooks13();
+            case 13 -> removeBooks13(scanner);
             case 14 -> storedProcedure14(scanner);
             default -> System.out.println("You have entered an invalid number!");
         }
@@ -158,8 +158,10 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
                 booksUpdated, input, booksUpdated * number);
     }
 
-    private void removeBooks13() {
-
+    private void removeBooks13(Scanner scanner) {
+        int copies = Integer.parseInt(scanner.nextLine());
+        int booksDeleted = this.bookService.deleteBooksWithCopiesLessThan(copies);
+        System.out.println("You have deleted " + booksDeleted + " books!");
     }
 
     private void storedProcedure14(Scanner scanner) {

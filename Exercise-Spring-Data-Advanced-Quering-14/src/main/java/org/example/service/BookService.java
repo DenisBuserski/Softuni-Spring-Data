@@ -37,4 +37,6 @@ public interface BookService {
     List<Book> findBookAllByTitleLike(String title);
 
     int addCopiesToBooksAfter(LocalDate localDate, int number);
+
+    int deleteBooksWithCopiesLessThan(int copies);
 }

@@ -133,6 +133,11 @@ public class BookServiceImpl implements BookService {
         return this.bookRepository.addCopiesToBooksAfter(localDate, number);
     }
 
+    @Override
+    public int deleteBooksWithCopiesLessThan(int copies) {
+        return this.bookRepository.deleteByCopiesLessThan(copies);
+    }
+
 
     private Book createBookFromInfo(String[] bookInfo) {
         EditionType editionType = EditionType.values()[Integer.parseInt(bookInfo[0])];

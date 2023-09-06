@@ -78,4 +78,7 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     int addCopiesToBooksAfter(
             @Param("localDate") LocalDate localDate,
             @Param("number") int number);
+
+    @Transactional
+    int deleteByCopiesLessThan(int copies);
 }
