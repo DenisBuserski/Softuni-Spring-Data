@@ -80,5 +80,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             @Param("number") int number);
 
     @Transactional
+    // If I use the @Query("DELETE ...") I will have to use @Modifying as well
     int deleteByCopiesLessThan(int copies);
 }
