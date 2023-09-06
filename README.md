@@ -16,6 +16,13 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 ### Introduction to Hibernate
 - [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Introduction-To-Hibernate-08)
 ### Hibernate Code First
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Hibernate-Code-First-10)
+### Spring Data Intro
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Spring-Data-Intro-12-User-System)
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Spring-Data-Intro-12-Bookshop-System)
+### Spring Data Advanced Querying
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Spring-Data-Advanced-Quering-13)
+- [Link](https://github.com/DenisBuserski/Softuni-Spring-Data/tree/main/Exercise-Spring-Data-Advanced-Quering-14)
 
 
 ## Exams
