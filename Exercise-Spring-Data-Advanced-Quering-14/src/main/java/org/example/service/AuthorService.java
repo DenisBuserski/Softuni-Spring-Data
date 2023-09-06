@@ -16,4 +16,6 @@ public interface AuthorService {
     List<Author> findAllByNameLike(String input);
 
     List<AuthorNamesWithTotalCopies> getWithTotalCopies();
+
+    int getBooksCountByAuthor(String firstName, String lastName);
 }

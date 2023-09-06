@@ -165,7 +165,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void storedProcedure14(Scanner scanner) {
-
+        String[] input = scanner.nextLine().split("\\s+");
+        String firstName = input[0];
+        String lastName = input[1];
+        int booksCount = this.authorService.getBooksCountByAuthor(firstName, lastName);
+        System.out.println(firstName + " " + lastName + " has written " + booksCount + " books.");
     }
 
 

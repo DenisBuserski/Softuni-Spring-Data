@@ -73,4 +73,9 @@ public class AuthorServiceImpl implements AuthorService {
     public List<AuthorNamesWithTotalCopies> getWithTotalCopies() {
         return this.authorRepository.getWithTotalCopies();
     }
+
+    @Override
+    public int getBooksCountByAuthor(String firstName, String lastName) {
+        return this.authorRepository.getBooksCountByAuthor(firstName, lastName);
+    }
 }
