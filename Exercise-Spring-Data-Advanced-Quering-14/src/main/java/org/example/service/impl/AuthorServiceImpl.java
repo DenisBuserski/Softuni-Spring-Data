@@ -1,7 +1,7 @@
 package org.example.service.impl;
 
 import org.example.model.entity.Author;
-import org.example.model.entity.AuthorNamesWithTotalCopiesDTO;
+import org.example.model.entity.AuthorNamesWithTotalCopies;
 import org.example.repository.AuthorRepository;
 import org.example.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,8 +70,7 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public List<AuthorNamesWithTotalCopiesDTO> getWithTotalCopies() {
+    public List<AuthorNamesWithTotalCopies> getWithTotalCopies() {
         return this.authorRepository.getWithTotalCopies();
-
     }
 }

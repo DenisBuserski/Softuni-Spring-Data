@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.model.entity.AuthorNamesWithTotalCopiesDTO;
 import org.example.model.entity.Book;
 import org.example.model.entity.EditionType;
 import org.example.service.AuthorService;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Scanner;
 
 @Component
@@ -120,8 +118,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void totalBookCopies10() {
-        List<AuthorNamesWithTotalCopiesDTO> withTotalCopies = this.authorService.getWithTotalCopies();
-
+        this.authorService.getWithTotalCopies()
+                .forEach(author -> System.out.println(author.getFirstName() + " " + author.getLastName() + " - " + author.getTotalCopies()));
     }
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
