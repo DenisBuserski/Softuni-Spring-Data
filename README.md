@@ -26,9 +26,9 @@ To learn more about the course you can check [Softuni](https://softuni.bg/)
 ### Spring Data Auto Mapping Objects
 
 
+
 ## Exams
-- [Programming Basics Online Exam 6 And 7 July 2019](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Programming_Basics_Online_Exam_6_And_7_July_2019)
-- [Programming Basics Online Exam 6 And 7 April 2019](https://github.com/DenisBuserski/SoftUni-Programming-Basics-Java/tree/main/Programming_Basics_Online_Exam_6_And_7_April_2019)
+
 
 
 ## Certificates
