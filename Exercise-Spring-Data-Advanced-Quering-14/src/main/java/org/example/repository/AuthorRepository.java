@@ -4,6 +4,7 @@ import org.example.model.entity.Author;
 import org.example.model.entity.AuthorNamesWithTotalCopies;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
