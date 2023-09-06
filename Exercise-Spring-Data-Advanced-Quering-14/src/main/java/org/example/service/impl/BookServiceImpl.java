@@ -128,7 +128,10 @@ public class BookServiceImpl implements BookService {
         return this.bookRepository.findBookByTitleLike(title);
     }
 
-
+    @Override
+    public int addCopiesToBooksAfter(LocalDate localDate, int number) {
+        return this.bookRepository.addCopiesToBooksAfter(localDate, number);
+    }
 
 
     private Book createBookFromInfo(String[] bookInfo) {

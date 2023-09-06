@@ -141,7 +141,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
     private void increaseBookCopies12(Scanner scanner) throws ParseException {
-        String[] date = scanner.nextLine().split("\\s+");
+        String input = scanner.nextLine();
+        String[] date = input.split("\\s+");
         int year = Integer.parseInt(date[2]);
         String month = date[1];
         int day = Integer.parseInt(date[0]);
@@ -152,8 +153,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         LocalDate localDate = LocalDate.of(year, monthNumber, day);
         int number = Integer.parseInt(scanner.nextLine());
 
-
-
+        int booksUpdated = this.bookService.addCopiesToBooksAfter(localDate, number);
+        System.out.printf("%d books are released after %s, so total of %d book copies were added%n",
+                booksUpdated, input, booksUpdated * number);
     }
 
     private void removeBooks13() {
