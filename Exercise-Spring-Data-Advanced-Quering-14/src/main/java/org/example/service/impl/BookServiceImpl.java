@@ -122,6 +122,10 @@ public class BookServiceImpl implements BookService {
         return this.bookRepository.findBookCountByTitleLengthGreaterThan(number);
     }
 
+    @Override
+    public List<Book> findBookAllByTitleLike(String title) {
+        return this.bookRepository.findBookByTitleLike(title);
+    }
 
 
     private Book createBookFromInfo(String[] bookInfo) {

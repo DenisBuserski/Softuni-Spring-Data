@@ -11,8 +11,12 @@ import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Scanner;
 
 @Component
@@ -45,6 +49,9 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             case 8 -> bookTitlesSearch08(scanner);
             case 9 -> countBooks09(scanner);
             case 10 -> totalBookCopies10();
+            case 11 -> reducedBook11(scanner);
+            case 12 -> increaseBookCopies12(scanner);
+            default -> System.out.println("You have entered an invalid number!");
         }
 
 
@@ -54,6 +61,8 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
+
+
 
     private void seedData() throws IOException {
         categoryService.seedCategories();
@@ -121,6 +130,28 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
         this.authorService.getWithTotalCopies()
                 .forEach(author -> System.out.println(author.getFirstName() + " " + author.getLastName() + " - " + author.getTotalCopies()));
     }
+
+    private void reducedBook11(Scanner scanner) {
+        String title = scanner.nextLine();
+        this.bookService.findBookAllByTitleLike(title)
+                .forEach(book -> System.out.println(book.getTitle() + " " + book.getEditionType().name() + " " + book.getAgeRestriction().name() + " " + book.getPrice()));
+    }
+
+    private void increaseBookCopies12(Scanner scanner) throws ParseException {
+        String[] date = scanner.nextLine().split("\\s+");
+        int year = Integer.parseInt(date[2]);
+        String month = date[1];
+        int day = Integer.parseInt(date[0]);
+
+        Calendar calender = Calendar.getInstance();
+        calender.setTime(new SimpleDateFormat("MMM", Locale.ENGLISH).parse(month));
+        int monthNumber = calender.get(Calendar.MONTH) + 1;
+        LocalDate localDate = LocalDate.of(year, monthNumber, day);
+        int number = Integer.parseInt(scanner.nextLine());
+        System.out.println(localDate);
+
+    }
+
 
     private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
         bookService

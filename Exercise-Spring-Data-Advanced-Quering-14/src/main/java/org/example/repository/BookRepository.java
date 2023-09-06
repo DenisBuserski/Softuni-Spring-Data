@@ -65,6 +65,5 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     int findBookCountByTitleLengthGreaterThan(
             @Param("number") int number);
 
-
-
+    List<Book> findBookByTitleLike(String title);
 }
