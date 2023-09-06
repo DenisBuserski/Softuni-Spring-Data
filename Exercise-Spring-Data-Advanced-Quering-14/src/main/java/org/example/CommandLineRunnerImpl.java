@@ -56,15 +56,12 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             default -> System.out.println("You have entered an invalid number!");
         }
 
-
-        //printAllBooksAfterYear(2000);
+//        printAllBooksAfterYear(2000);
 //        printAllAuthorsNamesWithBooksWithReleaseDateBeforeYear(1990);
-        //   printAllAuthorsAndNumberOfTheirBooks();
-        // pritnALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
+//        printAllAuthorsAndNumberOfTheirBooks();
+//        printALlBooksByAuthorNameOrderByReleaseDate("George", "Powell");
 
     }
-
-
 
 
     private void seedData() throws IOException {
@@ -173,7 +170,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     }
 
 
-    private void pritnALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
+    private void printALlBooksByAuthorNameOrderByReleaseDate(String firstName, String lastName) {
         bookService
                 .findAllBooksByAuthorFirstAndLastNameOrderByReleaseDate(firstName, lastName)
                 .forEach(System.out::println);

@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
@@ -80,6 +79,6 @@ public interface BookRepository extends JpaRepository<Book, Long> {
             @Param("number") int number);
 
     @Transactional
-    // If I use the @Query("DELETE ...") I will have to use @Modifying as well
+        // If I use the @Query("DELETE ...") I will have to use @Modifying as well
     int deleteByCopiesLessThan(int copies);
 }

@@ -4,7 +4,6 @@ import org.example.model.entity.Author;
 import org.example.model.entity.AuthorNamesWithTotalCopies;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.query.Procedure;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
@@ -28,7 +27,7 @@ public interface AuthorRepository extends JpaRepository<Author, Long> {
             " ORDER BY totalCopies DESC")
     List<AuthorNamesWithTotalCopies> getWithTotalCopies();
 
-    // @Procedure(procedureName = "udp_get_books_count_by_author")
+    // @Procedure(name = "udp_get_books_count_by_author")
     @Query(value = "CALL udp_get_books_count_by_author(:first_name, :last_name);", nativeQuery = true)
     int getBooksCountByAuthor(
             @Param("first_name") String firstName,
