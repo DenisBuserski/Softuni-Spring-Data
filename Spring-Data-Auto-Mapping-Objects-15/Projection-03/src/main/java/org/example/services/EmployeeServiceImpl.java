@@ -1,6 +1,7 @@
 package org.example.services;
 
 import org.example.entities.Employee;
+import org.example.entities.dto.EmployeeDTO;
 import org.example.repositories.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public List<Employee> findEmployeesBornBefore(int year) {
+    public List<EmployeeDTO> findEmployeesBornBefore(int year) {
         LocalDate localDate = LocalDate.of(1990, 1, 1);
         return this.employeeRepository.findByBirthdayBeforeOrderBySalaryDesc(localDate);
     }

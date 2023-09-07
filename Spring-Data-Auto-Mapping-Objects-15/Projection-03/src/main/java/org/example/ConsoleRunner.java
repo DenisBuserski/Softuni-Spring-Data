@@ -29,9 +29,11 @@ public class ConsoleRunner implements CommandLineRunner {
         Employee employee = new Employee("FistNameEm", "LastNameEM", BigDecimal.ONE, LocalDate.now(), manager);
         Employee employee1 = new Employee("FistNameEm1", "LastNameEM1", BigDecimal.ONE, LocalDate.now(), manager);
 
-        ModelMapper mapper = new ModelMapper();
-        List<Employee> list = this.employeeService.findEmployeesBornBefore(1990);
-        list.stream().map(e -> mapper.map(e, EmployeeDTO.class)).forEach(System.out::println);
+//        ModelMapper mapper = new ModelMapper();
+//        List<EmployeeDTO> list = this.employeeService.findEmployeesBornBefore(1990);
+//        list.stream().map(e -> mapper.map(e, EmployeeDTO.class)).forEach(System.out::println);
+
+        this.employeeService.findEmployeesBornBefore(1990).forEach(System.out::println);
 
 
 

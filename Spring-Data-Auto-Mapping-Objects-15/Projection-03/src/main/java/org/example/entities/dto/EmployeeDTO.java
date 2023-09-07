@@ -8,9 +8,11 @@ public class EmployeeDTO {
     private BigDecimal salary;
     private String managerLastName;
 
-    @Override
-    public String toString() {
-        return String.format("%s %s %.2f - Manager: %s", firstName, lastName, salary, (managerLastName == null ? "[no manager]" : managerLastName));
+    public EmployeeDTO(String firstName, String lastName, BigDecimal salary, String managerLastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.salary = salary;
+        this.managerLastName = managerLastName;
     }
 
     public String getFirstName() {
@@ -43,5 +45,10 @@ public class EmployeeDTO {
 
     public void setManagerLastName(String managerLastName) {
         this.managerLastName = managerLastName;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %.2f - Manager: %s", firstName, lastName, salary, (managerLastName == null ? "[no manager]" : managerLastName));
     }
 }
