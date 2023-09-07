@@ -10,4 +10,6 @@ public interface EmployeeService {
     List<EmployeeDTO> findEmployeesBornBefore(int year);
 
     void save(Employee employee);
+
+    List<Employee> findAll();
 }

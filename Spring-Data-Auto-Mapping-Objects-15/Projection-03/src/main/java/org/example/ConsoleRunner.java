@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.entities.Employee;
+import org.example.entities.dto.CustomDTO;
 import org.example.entities.dto.EmployeeDTO;
 import org.example.services.EmployeeService;
 import org.modelmapper.ModelMapper;
@@ -33,8 +34,12 @@ public class ConsoleRunner implements CommandLineRunner {
 //        List<EmployeeDTO> list = this.employeeService.findEmployeesBornBefore(1990);
 //        list.stream().map(e -> mapper.map(e, EmployeeDTO.class)).forEach(System.out::println);
 
-        this.employeeService.findEmployeesBornBefore(1990).forEach(System.out::println);
+//        this.employeeService.findEmployeesBornBefore(1990).forEach(System.out::println);
 
+
+        ModelMapper mapper = new ModelMapper();
+        List<Employee> all = this.employeeService.findAll();
+        all.stream().map(e -> mapper.map(e, CustomDTO.class)).forEach(System.out::println);
 
 
     }
