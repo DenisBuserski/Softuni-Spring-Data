@@ -10,7 +10,9 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
@@ -27,11 +29,11 @@ public class ConsoleRunner implements CommandLineRunner {
         Employee employee = new Employee("FistNameEm", "LastNameEM", BigDecimal.ONE, LocalDate.now(), manager);
         Employee employee1 = new Employee("FistNameEm1", "LastNameEM1", BigDecimal.ONE, LocalDate.now(), manager);
 
-        Optional<Employee> managerOption = this.employeeService.findOneById(1);
-        Employee managerRes = managerOption.get();
-
         ModelMapper mapper = new ModelMapper();
-        EmployeeDTO employeeDTO = mapper.map(managerRes, EmployeeDTO.class);
-        System.out.println(employeeDTO.toString());
+        List<Employee> list = this.employeeService.findEmployeesBornBefore(1990);
+        list.stream().map(e -> mapper.map(e, EmployeeDTO.class)).forEach(System.out::println);
+
+
+
     }
 }
