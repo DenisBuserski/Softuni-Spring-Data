@@ -24,13 +24,21 @@ public class ConsoleRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Employee manager = new Employee("MANAGER-FIRST-NAME", "MANGER-LAST-NAME", BigDecimal.valueOf(50000), LocalDate.of(1989,1,1), null);
-        Employee employee1 = new Employee("Employee-1", "LastNameEM", BigDecimal.valueOf(1000), LocalDate.of(1980,1,1), manager);
-        Employee employee2 = new Employee("Employee-2", "LastNameEM1", BigDecimal.valueOf(2000), LocalDate.of(1950,1,1), manager);
-        Employee employee3 = new Employee("Employee-3", "LastNameEM1", BigDecimal.valueOf(3000), LocalDate.now(), manager);
-        Employee employee4 = new Employee("Employee-4", "LastNameEM1", BigDecimal.valueOf(4000), LocalDate.of(1970,1,1), null);
-        Employee employee5 = new Employee("Employee-5", "LastNameEM1", BigDecimal.valueOf(5000), LocalDate.now(), null);
+        Employee employee1 = new Employee("Employee-1", "LastNameEM-1", BigDecimal.valueOf(1000), LocalDate.of(1980,1,1), manager);
+        Employee employee2 = new Employee("Employee-2", "LastNameEM-2", BigDecimal.valueOf(2000), LocalDate.of(1950,1,1), manager);
+        Employee employee3 = new Employee("Employee-3", "LastNameEM-3", BigDecimal.valueOf(3000), LocalDate.now(), manager);
+        Employee employee4 = new Employee("Employee-4", "LastNameEM-4", BigDecimal.valueOf(4000), LocalDate.of(1970,1,1), null);
+        Employee employee5 = new Employee("Employee-5", "LastNameEM-5", BigDecimal.valueOf(5000), LocalDate.now(), null);
 
-        this.employeeService.save(manager);
+        // this.employeeService.save(employee1); // Insert employee1 with manager in the DB
+
+        // this.employeeService.save(manager);
+        this.employeeService.save(employee1);
+        this.employeeService.save(employee2);
+        this.employeeService.save(employee3);
+        this.employeeService.save(employee4);
+        this.employeeService.save(employee5);
+
 
 //        ModelMapper mapper = new ModelMapper();
 //        List<EmployeeDTO> list = this.employeeService.findEmployeesBornBefore(1990);
