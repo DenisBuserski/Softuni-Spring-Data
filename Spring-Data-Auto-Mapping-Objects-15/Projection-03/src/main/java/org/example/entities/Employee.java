@@ -19,6 +19,7 @@ public class Employee {
     private LocalDate birthday;
 
     @ManyToOne
+    // (cascade = CascadeType.ALL)
     private Employee manager;
 
     public Employee() {

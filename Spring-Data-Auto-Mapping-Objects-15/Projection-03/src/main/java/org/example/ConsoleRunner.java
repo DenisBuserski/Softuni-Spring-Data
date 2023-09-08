@@ -5,6 +5,7 @@ import org.example.entities.dto.CustomDTO;
 import org.example.entities.dto.EmployeeDTO;
 import org.example.services.EmployeeService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -31,25 +32,36 @@ public class ConsoleRunner implements CommandLineRunner {
         Employee employee4 = new Employee("Employee-4", "LastNameEM-4", BigDecimal.valueOf(4000), LocalDate.of(1970,1,1), null);
         Employee employee5 = new Employee("Employee-5", "LastNameEM-5", BigDecimal.valueOf(5000), LocalDate.now(), null);
 
+        System.out.println("Please select number:");
         Scanner scanner = new Scanner(System.in);
         int number = Integer.parseInt(scanner.nextLine());
         switch (number) {
             case 1 -> save(manager, employee1, employee2, employee3, employee4, employee5);
             case 2 -> findEmployeesBornBefore1990();
+            case 3 -> customDTO();
         }
+    }
 
-
-
-
-
-
-
-
-
+    private void customDTO() {
         ModelMapper mapper = new ModelMapper();
         List<Employee> employees = this.employeeService.findAll();
-        employees.stream().map(e -> mapper.map(e, CustomDTO.class)).forEach(System.out::println);
+        TypeMap<Employee, CustomDTO> employeeToCustom = mapper.createTypeMap(Employee.class, CustomDTO.class);
 
+        employeeToCustom.<Integer>addMapping(
+                source -> {
+                    Employee manager = source.getManager();
+                    if (manager == null) {
+                        return 0;
+                    }
+                    return source.getManager().getLastName().length();
+                },
+                ((destination, value) -> destination.setMangerLastNameLength(value))
+        );
+
+        employees
+                .stream()
+                .map(employeeToCustom::map)
+                .forEach(System.out::println);
 
     }
 
