@@ -30,9 +30,12 @@ public class ConsoleRunner implements CommandLineRunner {
         Employee employee4 = new Employee("Employee-4", "LastNameEM-4", BigDecimal.valueOf(4000), LocalDate.of(1970,1,1), null);
         Employee employee5 = new Employee("Employee-5", "LastNameEM-5", BigDecimal.valueOf(5000), LocalDate.now(), null);
 
-        // this.employeeService.save(employee1); // Insert employee1 with manager in the DB
+        // this.employeeService.save(employee1);
+        // Insert employee1 with manager in the DB if I have (cascade = CascadeType.ALL) on
+        // @ManyToOne
+        // private Employee manager;
 
-        // this.employeeService.save(manager);
+        this.employeeService.save(manager);
         this.employeeService.save(employee1);
         this.employeeService.save(employee2);
         this.employeeService.save(employee3);

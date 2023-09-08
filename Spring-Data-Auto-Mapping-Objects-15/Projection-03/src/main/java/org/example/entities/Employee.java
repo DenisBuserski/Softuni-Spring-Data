@@ -18,7 +18,7 @@ public class Employee {
     private BigDecimal salary;
     private LocalDate birthday;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Employee manager;
 
     public Employee() {
