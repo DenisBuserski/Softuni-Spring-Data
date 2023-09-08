@@ -9,6 +9,7 @@ import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
@@ -25,11 +26,11 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Employee manager = new Employee("MANAGER-FIRST-NAME", "MANGER-LAST-NAME", BigDecimal.valueOf(50000), LocalDate.of(1989,1,1), null);
-        Employee employee1 = new Employee("Employee-1", "LastNameEM-1", BigDecimal.valueOf(1000), LocalDate.of(1980,1,1), manager);
-        Employee employee2 = new Employee("Employee-2", "LastNameEM-2", BigDecimal.valueOf(2000), LocalDate.of(1950,1,1), manager);
+        Employee manager = new Employee("MANAGER-FIRST-NAME", "MANGER-LAST-NAME", BigDecimal.valueOf(50000), LocalDate.of(1989, 1, 1), null);
+        Employee employee1 = new Employee("Employee-1", "LastNameEM-1", BigDecimal.valueOf(1000), LocalDate.of(1980, 1, 1), manager);
+        Employee employee2 = new Employee("Employee-2", "LastNameEM-2", BigDecimal.valueOf(2000), LocalDate.of(1950, 1, 1), manager);
         Employee employee3 = new Employee("Employee-3", "LastNameEM-3", BigDecimal.valueOf(3000), LocalDate.now(), manager);
-        Employee employee4 = new Employee("Employee-4", "LastNameEM-4", BigDecimal.valueOf(4000), LocalDate.of(1970,1,1), null);
+        Employee employee4 = new Employee("Employee-4", "LastNameEM-4", BigDecimal.valueOf(4000), LocalDate.of(1970, 1, 1), null);
         Employee employee5 = new Employee("Employee-5", "LastNameEM-5", BigDecimal.valueOf(5000), LocalDate.now(), null);
 
         System.out.println("Please select number:");
@@ -45,18 +46,18 @@ public class ConsoleRunner implements CommandLineRunner {
     private void customDTO() {
         ModelMapper mapper = new ModelMapper();
         List<Employee> employees = this.employeeService.findAll();
-        TypeMap<Employee, CustomDTO> employeeToCustom = mapper.createTypeMap(Employee.class, CustomDTO.class);
 
-        employeeToCustom.<Integer>addMapping(
-                source -> {
-                    Employee manager = source.getManager();
-                    if (manager == null) {
-                        return 0;
-                    }
-                    return source.getManager().getLastName().length();
-                },
-                ((destination, value) -> destination.setMangerLastNameLength(value))
-        );
+        TypeMap<Employee, CustomDTO> employeeToCustom =
+                mapper.typeMap(Employee.class, CustomDTO.class)
+                        .addMappings(m -> m.map(
+                                        source -> {
+                                            Employee manager = source.getManager();
+                                            if (manager == null) {
+                                                return 0;
+                                            }
+                                            return source.getManager().getLastName().length();
+                                        }, (CustomDTO customDTO, Integer mangerLastNameLength) -> customDTO.setMangerLastNameLength(mangerLastNameLength)));
+                                        
 
         employees
                 .stream()
