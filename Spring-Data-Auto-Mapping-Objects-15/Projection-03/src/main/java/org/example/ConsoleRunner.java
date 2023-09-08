@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Scanner;
 
 @Component
 public class ConsoleRunner implements CommandLineRunner {
@@ -30,6 +31,35 @@ public class ConsoleRunner implements CommandLineRunner {
         Employee employee4 = new Employee("Employee-4", "LastNameEM-4", BigDecimal.valueOf(4000), LocalDate.of(1970,1,1), null);
         Employee employee5 = new Employee("Employee-5", "LastNameEM-5", BigDecimal.valueOf(5000), LocalDate.now(), null);
 
+        Scanner scanner = new Scanner(System.in);
+        int number = Integer.parseInt(scanner.nextLine());
+        switch (number) {
+            case 1 -> save(manager, employee1, employee2, employee3, employee4, employee5);
+            case 2 -> findEmployeesBornBefore1990();
+        }
+
+
+
+
+
+
+
+
+
+        ModelMapper mapper = new ModelMapper();
+        List<Employee> employees = this.employeeService.findAll();
+        employees.stream().map(e -> mapper.map(e, CustomDTO.class)).forEach(System.out::println);
+
+
+    }
+
+    private void findEmployeesBornBefore1990() {
+        ModelMapper mapper = new ModelMapper();
+        List<EmployeeDTO> list = this.employeeService.findEmployeesBornBefore(1990);
+        list.stream().map(e -> mapper.map(e, EmployeeDTO.class)).forEach(System.out::println);
+    }
+
+    private void save(Employee manager, Employee employee1, Employee employee2, Employee employee3, Employee employee4, Employee employee5) {
         // this.employeeService.save(employee1);
         // Insert employee1 with manager in the DB if I have (cascade = CascadeType.ALL) on
         // @ManyToOne
@@ -41,19 +71,5 @@ public class ConsoleRunner implements CommandLineRunner {
         this.employeeService.save(employee3);
         this.employeeService.save(employee4);
         this.employeeService.save(employee5);
-
-
-//        ModelMapper mapper = new ModelMapper();
-//        List<EmployeeDTO> list = this.employeeService.findEmployeesBornBefore(1990);
-//        list.stream().map(e -> mapper.map(e, EmployeeDTO.class)).forEach(System.out::println);
-
-//        this.employeeService.findEmployeesBornBefore(1990).forEach(System.out::println);
-
-
-//        ModelMapper mapper = new ModelMapper();
-//        List<Employee> all = this.employeeService.findAll();
-//        all.stream().map(e -> mapper.map(e, CustomDTO.class)).forEach(System.out::println);
-
-
     }
 }
