@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.entities.users.User;
 import org.example.entities.users.RegisterDTO;
+import org.example.exeptions.ValidationException;
 import org.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -31,7 +32,7 @@ public class ConsoleRunner implements CommandLineRunner {
 
     }
 
-    private String execute(String commandLine) {
+    private String execute(String commandLine) throws ValidationException {
         String[] commandParts = commandLine.split("\\|");
 
         String commandName = commandParts[0];
