@@ -39,7 +39,7 @@ public class ConsoleRunner implements CommandLineRunner {
         switch (number) {
             case 1 -> save(manager, employee1, employee2, employee3, employee4, employee5);
             case 2 -> findEmployeesBornBefore1990();
-            case 3 -> customDTO();
+            case 3 -> customDTO(); // TODO:
         }
     }
 
@@ -57,7 +57,7 @@ public class ConsoleRunner implements CommandLineRunner {
                                             }
                                             return source.getManager().getLastName().length();
                                         }, (CustomDTO customDTO, Integer mangerLastNameLength) -> customDTO.setMangerLastNameLength(mangerLastNameLength)));
-                                        
+
 
         employees
                 .stream()
