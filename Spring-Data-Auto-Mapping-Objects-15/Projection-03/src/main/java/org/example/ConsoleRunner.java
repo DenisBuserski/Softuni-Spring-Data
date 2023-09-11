@@ -46,19 +46,20 @@ public class ConsoleRunner implements CommandLineRunner {
     }
 
     private void customDTO() {
-        List<Employee> all = this.employeeService.findAll();
+        List<Employee> employees = this.employeeService.findAll();
 
         ModelMapper mapper = new ModelMapper();
         TypeMap<Employee, CustomDTO> employeeToCustom = mapper.typeMap(Employee.class, CustomDTO.class);
 
-        Converter<Employee, Integer> getLastNameLength =
-                ctx -> ctx.getSource() == null ? null : ctx.getSource().getLastName().length();
+        Converter<Employee, Integer> getLastNameLength = ctx -> ctx.getSource() == null ? null : ctx.getSource().getLastName().length();
 
         employeeToCustom.addMappings(mapping ->
-                mapping.when(Objects::nonNull).using(getLastNameLength).map(Employee::getManager, CustomDTO::setManagerLastNameLength)
-        );
+                mapping
+                        .when(Objects::nonNull)
+                        .using(getLastNameLength)
+                        .map(Employee::getManager, CustomDTO::setManagerLastNameLength));
 
-        all
+        employees
                 .stream()
                 .map(employeeToCustom::map)
                 .forEach(System.out::println);
