@@ -3,7 +3,7 @@ package org.example.entities.dto;
 public class CustomDTO {
     private String firstName;
     private String lastName;
-    private int mangerLastNameLength;
+    private int managerLastNameLength;
 
     public String getFirstName() {
         return firstName;
@@ -21,12 +21,12 @@ public class CustomDTO {
         this.lastName = lastName;
     }
 
-    public int getMangerLastNameLength() {
-        return mangerLastNameLength;
+    public int getManagerLastNameLength() {
+        return managerLastNameLength;
     }
 
-    public void setMangerLastNameLength(int mangerLastNameLength) {
-        this.mangerLastNameLength = mangerLastNameLength;
+    public void setManagerLastNameLength(int managerLastNameLength) {
+        this.managerLastNameLength = managerLastNameLength;
     }
 
     @Override
@@ -34,7 +34,7 @@ public class CustomDTO {
         return "CustomDTO{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", mangerLastNameLength=" + mangerLastNameLength +
+                ", managerLastNameLength=" + managerLastNameLength +
                 '}';
     }
 }

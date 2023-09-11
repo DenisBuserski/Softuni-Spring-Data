@@ -4,6 +4,7 @@ import org.example.entities.Employee;
 import org.example.entities.dto.CustomDTO;
 import org.example.entities.dto.EmployeeDTO;
 import org.example.services.EmployeeService;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 @Component
@@ -39,27 +41,24 @@ public class ConsoleRunner implements CommandLineRunner {
         switch (number) {
             case 1 -> save(manager, employee1, employee2, employee3, employee4, employee5);
             case 2 -> findEmployeesBornBefore1990();
-            case 3 -> customDTO(); // TODO:
+            case 3 -> customDTO();
         }
     }
 
     private void customDTO() {
+        List<Employee> all = this.employeeService.findAll();
+
         ModelMapper mapper = new ModelMapper();
-        List<Employee> employees = this.employeeService.findAll();
+        TypeMap<Employee, CustomDTO> employeeToCustom = mapper.typeMap(Employee.class, CustomDTO.class);
 
-        TypeMap<Employee, CustomDTO> employeeToCustom =
-                mapper.typeMap(Employee.class, CustomDTO.class)
-                        .addMappings(m -> m.map(
-                                        source -> {
-                                            Employee manager = source.getManager();
-                                            if (manager == null) {
-                                                return 0;
-                                            }
-                                            return source.getManager().getLastName().length();
-                                        }, (CustomDTO customDTO, Integer mangerLastNameLength) -> customDTO.setMangerLastNameLength(mangerLastNameLength)));
+        Converter<Employee, Integer> getLastNameLength =
+                ctx -> ctx.getSource() == null ? null : ctx.getSource().getLastName().length();
 
+        employeeToCustom.addMappings(mapping ->
+                mapping.when(Objects::nonNull).using(getLastNameLength).map(Employee::getManager, CustomDTO::setManagerLastNameLength)
+        );
 
-        employees
+        all
                 .stream()
                 .map(employeeToCustom::map)
                 .forEach(System.out::println);
