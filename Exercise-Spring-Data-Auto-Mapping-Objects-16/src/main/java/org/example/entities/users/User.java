@@ -1,4 +1,7 @@
-package org.example.entities;
+package org.example.entities.users;
+
+import org.example.entities.Game;
+import org.example.entities.Order;
 
 import javax.persistence.*;
 import java.util.HashSet;

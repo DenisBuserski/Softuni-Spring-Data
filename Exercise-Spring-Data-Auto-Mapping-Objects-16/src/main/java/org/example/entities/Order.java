@@ -1,5 +1,7 @@
 package org.example.entities;
 
+import org.example.entities.users.User;
+
 import javax.persistence.*;
 import java.util.Set;
 
