@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exeptions.UserAlreadyExistsException;
 import org.example.exeptions.UserNotLoggedInException;
 import org.example.exeptions.ValidationException;
 import org.example.services.ExecutorService;
@@ -29,7 +30,9 @@ public class ConsoleRunner implements CommandLineRunner {
             try {
                 result = executorService.execute(command);
             } catch (ValidationException |
-                     UserNotLoggedInException exception) {
+                     UserNotLoggedInException |
+                     UserAlreadyExistsException exception)  // If we try to register the same email with the same fullname
+            {
                 result = exception.getMessage();
             }
 

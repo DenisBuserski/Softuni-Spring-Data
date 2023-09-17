@@ -3,6 +3,7 @@ package org.example.services.impl;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
+import org.example.exeptions.UserAlreadyExistsException;
 import org.example.exeptions.UserNotLoggedInException;
 import org.example.repositories.UserRepository;
 import org.example.services.UserService;
@@ -33,8 +34,13 @@ public class UserServiceImpl implements UserService {
             toRegister.setAdmin(true);
         }
 
+        User userByEmailAndFullName = this.userRepository.findByEmailAndFullName(toRegister.getEmail(), toRegister.getFullName());
+        if (userByEmailAndFullName != null) {
+            throw new UserAlreadyExistsException();
+        }
+
         currentUser = toRegister;
-        
+
         return this.userRepository.save(toRegister);
     }
 
