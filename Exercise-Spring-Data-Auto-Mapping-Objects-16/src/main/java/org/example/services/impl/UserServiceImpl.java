@@ -33,10 +33,8 @@ public class UserServiceImpl implements UserService {
             toRegister.setAdmin(true);
         }
 
-        if (currentUser != null) {
-            currentUser = toRegister;
-        }
-
+        currentUser = toRegister;
+        
         return this.userRepository.save(toRegister);
     }
 

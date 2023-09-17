@@ -13,7 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="d750551d-2a4b-47e3-8320-0e877a40c7b1">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[select * from game_store.users;]]></console>
+      <console name="Connection" type="STANDARD" schema="game_store" session="Main"><![CDATA[select * from game_store.users;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -31,6 +31,9 @@
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
     <filters />
+  </component>
+  <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
+    <recently-used-interfaces />
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
