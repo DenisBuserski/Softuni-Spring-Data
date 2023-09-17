@@ -26,22 +26,33 @@ public class ExecutorServiceImpl implements ExecutorService {
 
         String commandName = commandParts[0];
         String commandOutput = switch (commandName) {
-            case REGISTER_USER_COMMAND -> {
-                RegisterDTO registerData = new RegisterDTO(commandParts);
-                User user = userService.register(registerData);
-
-                yield String.format("%s user was registered", user.getFullName());
-            }
-            case LOGIN_USER_COMMAND -> {
-                LoginDTO loginData = new LoginDTO(commandParts);
-                Optional<User> user = userService.login(loginData);
-
-                yield String.format("Successfully logged in %s", user.getFullName());
-            }
-//            case LOGOUT -> userService.logout();
+            case REGISTER_USER_COMMAND -> registerUser(commandParts);
+            case LOGIN_USER_COMMAND -> loginUser(commandParts);
+            case LOGOUT -> logoutUser(commandParts);
             default -> "Unknown command!";
         };
 
         return commandOutput;
+    }
+
+    private String logoutUser(String[] commandParts) {
+        userService.logout();
+    }
+
+    private String loginUser(String[] commandParts) {
+        LoginDTO loginData = new LoginDTO(commandParts);
+        Optional<User> user = userService.login(loginData);
+
+        if (user.isPresent()) {
+            return String.format("Successfully logged in %s", user.get().getFullName());
+        }
+        return "Wrong credentials!";
+    }
+
+    private String registerUser(String[] commandParts) {
+        RegisterDTO registerData = new RegisterDTO(commandParts);
+        User user = userService.register(registerData);
+
+        return String.format("%s user was registered", user.getFullName());
     }
 }
