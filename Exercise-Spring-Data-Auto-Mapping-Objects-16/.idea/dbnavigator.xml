@@ -2,7 +2,7 @@
 <project version="4">
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -13,7 +13,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="d750551d-2a4b-47e3-8320-0e877a40c7b1">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[select * from game_store.games;]]></console>
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[select * from game_store.users;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">

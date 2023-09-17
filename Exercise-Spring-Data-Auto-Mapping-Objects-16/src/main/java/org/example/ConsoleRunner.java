@@ -28,7 +28,15 @@ public class ConsoleRunner implements CommandLineRunner {
         Scanner scanner = new Scanner(System.in);
         String command = scanner.nextLine();
 
-        System.out.println(execute(command));
+        String result;
+
+        try {
+            result = execute(command);
+        } catch (ValidationException exception) {
+            result = exception.getMessage();
+        }
+
+        System.out.println(result);
 
     }
 

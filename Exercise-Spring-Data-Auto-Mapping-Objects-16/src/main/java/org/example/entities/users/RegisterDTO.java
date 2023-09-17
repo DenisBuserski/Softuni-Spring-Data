@@ -27,8 +27,12 @@ public class RegisterDTO {
     private void validate() throws ValidationException {
         if (!email.contains("@") || !email.contains(".")) { // TODO: Add better logic
             throw new ValidationException("Email must contain @ and >");
-        } else if () {
+        }
 
+        // TODO: Validate password
+
+        if (!password.equals(confirmPassword)) {
+            throw new ValidationException("Password and Confirm password must match!");
         }
     }
 
