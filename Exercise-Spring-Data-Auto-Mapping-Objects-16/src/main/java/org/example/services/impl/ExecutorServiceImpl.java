@@ -36,13 +36,20 @@ public class ExecutorServiceImpl implements ExecutorService {
         return commandOutput;
     }
 
+    private String registerUser(String[] commandParts) {
+        RegisterDTO registerData = new RegisterDTO(commandParts);
+        User user = userService.register(registerData);
+
+        return String.format("%s user was registered", user.getFullName());
+    }
+
     private String addGame() {
         User loggedUser = this.userService.getLoggedUser();
 
         if (!loggedUser.isAdmin()) {
 
         }
-        
+
         return null;
     }
 
@@ -63,10 +70,5 @@ public class ExecutorServiceImpl implements ExecutorService {
         return "Wrong credentials!";
     }
 
-    private String registerUser(String[] commandParts) {
-        RegisterDTO registerData = new RegisterDTO(commandParts);
-        User user = userService.register(registerData);
 
-        return String.format("%s user was registered", user.getFullName());
-    }
 }

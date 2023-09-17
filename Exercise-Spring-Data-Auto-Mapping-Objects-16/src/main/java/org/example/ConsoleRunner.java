@@ -22,17 +22,22 @@ public class ConsoleRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Scanner scanner = new Scanner(System.in);
-        String command = scanner.nextLine();
 
-        String result;
-        try {
-            result = executorService.execute(command);
-        } catch (ValidationException |
-                 UserNotLoggedInException exception) {
-            result = exception.getMessage();
+        String command = scanner.nextLine();
+        while (!command.equals("STOP")) {
+            String result;
+            try {
+                result = executorService.execute(command);
+            } catch (ValidationException |
+                     UserNotLoggedInException exception) {
+                result = exception.getMessage();
+            }
+
+            System.out.println(result);
+
+            command = scanner.nextLine();
         }
 
-        System.out.println(result);
 
     }
 

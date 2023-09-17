@@ -25,15 +25,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User register(RegisterDTO registerData) {
-//        if (currentUser != null) {
-//
-//        }
         ModelMapper mapper = new ModelMapper();
         User toRegister = mapper.map(registerData, User.class);
 
         long userCount = this.userRepository.count();
         if (userCount == 0) {
             toRegister.setAdmin(true);
+        }
+
+        if (currentUser != null) {
+            currentUser = toRegister;
         }
 
         return this.userRepository.save(toRegister);
