@@ -28,11 +28,22 @@ public class ExecutorServiceImpl implements ExecutorService {
         String commandOutput = switch (commandName) {
             case REGISTER_USER_COMMAND -> registerUser(commandParts);
             case LOGIN_USER_COMMAND -> loginUser(commandParts);
-            case LOGOUT -> logoutUser();
+            case LOGOUT_USER_COMMAND -> logoutUser();
+            case ADD_GAME_COMMAND -> addGame();
             default -> "Unknown command!";
         };
 
         return commandOutput;
+    }
+
+    private String addGame() {
+        User loggedUser = this.userService.getLoggedUser();
+
+        if (!loggedUser.isAdmin()) {
+
+        }
+        
+        return null;
     }
 
     private String logoutUser() {

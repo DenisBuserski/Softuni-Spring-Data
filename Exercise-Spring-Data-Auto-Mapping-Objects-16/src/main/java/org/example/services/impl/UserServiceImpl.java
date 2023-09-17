@@ -3,6 +3,7 @@ package org.example.services.impl;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
+import org.example.exeptions.UserNotLoggedInException;
 import org.example.repositories.UserRepository;
 import org.example.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -49,8 +50,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getLoggedUser() {
-        return null;
+    public User getLoggedUser() throws UserNotLoggedInException {
+        if (this.currentUser == null) {
+            throw new UserNotLoggedInException();
+        }
+        return this.currentUser;
     }
 
     public User getCurrentUser() {

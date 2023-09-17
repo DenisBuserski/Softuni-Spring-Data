@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exeptions.UserNotLoggedInException;
 import org.example.exeptions.ValidationException;
 import org.example.services.ExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,8 @@ public class ConsoleRunner implements CommandLineRunner {
         String result;
         try {
             result = executorService.execute(command);
-        } catch (ValidationException exception) {
+        } catch (ValidationException |
+                 UserNotLoggedInException exception) {
             result = exception.getMessage();
         }
 

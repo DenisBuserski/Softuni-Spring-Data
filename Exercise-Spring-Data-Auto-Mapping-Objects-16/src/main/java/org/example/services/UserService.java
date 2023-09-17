@@ -3,6 +3,7 @@ package org.example.services;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
+import org.example.exeptions.UserNotLoggedInException;
 
 import java.util.Optional;
 
@@ -11,7 +12,7 @@ public interface UserService {
 
     Optional<User> login(LoginDTO loginDTO);
 
-    User getLoggedUser();
+    User getLoggedUser() throws UserNotLoggedInException;
 
     void logout();
 }
