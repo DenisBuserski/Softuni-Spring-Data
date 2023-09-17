@@ -1,12 +1,15 @@
 package org.example.services;
 
+import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
+
+import java.util.Optional;
 
 public interface UserService {
     User register(RegisterDTO registerData);
 
-    User login();
+    Optional<User> login(LoginDTO loginDTO);
 
     void logout();
 }
