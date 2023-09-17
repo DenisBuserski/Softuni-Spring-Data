@@ -11,5 +11,7 @@ public interface UserService {
 
     Optional<User> login(LoginDTO loginDTO);
 
+    User getLoggedUser();
+
     void logout();
 }

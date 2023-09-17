@@ -48,6 +48,11 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public User getLoggedUser() {
+        return null;
+    }
+
     public User getCurrentUser() {
         return this.currentUser;
     }
