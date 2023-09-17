@@ -37,7 +37,9 @@ public class ExecutorServiceImpl implements ExecutorService {
 
     private String logoutUser() {
         User loggedUser = this.userService.getLoggedUser();
-        
+
+        this.userService.logout();
+        return String.format("User %s successfully logged out!", loggedUser.getFullName());
     }
 
     private String loginUser(String[] commandParts) {
