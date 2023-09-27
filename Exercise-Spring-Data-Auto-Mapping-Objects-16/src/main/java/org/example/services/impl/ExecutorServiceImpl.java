@@ -40,7 +40,7 @@ public class ExecutorServiceImpl implements ExecutorService {
         RegisterDTO registerData = new RegisterDTO(commandParts);
         User user = userService.register(registerData);
 
-        return String.format("%s user was registered", user.getFullName());
+        return String.format("User: %s was registered", user.getFullName());
     }
 
     private String addGame() {

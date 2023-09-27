@@ -3,6 +3,9 @@ package org.example.entities.users;
 
 import org.example.exeptions.ValidationException;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class RegisterDTO {
     private String email;
     private String password;
@@ -25,14 +28,23 @@ public class RegisterDTO {
     }
 
     private void validate() throws ValidationException {
-        if (!email.contains("@") || !email.contains(".")) { // TODO: Add better logic
-            throw new ValidationException("Email must contain @ and >");
-        }
+        emailValidation();
+
 
         // TODO: Validate password
 
         if (!password.equals(confirmPassword)) {
             throw new ValidationException("Password and Confirm password must match!");
+        }
+    }
+
+    private void emailValidation() {
+        String emailPattern = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-]+)(\\.[a-zA-Z]{2,5}){1,2}$";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher emailMatcher = pattern.matcher(email);
+
+        if (!emailMatcher.matches()) {
+            throw new ValidationException("Email is not correct!");
         }
     }
 

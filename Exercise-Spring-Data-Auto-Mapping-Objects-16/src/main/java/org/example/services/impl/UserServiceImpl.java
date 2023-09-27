@@ -27,21 +27,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public User register(RegisterDTO registerData) {
         ModelMapper mapper = new ModelMapper();
-        User toRegister = mapper.map(registerData, User.class);
+        User userToRegister = mapper.map(registerData, User.class);
 
-        long userCount = this.userRepository.count();
-        if (userCount == 0) {
-            toRegister.setAdmin(true);
-        }
-
-        User userByEmailAndFullName = this.userRepository.findByEmailAndFullName(toRegister.getEmail(), toRegister.getFullName());
+        User userByEmailAndFullName = this.userRepository.findByEmailAndFullName(userToRegister.getEmail(), userToRegister.getFullName());
         if (userByEmailAndFullName != null) {
             throw new UserAlreadyExistsException();
         }
 
-        currentUser = toRegister;
+        long userCount = this.userRepository.count();
+        if (userCount == 0) {
+            userToRegister.setAdmin(true);
+        }
 
-        return this.userRepository.save(toRegister);
+        currentUser = userToRegister;
+
+        return this.userRepository.save(userToRegister);
     }
 
     @Override
