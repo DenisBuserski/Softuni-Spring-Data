@@ -1,4 +1,4 @@
-## RegisterUser
+# RegisterUser
 ## RegisterUser|<email>|<password>|<confirmPassword>|<fullName>
 
 ## Register 5 users
@@ -14,26 +14,25 @@ RegisterUser|user_1@abv.bg.|UserOfSofia1234|UserOfSofia1234|Ivan
 STOP
 
 ## Incorrect password
-## Length < 6
+### Length < 6
 RegisterUser|user_1@abv.bg|12345|12345|Ivan
 STOP
 
-## Uppercase letter
+### Uppercase letter
 RegisterUser|user_1@abv.bg|12345user|12345user|Ivan
 STOP
 
-## Lowercase letter
+### Lowercase letter
 RegisterUser|user_1@abv.bg|12345USER|12345USER|Ivan
 STOP
 
-## Digit
+### Digit
 RegisterUser|user_1@abv.bg|Username|Username|Ivan
 STOP
 
-
-
 ## Incorrect confirmPassword
-
+RegisterUser|user_1@abv.bg|Username123|Username12345|Ivan
+STOP
 
 
 

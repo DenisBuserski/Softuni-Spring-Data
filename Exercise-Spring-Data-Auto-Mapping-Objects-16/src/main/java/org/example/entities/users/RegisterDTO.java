@@ -39,7 +39,7 @@ public class RegisterDTO {
 
     private void confirmPasswordValidation() {
         if (!password.equals(confirmPassword)) {
-            throw new IncorrectEmailException("Password and Confirm password must match!");
+            throw new ConfirmationPasswordException("Password and Confirmation password must match!");
         }
     }
 

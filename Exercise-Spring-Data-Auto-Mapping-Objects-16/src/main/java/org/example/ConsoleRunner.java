@@ -32,6 +32,7 @@ public class ConsoleRunner implements CommandLineRunner {
                      PasswordUpperCaseException | // If the password does not contain an uppercase letter
                      PasswordLowerCaseException | // If the password does not contain a lowercase letter
                      PasswordDigitException | // If the password does not contain a digit
+                     ConfirmationPasswordException | // If Confirmation password != Password
                      UserNotLoggedInException |
                      UserAlreadyExistsException exception)  // If we try to register the same email with the same fullname
             {
