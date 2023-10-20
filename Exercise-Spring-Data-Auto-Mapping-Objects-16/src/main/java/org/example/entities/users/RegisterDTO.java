@@ -1,8 +1,6 @@
 package org.example.entities.users;
 
-import org.example.exeptions.IncorrectEmailException;
-import org.example.exeptions.PasswordLengthException;
-import org.example.exeptions.PasswordUpperCaseException;
+import org.example.exeptions.*;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,6 +48,10 @@ public class RegisterDTO {
             throw new PasswordLengthException("Password must be at least 6 symbols!");
         } else if (!password.chars().anyMatch(Character::isUpperCase)) {
             throw new PasswordUpperCaseException("Password must must contain at least 1 uppercase letter!");
+        } else if (!password.chars().anyMatch(Character::isLowerCase)) {
+            throw new PasswordLowerCaseException("Password must must contain at least 1 lowercase letter!");
+        } else if (!password.chars().anyMatch(Character::isDigit)) {
+            throw new PasswordDigitException("Password must must contain at least 1 digit!");
         }
     }
 

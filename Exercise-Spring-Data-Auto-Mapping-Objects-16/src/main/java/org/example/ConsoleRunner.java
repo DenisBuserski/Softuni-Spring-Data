@@ -30,6 +30,8 @@ public class ConsoleRunner implements CommandLineRunner {
             } catch (IncorrectEmailException | // If the email is not in the correct format
                      PasswordLengthException | // If the password length is < 6 symbols
                      PasswordUpperCaseException | // If the password does not contain an uppercase letter
+                     PasswordLowerCaseException | // If the password does not contain a lowercase letter
+                     PasswordDigitException | // If the password does not contain a digit
                      UserNotLoggedInException |
                      UserAlreadyExistsException exception)  // If we try to register the same email with the same fullname
             {

@@ -15,11 +15,19 @@ STOP
 
 ## Incorrect password
 ## Length < 6
-RegisterUser|user_1@abv.bg|12345|UserOfSofia1234|Ivan
+RegisterUser|user_1@abv.bg|12345|12345|Ivan
 STOP
 
 ## Uppercase letter
-RegisterUser|user_1@abv.bg|12345user|UserOfSofia1234|Ivan
+RegisterUser|user_1@abv.bg|12345user|12345user|Ivan
+STOP
+
+## Lowercase letter
+RegisterUser|user_1@abv.bg|12345USER|12345USER|Ivan
+STOP
+
+## Digit
+RegisterUser|user_1@abv.bg|Username|Username|Ivan
 STOP
 
 
