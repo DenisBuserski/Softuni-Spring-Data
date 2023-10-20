@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 
         long userCount = this.userRepository.count();
         if (userCount == 0) {
-            userToRegister.setAdmin(true);
+            userToRegister.setAdmin(true); // First registered user is ADMIN
         }
 
         currentUser = userToRegister;

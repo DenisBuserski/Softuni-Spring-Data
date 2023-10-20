@@ -1,7 +1,6 @@
 package org.example.entities.users;
 
-
-import org.example.exeptions.ValidationException;
+import org.example.exeptions.IncorrectEmailException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -18,7 +17,7 @@ public class RegisterDTO {
      * commandParts[0] is skipped because it contains the command name, which is not needed in the user object
      * @param commandParts All data read from the console
      */
-    public RegisterDTO(String[] commandParts) throws ValidationException {
+    public RegisterDTO(String[] commandParts) throws IncorrectEmailException {
         this.email = commandParts[1];
         this.password = commandParts[2];
         this.confirmPassword = commandParts[3];
@@ -27,15 +26,21 @@ public class RegisterDTO {
         this.validate();
     }
 
-    private void validate() throws ValidationException {
+    private void validate() throws IncorrectEmailException {
         emailValidation();
+        passwordValidation();
+
 
 
         // TODO: Validate password
 
         if (!password.equals(confirmPassword)) {
-            throw new ValidationException("Password and Confirm password must match!");
+            throw new IncorrectEmailException("Password and Confirm password must match!");
         }
+    }
+
+    private void passwordValidation() {
+
     }
 
     private void emailValidation() {
@@ -44,7 +49,7 @@ public class RegisterDTO {
         Matcher emailMatcher = pattern.matcher(email);
 
         if (!emailMatcher.matches()) {
-            throw new ValidationException("Email is not correct!");
+            throw new IncorrectEmailException("Email is not correct!");
         }
     }
 

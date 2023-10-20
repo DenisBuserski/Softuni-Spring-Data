@@ -2,7 +2,7 @@ package org.example;
 
 import org.example.exeptions.UserAlreadyExistsException;
 import org.example.exeptions.UserNotLoggedInException;
-import org.example.exeptions.ValidationException;
+import org.example.exeptions.IncorrectEmailException;
 import org.example.services.ExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -29,7 +29,7 @@ public class ConsoleRunner implements CommandLineRunner {
             String result;
             try {
                 result = executorService.execute(command);
-            } catch (ValidationException |
+            } catch (IncorrectEmailException | // If the email is not in the correct format
                      UserNotLoggedInException |
                      UserAlreadyExistsException exception)  // If we try to register the same email with the same fullname
             {

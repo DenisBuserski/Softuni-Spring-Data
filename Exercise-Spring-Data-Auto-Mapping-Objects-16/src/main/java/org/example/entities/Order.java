@@ -19,7 +19,6 @@ public class Order {
 
     public Order() {
     }
-
     public Order(User buyer, Set<Game> products) {
         this.buyer = buyer;
         this.products = products;

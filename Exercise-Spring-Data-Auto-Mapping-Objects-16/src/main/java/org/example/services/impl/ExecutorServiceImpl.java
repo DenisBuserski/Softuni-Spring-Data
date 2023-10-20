@@ -3,7 +3,7 @@ package org.example.services.impl;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
-import org.example.exeptions.ValidationException;
+import org.example.exeptions.IncorrectEmailException;
 import org.example.services.ExecutorService;
 import org.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class ExecutorServiceImpl implements ExecutorService {
     }
 
     @Override
-    public String execute(String commandLine) throws ValidationException {
+    public String execute(String commandLine) throws IncorrectEmailException {
         String[] commandParts = commandLine.split("\\|");
 
         String commandName = commandParts[0];
