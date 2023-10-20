@@ -30,11 +30,6 @@ public class RegisterDTO {
         emailValidation();
         passwordValidation();
         confirmPasswordValidation();
-
-
-
-
-
     }
 
     private void confirmPasswordValidation() {

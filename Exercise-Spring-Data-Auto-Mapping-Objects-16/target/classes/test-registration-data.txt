@@ -34,6 +34,10 @@ STOP
 RegisterUser|user_1@abv.bg|Username123|Username12345|Ivan
 STOP
 
+## User already exists
+RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
+RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
+STOP
 
 
 

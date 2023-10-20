@@ -33,8 +33,8 @@ public class ConsoleRunner implements CommandLineRunner {
                      PasswordLowerCaseException | // If the password does not contain a lowercase letter
                      PasswordDigitException | // If the password does not contain a digit
                      ConfirmationPasswordException | // If Confirmation password != Password
-                     UserNotLoggedInException |
-                     UserAlreadyExistsException exception)  // If we try to register the same email with the same fullname
+                     UserAlreadyExistsException | // If we try to register the same email with the same fullname
+                     UserNotLoggedInException exception)
             {
                 result = exception.getMessage();
             }

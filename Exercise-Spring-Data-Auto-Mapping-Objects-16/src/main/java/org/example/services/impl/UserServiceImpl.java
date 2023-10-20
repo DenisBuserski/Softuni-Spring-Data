@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
         User userByEmailAndFullName = this.userRepository.findByEmailAndFullName(userToRegister.getEmail(), userToRegister.getFullName());
         if (userByEmailAndFullName != null) {
-            throw new UserAlreadyExistsException();
+            throw new UserAlreadyExistsException("User already exists!");
         }
 
         long userCount = this.userRepository.count();
