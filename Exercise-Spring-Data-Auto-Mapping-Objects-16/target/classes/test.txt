@@ -1,11 +1,40 @@
 ## RegisterUser
 ## RegisterUser|<email>|<password>|<confirmPassword>|<fullName>
+
+## Register 5 users
 RegisterUser|ivan@abv.bg|Ivan12|Ivan12|Ivan
 RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
 RegisterUser|alex_ivanov@abv.bg|Alex_Ivanov_10|Alex_Ivanov_10|Alex
 RegisterUser|mariika@abv.bg|MimiL0ve|MimiL0ve|Maria
-RegisterUser|gosheto@abv.bg.|goShkoepi4|goShkoepi4|Georgi
+RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
 STOP
+
+## Incorrect email
+RegisterUser|user_1@abv.bg.|UserOfSofia1234|UserOfSofia1234|Ivan
+STOP
+
+## Incorrect password
+## Length < 6
+RegisterUser|user_1@abv.bg|12345|UserOfSofia1234|Ivan
+STOP
+
+## Uppercase letter
+RegisterUser|user_1@abv.bg|12345user|UserOfSofia1234|Ivan
+STOP
+
+
+
+## Incorrect confirmPassword
+
+
+
+
+
+
+
+
+
+
 
 
 LoginUser

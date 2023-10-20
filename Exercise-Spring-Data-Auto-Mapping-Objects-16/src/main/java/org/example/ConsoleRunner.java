@@ -1,8 +1,6 @@
 package org.example;
 
-import org.example.exeptions.UserAlreadyExistsException;
-import org.example.exeptions.UserNotLoggedInException;
-import org.example.exeptions.IncorrectEmailException;
+import org.example.exeptions.*;
 import org.example.services.ExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -30,6 +28,8 @@ public class ConsoleRunner implements CommandLineRunner {
             try {
                 result = executorService.execute(command);
             } catch (IncorrectEmailException | // If the email is not in the correct format
+                     PasswordLengthException | // If the password length is < 6 symbols
+                     PasswordUpperCaseException | // If the password does not contain an uppercase letter
                      UserNotLoggedInException |
                      UserAlreadyExistsException exception)  // If we try to register the same email with the same fullname
             {

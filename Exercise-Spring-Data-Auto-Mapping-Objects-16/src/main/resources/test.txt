@@ -10,8 +10,19 @@ RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
 STOP
 
 ## Incorrect email
+RegisterUser|user_1@abv.bg.|UserOfSofia1234|UserOfSofia1234|Ivan
+STOP
 
 ## Incorrect password
+## Length < 6
+RegisterUser|user_1@abv.bg|12345|UserOfSofia1234|Ivan
+STOP
+
+## Uppercase letter
+RegisterUser|user_1@abv.bg|12345user|UserOfSofia1234|Ivan
+STOP
+
+
 
 ## Incorrect confirmPassword
 

@@ -1,6 +1,8 @@
 package org.example.entities.users;
 
 import org.example.exeptions.IncorrectEmailException;
+import org.example.exeptions.PasswordLengthException;
+import org.example.exeptions.PasswordUpperCaseException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,18 +31,26 @@ public class RegisterDTO {
     private void validate() throws IncorrectEmailException {
         emailValidation();
         passwordValidation();
+        confirmPasswordValidation();
 
 
 
-        // TODO: Validate password
 
+
+    }
+
+    private void confirmPasswordValidation() {
         if (!password.equals(confirmPassword)) {
             throw new IncorrectEmailException("Password and Confirm password must match!");
         }
     }
 
     private void passwordValidation() {
-
+        if (password.length() < 6) {
+            throw new PasswordLengthException("Password must be at least 6 symbols!");
+        } else if (!password.chars().anyMatch(Character::isUpperCase)) {
+            throw new PasswordUpperCaseException("Password must must contain at least 1 uppercase letter!");
+        }
     }
 
     private void emailValidation() {
