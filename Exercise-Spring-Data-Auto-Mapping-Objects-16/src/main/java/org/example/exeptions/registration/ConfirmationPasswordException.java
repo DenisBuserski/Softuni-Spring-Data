@@ -1,4 +1,4 @@
-package org.example.exeptions;
+package org.example.exeptions.registration;
 
 public class ConfirmationPasswordException extends RuntimeException {
 

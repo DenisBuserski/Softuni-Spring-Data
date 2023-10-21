@@ -1,4 +1,4 @@
-package org.example.exeptions;
+package org.example.exeptions.registration;
 
 public class UserAlreadyExistsException extends RuntimeException {
     public UserAlreadyExistsException(String reason) {

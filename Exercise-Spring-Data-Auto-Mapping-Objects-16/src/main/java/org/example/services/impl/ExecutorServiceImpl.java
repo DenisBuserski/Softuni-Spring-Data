@@ -3,7 +3,7 @@ package org.example.services.impl;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
-import org.example.exeptions.IncorrectEmailException;
+import org.example.exeptions.registration.IncorrectEmailException;
 import org.example.services.ExecutorService;
 import org.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +43,16 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("User: %s was registered", user.getFullName());
     }
 
+    private String loginUser(String[] commandParts) {
+        LoginDTO loginData = new LoginDTO(commandParts);
+        Optional<User> user = userService.login(loginData);
+
+        if (user.isPresent()) {
+            return String.format("Successfully logged in %s", user.get().getFullName());
+        }
+        return "Wrong credentials!";
+    }
+
     private String addGame() {
         User loggedUser = this.userService.getLoggedUser();
 
@@ -60,15 +70,7 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("User %s successfully logged out!", loggedUser.getFullName());
     }
 
-    private String loginUser(String[] commandParts) {
-        LoginDTO loginData = new LoginDTO(commandParts);
-        Optional<User> user = userService.login(loginData);
 
-        if (user.isPresent()) {
-            return String.format("Successfully logged in %s", user.get().getFullName());
-        }
-        return "Wrong credentials!";
-    }
 
 
 }

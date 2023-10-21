@@ -1,7 +1,7 @@
 package org.example.entities.users;
 
 public class LoginDTO {
-    private String email; // TODO: Validate email
+    private String email;
     private String password;
 
     public LoginDTO(String [] commandLineParts) {

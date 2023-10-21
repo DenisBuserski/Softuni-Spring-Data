@@ -3,7 +3,8 @@ package org.example.services.impl;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
-import org.example.exeptions.UserAlreadyExistsException;
+import org.example.exeptions.registration.UserAlreadyExistsException;
+import org.example.exeptions.UserNotFoundException;
 import org.example.exeptions.UserNotLoggedInException;
 import org.example.repositories.UserRepository;
 import org.example.services.UserService;
@@ -39,19 +40,20 @@ public class UserServiceImpl implements UserService {
             userToRegister.setAdmin(true); // First registered user is ADMIN
         }
 
-        currentUser = userToRegister;
-
         return this.userRepository.save(userToRegister);
     }
 
     @Override
     public Optional<User> login(LoginDTO loginDTO) {
-
         Optional<User> user = this.userRepository.findByEmailAndPassword(loginDTO.getEmail(), loginDTO.getPassword());
 
-        user.ifPresent(value -> this.currentUser = value);
+        if (user.isPresent()) {
+            this.currentUser = user.get();
+            return user;
+        } else {
+            throw new UserNotFoundException("No user with this email has been found!");
+        }
 
-        return user;
     }
 
     @Override

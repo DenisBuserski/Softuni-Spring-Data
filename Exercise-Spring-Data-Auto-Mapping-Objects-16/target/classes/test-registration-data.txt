@@ -39,17 +39,3 @@ RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
 RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
 STOP
 
-
-
-
-
-
-
-
-
-
-LoginUser
-LoginUser|ivan@ivan.com|Ivan12
-
-
-Logout

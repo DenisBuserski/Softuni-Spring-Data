@@ -1,6 +1,6 @@
 package org.example.entities.users;
 
-import org.example.exeptions.*;
+import org.example.exeptions.registration.*;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,7 +17,7 @@ public class RegisterDTO {
      * commandParts[0] is skipped because it contains the command name, which is not needed in the user object
      * @param commandParts All data read from the console
      */
-    public RegisterDTO(String[] commandParts) throws IncorrectEmailException {
+    public RegisterDTO(String[] commandParts) {
         this.email = commandParts[1];
         this.password = commandParts[2];
         this.confirmPassword = commandParts[3];

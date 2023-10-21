@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.exeptions.*;
+import org.example.exeptions.registration.*;
 import org.example.services.ExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -34,6 +35,7 @@ public class ConsoleRunner implements CommandLineRunner {
                      PasswordDigitException | // If the password does not contain a digit
                      ConfirmationPasswordException | // If Confirmation password != Password
                      UserAlreadyExistsException | // If we try to register the same email with the same fullname
+                     UserNotFoundException | //
                      UserNotLoggedInException exception)
             {
                 result = exception.getMessage();

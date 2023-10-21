@@ -1,4 +1,4 @@
-package org.example.exeptions;
+package org.example.exeptions.registration;
 
 public class PasswordDigitException extends RuntimeException {
 
