@@ -50,6 +50,13 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("Successfully logged in %s", user.get().getFullName());
     }
 
+    private String logoutUser() {
+        User loggedUser = this.userService.getLoggedUser();
+
+        this.userService.logout();
+        return String.format("User %s successfully logged out!", loggedUser.getFullName());
+    }
+
     private String addGame() {
         User loggedUser = this.userService.getLoggedUser();
 
@@ -58,13 +65,6 @@ public class ExecutorServiceImpl implements ExecutorService {
         }
 
         return null;
-    }
-
-    private String logoutUser() {
-        User loggedUser = this.userService.getLoggedUser();
-
-        this.userService.logout();
-        return String.format("User %s successfully logged out!", loggedUser.getFullName());
     }
 
 

@@ -8,3 +8,11 @@ STOP
 ## Incorrect email / password
 LoginUser|test.test@gmail.com|testPass123
 STOP
+
+
+## Logout User
+## Logout
+
+## There is not logged user
+Logout
+STOP

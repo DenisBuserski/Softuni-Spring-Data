@@ -53,13 +53,12 @@ public class UserServiceImpl implements UserService {
         } else {
             throw new UserNotFoundException("Incorrect email / password!");
         }
-
     }
 
     @Override
-    public User getLoggedUser() throws UserNotLoggedInException {
+    public User getLoggedUser() {
         if (this.currentUser == null) {
-            throw new UserNotLoggedInException();
+            throw new UserNotLoggedInException("No logged user!");
         }
         return this.currentUser;
     }
