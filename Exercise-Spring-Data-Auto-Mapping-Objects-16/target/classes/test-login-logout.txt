@@ -13,5 +13,6 @@ STOP
 ## Logout User
 ## Logout
 
+## There is not logged user
 Logout
 STOP
