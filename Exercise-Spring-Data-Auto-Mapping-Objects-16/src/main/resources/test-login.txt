@@ -5,6 +5,6 @@
 LoginUser|petar.petrov@gmail.com|Pe60123456
 STOP
 
-## User not found
+## Incorrect email / password
 LoginUser|test.test@gmail.com|testPass123
 STOP

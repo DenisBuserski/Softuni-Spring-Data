@@ -47,10 +47,7 @@ public class ExecutorServiceImpl implements ExecutorService {
         LoginDTO loginData = new LoginDTO(commandParts);
         Optional<User> user = userService.login(loginData);
 
-        if (user.isPresent()) {
-            return String.format("Successfully logged in %s", user.get().getFullName());
-        }
-        return "Wrong credentials!";
+        return String.format("Successfully logged in %s", user.get().getFullName());
     }
 
     private String addGame() {
@@ -69,8 +66,6 @@ public class ExecutorServiceImpl implements ExecutorService {
         this.userService.logout();
         return String.format("User %s successfully logged out!", loggedUser.getFullName());
     }
-
-
 
 
 }

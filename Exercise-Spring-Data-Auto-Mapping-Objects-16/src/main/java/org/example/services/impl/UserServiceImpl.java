@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
             this.currentUser = user.get();
             return user;
         } else {
-            throw new UserNotFoundException("No user with this email has been found!");
+            throw new UserNotFoundException("Incorrect email / password!");
         }
 
     }
