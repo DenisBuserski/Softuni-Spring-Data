@@ -1,5 +1,6 @@
 package org.example.services.impl;
 
+import org.example.entities.games.GameDTO;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
@@ -67,7 +68,9 @@ public class ExecutorServiceImpl implements ExecutorService {
             throw new UserIsNotAdminException("User is not an Admin!");
         }
 
-        return null;
+        GameDTO gameData = new GameDTO(commandParts);
+
+        return String.format("");
     }
 
 

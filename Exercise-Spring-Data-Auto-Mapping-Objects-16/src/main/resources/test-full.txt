@@ -1,6 +1,13 @@
-Correct Add - Edit - Delete
+# Correct Add - Edit - Delete
+## AddGame|<title>|<price>|<size>|<trailer>|<thubnailURL>|<description>|<releaseDate>
+## EditGame|<id>|<values>
+## DeleteGame|<id>
 RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
 LoginUser|gosheto@abv.bg|goShkoepi4
+AddGame|
+Logout
+STOP
+
 
 Incorrect Add
 
@@ -18,6 +25,3 @@ Logout
 STOP
 
 
-AddGame|<title>|<price>|<size>|<trailer>|<thubnailURL>|<description>|<releaseDate>
-EditGame|<id>|<values>
-DeleteGame|<id>

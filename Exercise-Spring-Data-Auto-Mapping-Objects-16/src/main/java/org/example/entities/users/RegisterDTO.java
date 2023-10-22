@@ -26,7 +26,7 @@ public class RegisterDTO {
         this.validate();
     }
 
-    private void validate() throws IncorrectEmailException {
+    private void validate() {
         emailValidation();
         passwordValidation();
         confirmPasswordValidation();

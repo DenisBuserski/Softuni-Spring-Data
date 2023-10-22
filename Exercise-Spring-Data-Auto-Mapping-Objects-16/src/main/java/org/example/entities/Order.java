@@ -1,5 +1,6 @@
 package org.example.entities;
 
+import org.example.entities.games.Game;
 import org.example.entities.users.User;
 
 import javax.persistence.*;
