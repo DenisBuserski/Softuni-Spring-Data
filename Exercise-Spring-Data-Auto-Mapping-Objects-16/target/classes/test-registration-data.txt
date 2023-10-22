@@ -1,14 +1,6 @@
 # RegisterUser
 ## RegisterUser|<email>|<password>|<confirmPassword>|<fullName>
 
-## Register 5 users
-RegisterUser|ivan@abv.bg|Ivan12|Ivan12|Ivan
-RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
-RegisterUser|alex_ivanov@abv.bg|Alex_Ivanov_10|Alex_Ivanov_10|Alex
-RegisterUser|mariika@abv.bg|MimiL0ve|MimiL0ve|Maria
-RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
-STOP
-
 ## Incorrect email
 RegisterUser|user_1@abv.bg.|UserOfSofia1234|UserOfSofia1234|Ivan
 STOP
@@ -37,5 +29,13 @@ STOP
 ## User already exists
 RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
 RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
+STOP
+
+## Register 5 users
+RegisterUser|ivan@abv.bg|Ivan12|Ivan12|Ivan
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
+RegisterUser|alex_ivanov@abv.bg|Alex_Ivanov_10|Alex_Ivanov_10|Alex
+RegisterUser|mariika@abv.bg|MimiL0ve|MimiL0ve|Maria
+RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
 STOP
 

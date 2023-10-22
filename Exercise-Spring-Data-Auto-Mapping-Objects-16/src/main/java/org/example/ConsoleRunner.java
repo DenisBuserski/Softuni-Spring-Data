@@ -35,6 +35,7 @@ public class ConsoleRunner implements CommandLineRunner {
                      PasswordDigitException | // If the password does not contain a digit
                      ConfirmationPasswordException | // If Confirmation password != Password
                      UserAlreadyExistsException | // If we try to register the same email with the same fullname
+
                      UserNotFoundException | //
                      UserNotLoggedInException exception) // When we want to logout and there is not user logged in
             {

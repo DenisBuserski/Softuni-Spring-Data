@@ -1,8 +1,10 @@
 # LoginUser
 ## LoginUser|<email>|<password>
 
-## Successful login
+## Successful login and logout
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
 LoginUser|petar.petrov@gmail.com|Pe60123456
+Logout
 STOP
 
 ## Incorrect email / password
