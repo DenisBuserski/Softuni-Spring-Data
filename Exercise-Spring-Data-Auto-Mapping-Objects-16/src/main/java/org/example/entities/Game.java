@@ -32,7 +32,6 @@ public class Game {
 
     public Game() {
     }
-
     public Game(String title, String trailerId, String thumbnailUrl, float size, BigDecimal price, String description, LocalDate releaseDate) {
         this.title = title;
         this.trailerId = trailerId;
