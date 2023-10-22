@@ -36,7 +36,7 @@ public class ConsoleRunner implements CommandLineRunner {
                      ConfirmationPasswordException | // If Confirmation password != Password
                      UserAlreadyExistsException | // If we try to register the same email with the same fullname
 
-                     UserNotFoundException | //
+                     UserNotFoundException | // Incorrect email / password
                      UserNotLoggedInException exception) // When we want to logout and there is not user logged in
             {
                 result = exception.getMessage();
