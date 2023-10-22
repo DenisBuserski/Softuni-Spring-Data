@@ -3,7 +3,7 @@ package org.example.services;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
-import org.example.exeptions.UserNotLoggedInException;
+import org.example.exeptions.login_logout.UserNotLoggedInException;
 
 import java.util.Optional;
 

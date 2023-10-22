@@ -3,6 +3,7 @@ package org.example.services.impl;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
+import org.example.exeptions.games.UserIsNotAdminException;
 import org.example.exeptions.registration.IncorrectEmailException;
 import org.example.services.ExecutorService;
 import org.example.services.UserService;
@@ -29,7 +30,9 @@ public class ExecutorServiceImpl implements ExecutorService {
             case REGISTER_USER_COMMAND -> registerUser(commandParts);
             case LOGIN_USER_COMMAND -> loginUser(commandParts);
             case LOGOUT_USER_COMMAND -> logoutUser();
-            case ADD_GAME_COMMAND -> addGame();
+            case ADD_GAME_COMMAND -> addGame(commandParts);
+            case EDIT_GAME_COMMAND -> null;
+            case DELETE_GAME_COMMAND -> null;
             default -> "Unknown command!";
         };
 
@@ -57,11 +60,11 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("User %s successfully logged out!", loggedUser.getFullName());
     }
 
-    private String addGame() {
+    private String addGame(String[] commandParts) {
         User loggedUser = this.userService.getLoggedUser();
 
-        if (!loggedUser.isAdmin()) {
-
+        if (loggedUser.isAdmin()) {
+            throw new UserIsNotAdminException("User is not an Admin!");
         }
 
         return null;

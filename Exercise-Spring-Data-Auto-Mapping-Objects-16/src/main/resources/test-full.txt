@@ -1,0 +1,23 @@
+Correct Add - Edit - Delete
+RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
+LoginUser|gosheto@abv.bg|goShkoepi4
+
+Incorrect Add
+
+Incorrect Edit
+
+Incorrect Delete
+
+
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
+RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
+LoginUser|gosheto@abv.bg|goShkoepi4
+
+
+Logout
+STOP
+
+
+AddGame|<title>|<price>|<size>|<trailer>|<thubnailURL>|<description>|<releaseDate>
+EditGame|<id>|<values>
+DeleteGame|<id>

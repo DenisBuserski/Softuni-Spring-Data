@@ -1,6 +1,8 @@
 package org.example;
 
-import org.example.exeptions.*;
+import org.example.exeptions.games.UserIsNotAdminException;
+import org.example.exeptions.login_logout.UserNotFoundException;
+import org.example.exeptions.login_logout.UserNotLoggedInException;
 import org.example.exeptions.registration.*;
 import org.example.services.ExecutorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +39,11 @@ public class ConsoleRunner implements CommandLineRunner {
                      UserAlreadyExistsException | // If we try to register the same email with the same fullname
 
                      UserNotFoundException | // Incorrect email / password
-                     UserNotLoggedInException exception) // When we want to logout and there is not user logged in
+                     UserNotLoggedInException | // When we want to logout and there is not user logged in
+                     UserIsNotAdminException // User tries to add edit or delete games
+
+
+                    exception)
             {
                 result = exception.getMessage();
             }

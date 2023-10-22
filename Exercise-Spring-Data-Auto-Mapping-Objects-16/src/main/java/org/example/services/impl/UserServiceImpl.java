@@ -4,8 +4,8 @@ import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
 import org.example.exeptions.registration.UserAlreadyExistsException;
-import org.example.exeptions.UserNotFoundException;
-import org.example.exeptions.UserNotLoggedInException;
+import org.example.exeptions.login_logout.UserNotFoundException;
+import org.example.exeptions.login_logout.UserNotLoggedInException;
 import org.example.repositories.UserRepository;
 import org.example.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -56,6 +56,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void logout() {
+        this.currentUser = null;
+    }
+
+    @Override
     public User getLoggedUser() {
         if (this.currentUser == null) {
             throw new UserNotLoggedInException("No logged user!");
@@ -67,8 +72,5 @@ public class UserServiceImpl implements UserService {
         return this.currentUser;
     }
 
-    @Override
-    public void logout() {
-        this.currentUser = null;
-    }
+
 }
