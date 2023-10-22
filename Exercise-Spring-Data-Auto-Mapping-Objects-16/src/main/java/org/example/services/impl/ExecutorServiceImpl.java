@@ -1,5 +1,6 @@
 package org.example.services.impl;
 
+import org.example.entities.games.Game;
 import org.example.entities.games.GameDTO;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
@@ -64,13 +65,14 @@ public class ExecutorServiceImpl implements ExecutorService {
     private String addGame(String[] commandParts) {
         User loggedUser = this.userService.getLoggedUser();
 
-        if (loggedUser.isAdmin()) {
+        if (!loggedUser.isAdmin()) {
             throw new UserIsNotAdminException("User is not an Admin!");
         }
 
         GameDTO gameData = new GameDTO(commandParts);
+        Game game = this.userService.addGame(gameData);
 
-        return String.format("");
+        return String.format("Added " + game.getTitle());
     }
 
 

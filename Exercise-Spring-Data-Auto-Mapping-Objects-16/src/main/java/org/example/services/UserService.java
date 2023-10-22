@@ -1,5 +1,7 @@
 package org.example.services;
 
+import org.example.entities.games.Game;
+import org.example.entities.games.GameDTO;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
@@ -15,4 +17,6 @@ public interface UserService {
     User getLoggedUser() throws UserNotLoggedInException;
 
     void logout();
+
+    Game addGame(GameDTO gameData);
 }

@@ -1,11 +1,14 @@
 package org.example.services.impl;
 
+import org.example.entities.games.Game;
+import org.example.entities.games.GameDTO;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
 import org.example.exeptions.registration.UserAlreadyExistsException;
 import org.example.exeptions.login_logout.UserNotFoundException;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
+import org.example.repositories.GameRepository;
 import org.example.repositories.UserRepository;
 import org.example.services.UserService;
 import org.modelmapper.ModelMapper;
@@ -18,9 +21,11 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
     private User currentUser;
     private final UserRepository userRepository;
+    private final GameRepository gameRepository;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository) {
+    public UserServiceImpl(UserRepository userRepository, GameRepository gameRepository) {
+        this.gameRepository = gameRepository;
         this.currentUser = null;
         this.userRepository = userRepository;
     }
@@ -66,6 +71,14 @@ public class UserServiceImpl implements UserService {
             throw new UserNotLoggedInException("No logged user!");
         }
         return this.currentUser;
+    }
+
+    @Override
+    public Game addGame(GameDTO gameData) {
+        ModelMapper mapper = new ModelMapper();
+        Game gameToAdd = mapper.map(gameData, Game.class);
+
+        return this.gameRepository.save(gameToAdd);
     }
 
     public User getCurrentUser() {

@@ -2,6 +2,7 @@ package org.example.entities.games;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class GameDTO {
     private String title;
@@ -19,7 +20,8 @@ public class GameDTO {
         this.trailerId = commandParts[4];
         this.thumbnailUrl = commandParts[5];
         this.description = commandParts[6];
-        this.releaseDate = LocalDate.parse(commandParts[7]);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        this.releaseDate = LocalDate.parse(commandParts[7], formatter);
 
         this.validate();
     }
