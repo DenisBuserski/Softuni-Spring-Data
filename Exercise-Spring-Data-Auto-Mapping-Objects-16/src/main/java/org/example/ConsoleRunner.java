@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exeptions.NoLoggedUserException;
 import org.example.exeptions.games.UserIsNotAdminException;
 import org.example.exeptions.login_logout.UserNotFoundException;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
@@ -40,14 +41,14 @@ public class ConsoleRunner implements CommandLineRunner {
                     ConfirmationPasswordException | // If Confirmation password != Password
 
 
-                     UserNotFoundException | // Incorrect email / password
-                     UserNotLoggedInException | // When we want to logout and there is no user logged in
+                    UserNotFoundException | // Incorrect email / password
+                    UserNotLoggedInException | // When we want to logout and there is no user logged in
 
-                     UserIsNotAdminException // User tries to add edit or delete games
+                    UserIsNotAdminException | // User tries to add edit or delete games
 
+                    NoLoggedUserException // No user is logged in when we try to add a game
 
-                    exception)
-            {
+                            exception) {
                 result = exception.getMessage();
             }
 

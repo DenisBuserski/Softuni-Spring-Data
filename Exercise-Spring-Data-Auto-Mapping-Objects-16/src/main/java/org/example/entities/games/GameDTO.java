@@ -15,7 +15,7 @@ public class GameDTO {
 
     public GameDTO(String[] commandParts) {
         this.title = commandParts[1];
-        this.price = BigDecimal.valueOf(Long.parseLong(commandParts[2]));
+        this.price = BigDecimal.valueOf(Long.valueOf(commandParts[2]));
         this.size = Float.parseFloat(commandParts[3]);
         this.trailerId = commandParts[4];
         this.thumbnailUrl = commandParts[5];
