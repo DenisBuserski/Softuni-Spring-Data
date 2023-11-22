@@ -32,9 +32,13 @@ public class RegisterDTO {
         confirmPasswordValidation();
     }
 
-    private void confirmPasswordValidation() {
-        if (!password.equals(confirmPassword)) {
-            throw new ConfirmationPasswordException("Password and Confirmation password must match!");
+    private void emailValidation() {
+        String emailPattern = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-]+)(\\.[a-zA-Z]{2,5}){1,2}$";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher emailMatcher = pattern.matcher(email);
+
+        if (!emailMatcher.matches()) {
+            throw new IncorrectEmailException("Email is not correct!");
         }
     }
 
@@ -50,15 +54,16 @@ public class RegisterDTO {
         }
     }
 
-    private void emailValidation() {
-        String emailPattern = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-]+)(\\.[a-zA-Z]{2,5}){1,2}$";
-        Pattern pattern = Pattern.compile(emailPattern);
-        Matcher emailMatcher = pattern.matcher(email);
-
-        if (!emailMatcher.matches()) {
-            throw new IncorrectEmailException("Email is not correct!");
+    private void confirmPasswordValidation() {
+        if (!password.equals(confirmPassword)) {
+            throw new ConfirmationPasswordException("Password and Confirmation password must match!");
         }
     }
+
+
+
+
+
 
     public String getEmail() {
         return email;
