@@ -1,12 +1,17 @@
 # RegisterUser
 ## RegisterUser|<email>|<password>|<confirmPassword>|<fullName>
 
+
+## User already exists
+RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
+RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
+STOP
+
 ## Incorrect email
 RegisterUser|user_1@abv.bg.|UserOfSofia1234|UserOfSofia1234|Ivan
 STOP
 
-## Incorrect password
-### Length < 6
+## Incorrect password(Length < 6)
 RegisterUser|user_1@abv.bg|12345|12345|Ivan
 STOP
 
@@ -26,10 +31,6 @@ STOP
 RegisterUser|user_1@abv.bg|Username123|Username12345|Ivan
 STOP
 
-## User already exists
-RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
-RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan
-STOP
 
 ## Register 5 users
 RegisterUser|ivan@abv.bg|Ivan12|Ivan12|Ivan
