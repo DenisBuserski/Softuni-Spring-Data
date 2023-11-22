@@ -41,7 +41,7 @@ public class ConsoleRunner implements CommandLineRunner {
 
 
                      UserNotFoundException | // Incorrect email / password
-                     UserNotLoggedInException | // When we want to logout and there is not user logged in
+                     UserNotLoggedInException | // When we want to logout and there is no user logged in
 
                      UserIsNotAdminException // User tries to add edit or delete games
 

@@ -1,9 +1,8 @@
 # LoginUser
 ## LoginUser|<email>|<password>
 
-## Successful login and logout
-RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
-LoginUser|petar.petrov@gmail.com|Pe60123456
+
+## There is not logged user
 Logout
 STOP
 
@@ -11,6 +10,13 @@ STOP
 LoginUser|test.test@gmail.com|testPass123
 STOP
 
-## There is not logged user
+
+## Successful login and logout
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
+LoginUser|petar.petrov@gmail.com|Pe60123456
 Logout
 STOP
+
+
+
+
