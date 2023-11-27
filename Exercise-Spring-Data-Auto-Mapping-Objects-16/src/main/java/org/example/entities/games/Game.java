@@ -13,16 +13,16 @@ public class Game {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
+    private BigDecimal price;
+
+    private float size;
+
     @Column(name = "trailer_id", nullable = false)
     private String trailerId;
 
     @Column(name = "thumbnail_url", nullable = false)
     private String thumbnailUrl;
-
-    private float size;
-
-    @Column(nullable = false)
-    private BigDecimal price;
 
     private String description;
 
@@ -32,12 +32,12 @@ public class Game {
 
     public Game() {
     }
-    public Game(String title, String trailerId, String thumbnailUrl, float size, BigDecimal price, String description, LocalDate releaseDate) {
+    public Game(String title, BigDecimal price, float size, String trailerId, String thumbnailUrl, String description, LocalDate releaseDate) {
         this.title = title;
+        this.price = price;
+        this.size = size;
         this.trailerId = trailerId;
         this.thumbnailUrl = thumbnailUrl;
-        this.size = size;
-        this.price = price;
         this.description = description;
         this.releaseDate = releaseDate;
     }

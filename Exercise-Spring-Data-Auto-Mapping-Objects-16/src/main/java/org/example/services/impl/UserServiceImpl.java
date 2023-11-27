@@ -11,7 +11,10 @@ import org.example.exeptions.login_logout.UserNotLoggedInException;
 import org.example.repositories.GameRepository;
 import org.example.repositories.UserRepository;
 import org.example.services.UserService;
+import org.modelmapper.Converter;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeMap;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,7 +80,7 @@ public class UserServiceImpl implements UserService {
     public Game addGame(GameDTO gameData) {
         ModelMapper mapper = new ModelMapper();
         Game gameToAdd = mapper.map(gameData, Game.class);
-
+        
         return this.gameRepository.save(gameToAdd);
     }
 

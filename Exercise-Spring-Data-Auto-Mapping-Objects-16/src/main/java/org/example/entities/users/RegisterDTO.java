@@ -60,11 +60,6 @@ public class RegisterDTO {
         }
     }
 
-
-
-
-
-
     public String getEmail() {
         return email;
     }
