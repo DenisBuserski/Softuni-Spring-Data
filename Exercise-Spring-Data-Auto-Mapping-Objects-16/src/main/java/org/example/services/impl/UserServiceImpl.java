@@ -2,6 +2,7 @@ package org.example.services.impl;
 
 import org.example.entities.games.Game;
 import org.example.entities.games.GameDTO;
+import org.example.entities.games.GameMapper;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
@@ -78,9 +79,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Game addGame(GameDTO gameData) {
-        ModelMapper mapper = new ModelMapper();
-        Game gameToAdd = mapper.map(gameData, Game.class);
-        
+        Game gameToAdd = GameMapper.mapGameDTOToGame(gameData);
+
         return this.gameRepository.save(gameToAdd);
     }
 
