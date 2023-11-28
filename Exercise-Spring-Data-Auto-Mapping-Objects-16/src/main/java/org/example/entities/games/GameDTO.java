@@ -1,5 +1,7 @@
 package org.example.entities.games;
 
+import org.example.exeptions.IncorrectGameException;
+import org.example.exeptions.registration.IncorrectEmailException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.NumberUtils;
 
@@ -7,6 +9,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GameDTO {
     private String title;
@@ -27,10 +31,38 @@ public class GameDTO {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         this.releaseDate = LocalDate.parse(commandParts[7], formatter);
 
-        // this.validate();
+        this.validate();
     }
 
     private void validate() {
+        String titleRegex = "^[A-Z].{2,99}$";
+        Pattern titlePattern = Pattern.compile(titleRegex);
+        Matcher titleMatcher = titlePattern.matcher(title);
+
+        if (!titleMatcher.matches()) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
+
+        int priceCheck = price.compareTo(BigDecimal.ZERO);
+        if (priceCheck == 1) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
+
+        if (size <= 0) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
+
+        if () {
+
+        }
+
+        if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
+
+        if (description.length() < 20) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
 
     }
 
