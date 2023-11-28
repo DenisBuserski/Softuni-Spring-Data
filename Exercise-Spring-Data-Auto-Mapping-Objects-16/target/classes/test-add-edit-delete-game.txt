@@ -3,6 +3,25 @@
 ## EditGame|<id>|<values>
 ## DeleteGame|<id>
 
+
+## User is not an admin
+
+## Incorrect title
+
+## Incorrect price
+
+## Incorrect size
+
+## Incorrect trailer
+
+## Incorrect thumbnail URL
+
+## Incorrect description
+
+
+## Add 5 games
+
+
 RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
 LoginUser|gosheto@abv.bg|goShkoepi4
 AddGame|Battlefield|149.99|50|www.youtube.com|https://test|The best game ever|01-01-2020
@@ -10,11 +29,7 @@ Logout
 STOP
 
 
-Incorrect Add
 
-Incorrect Edit
-
-Incorrect Delete
 
 
 RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar

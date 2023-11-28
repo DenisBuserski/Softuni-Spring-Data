@@ -1,7 +1,6 @@
 package org.example;
 
-import org.example.exeptions.IncorrectGameException;
-import org.example.exeptions.NoLoggedUserException;
+import org.example.exeptions.games.IncorrectGameException;
 import org.example.exeptions.games.UserIsNotAdminException;
 import org.example.exeptions.login_logout.UserNotFoundException;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
@@ -25,6 +24,7 @@ public class ConsoleRunner implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        System.out.println("Please insert your command:" + System.lineSeparator());
         Scanner scanner = new Scanner(System.in);
 
         String command = scanner.nextLine();
@@ -33,6 +33,7 @@ public class ConsoleRunner implements CommandLineRunner {
             try {
                 result = executorService.execute(command);
             } catch (
+                    // REGISTRATION
                     UserAlreadyExistsException | // If we try to register the same email with the same fullname
                     IncorrectEmailException | // If the email is not in the correct format
                     PasswordLengthException | // If the password length is < 6 symbols
@@ -41,15 +42,14 @@ public class ConsoleRunner implements CommandLineRunner {
                     PasswordDigitException | // If the password does not contain a digit
                     ConfirmationPasswordException | // If Confirmation password != Password
 
-
-                    UserNotFoundException | // Incorrect email / password
+                    // Login / Logout
                     UserNotLoggedInException | // When we want to logout and there is no user logged in
+                    UserNotFoundException | // Incorrect email / password
 
+                    // Games
                     UserIsNotAdminException | // User tries to add edit or delete games
-
-                    NoLoggedUserException | // No user is logged in when we try to add a game
-
                     IncorrectGameException // Incorrect game data
+                            
                             exception) {
                 result = exception.getMessage();
             }

@@ -5,9 +5,7 @@ import org.example.entities.games.GameDTO;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
-import org.example.exeptions.NoLoggedUserException;
 import org.example.exeptions.games.UserIsNotAdminException;
-import org.example.exeptions.login_logout.UserNotLoggedInException;
 import org.example.exeptions.registration.IncorrectEmailException;
 import org.example.services.ExecutorService;
 import org.example.services.UserService;
@@ -69,8 +67,6 @@ public class ExecutorServiceImpl implements ExecutorService {
 
         if (!loggedUser.isAdmin()) {
             throw new UserIsNotAdminException("User is not an Admin!");
-        } else if (loggedUser == null) {
-            throw new NoLoggedUserException("No user is logged in!");
         }
 
         GameDTO gameData = new GameDTO(commandParts);

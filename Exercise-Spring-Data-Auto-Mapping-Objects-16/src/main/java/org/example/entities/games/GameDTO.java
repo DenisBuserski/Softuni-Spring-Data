@@ -1,12 +1,8 @@
 package org.example.entities.games;
 
-import org.example.exeptions.IncorrectGameException;
-import org.example.exeptions.registration.IncorrectEmailException;
-import org.springframework.stereotype.Service;
-import org.springframework.util.NumberUtils;
+import org.example.exeptions.games.IncorrectGameException;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
@@ -52,9 +48,7 @@ public class GameDTO {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
 
-        if () {
 
-        }
 
         if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
             throw new IncorrectGameException("Provided game data is incorrect!");
