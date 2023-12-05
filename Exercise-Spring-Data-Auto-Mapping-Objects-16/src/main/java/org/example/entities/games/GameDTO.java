@@ -34,25 +34,10 @@ public class GameDTO {
         titleValidation();
         priceValidation();
         sizeValidation();
-        // trailerValidation();
+        trailerValidation();
         thumbnailValidation();
         descriptionValidation();
-
-
-
-//
-
-//
-//
-//
-
-//
-
-
     }
-
-
-
 
     private void titleValidation() {
         String titleRegex = "^[A-Z].{2,99}$";
@@ -74,6 +59,9 @@ public class GameDTO {
         if (size <= 0) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
+    }
+
+    private void trailerValidation() {
     }
 
     private void thumbnailValidation() {

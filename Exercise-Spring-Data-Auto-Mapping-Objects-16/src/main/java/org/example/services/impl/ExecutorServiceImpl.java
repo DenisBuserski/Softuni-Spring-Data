@@ -33,8 +33,8 @@ public class ExecutorServiceImpl implements ExecutorService {
             case LOGIN_USER_COMMAND -> loginUser(commandParts);
             case LOGOUT_USER_COMMAND -> logoutUser();
             case ADD_GAME_COMMAND -> addGame(commandParts);
-            case EDIT_GAME_COMMAND -> null;
-            case DELETE_GAME_COMMAND -> null;
+            case EDIT_GAME_COMMAND -> editGame(commandParts);
+            case DELETE_GAME_COMMAND -> deleteGame(commandParts);
             default -> "Unknown command!";
         };
 
@@ -73,6 +73,12 @@ public class ExecutorServiceImpl implements ExecutorService {
         Game game = this.userService.addGame(gameData);
 
         return String.format("Added " + game.getTitle());
+    }
+
+    private String editGame(String[] commandParts) {
+    }
+
+    private String deleteGame(String[] commandParts) {
     }
 
 
