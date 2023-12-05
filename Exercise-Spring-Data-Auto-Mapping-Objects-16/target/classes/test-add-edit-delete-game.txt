@@ -12,10 +12,22 @@ AddGame|Battlefield|149.99|50|www.youtube.com|https://test|The best game ever|01
 STOP
 
 ## Incorrect title
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
+LoginUser|petar.petrov@gmail.com|Pe60123456|
+AddGame|incorrect|149.99|50|www.youtube.com|https://test|The best game ever|01-01-2020
+STOP
 
 ## Incorrect price
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
+LoginUser|petar.petrov@gmail.com|Pe60123456|
+AddGame|Battlefield|-1|50|www.youtube.com|https://test|The best game ever|01-01-2020
+STOP
 
 ## Incorrect size
+RegisterUser|petar.petrov@gmail.com|Pe60123456|Pe60123456|Petar
+LoginUser|petar.petrov@gmail.com|Pe60123456|
+AddGame|incorrect|149.99|-1|www.youtube.com|https://test|The best game ever|01-01-2020
+STOP
 
 ## Incorrect trailer
 

@@ -24,7 +24,7 @@ public class ExecutorServiceImpl implements ExecutorService {
     }
 
     @Override
-    public String execute(String commandLine) throws IncorrectEmailException {
+    public String execute(String commandLine) {
         String[] commandParts = commandLine.split("\\|");
 
         String commandName = commandParts[0];

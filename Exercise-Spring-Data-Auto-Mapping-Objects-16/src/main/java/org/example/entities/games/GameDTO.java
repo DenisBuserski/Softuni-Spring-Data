@@ -31,6 +31,31 @@ public class GameDTO {
     }
 
     private void validate() {
+        titleValidation();
+        priceValidation();
+        sizeValidation();
+
+
+
+//
+
+//
+//
+//
+//        if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
+//            throw new IncorrectGameException("Provided game data is incorrect!");
+//        }
+//
+//        if (description.length() < 20) {
+//            throw new IncorrectGameException("Provided game data is incorrect!");
+//        }
+
+    }
+
+
+
+
+    private void titleValidation() {
         String titleRegex = "^[A-Z].{2,99}$";
         Pattern titlePattern = Pattern.compile(titleRegex);
         Matcher titleMatcher = titlePattern.matcher(title);
@@ -38,28 +63,19 @@ public class GameDTO {
         if (!titleMatcher.matches()) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
+    }
 
-        int priceCheck = price.compareTo(BigDecimal.ZERO);
-        if (priceCheck == 1) {
+    private void priceValidation() {
+        if (price.signum() <= 0) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
+    }
 
+    private void sizeValidation() {
         if (size <= 0) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
-
-
-
-        if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
-            throw new IncorrectGameException("Provided game data is incorrect!");
-        }
-
-        if (description.length() < 20) {
-            throw new IncorrectGameException("Provided game data is incorrect!");
-        }
-
     }
-
 
 
     public String getTitle() {
