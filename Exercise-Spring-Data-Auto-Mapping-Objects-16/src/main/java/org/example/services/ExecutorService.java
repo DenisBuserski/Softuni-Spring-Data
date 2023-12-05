@@ -7,7 +7,6 @@ public interface ExecutorService {
     String ADD_GAME_COMMAND = "AddGame";
     String EDIT_GAME_COMMAND = "EditGame";
     String DELETE_GAME_COMMAND = "DeleteGame";
-
     String ALL_GAMES = "AllGames";
     String DETAIL_GAME = "DetailGame";
     String OWNED_GAMES = "OwnedGames";

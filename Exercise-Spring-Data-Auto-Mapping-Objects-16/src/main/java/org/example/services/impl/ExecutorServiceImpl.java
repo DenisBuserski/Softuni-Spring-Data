@@ -46,7 +46,7 @@ public class ExecutorServiceImpl implements ExecutorService {
 
         return commandOutput;
     }
-    
+
     private String registerUser(String[] commandParts) {
         RegisterDTO registerData = new RegisterDTO(commandParts);
         User user = userService.register(registerData);

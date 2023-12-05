@@ -1,7 +1,5 @@
 # Correct Add - Edit - Delete
 ## AddGame|<title>|<price>|<size>|<trailer>|<thubnailURL>|<description>|<releaseDate>
-## EditGame|<id>|<values>
-## DeleteGame|<id>
 
 
 ## User is not an admin
@@ -64,5 +62,10 @@ LoginUser|gosheto@abv.bg|goShkoepi4
 
 Logout
 STOP
+
+
+
+## EditGame|<id>|<values>
+## DeleteGame|<id>
 
 
