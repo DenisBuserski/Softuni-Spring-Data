@@ -34,6 +34,9 @@ public class GameDTO {
         titleValidation();
         priceValidation();
         sizeValidation();
+        // trailerValidation();
+        thumbnailValidation();
+        descriptionValidation();
 
 
 
@@ -42,13 +45,9 @@ public class GameDTO {
 //
 //
 //
-//        if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
-//            throw new IncorrectGameException("Provided game data is incorrect!");
-//        }
+
 //
-//        if (description.length() < 20) {
-//            throw new IncorrectGameException("Provided game data is incorrect!");
-//        }
+
 
     }
 
@@ -73,6 +72,18 @@ public class GameDTO {
 
     private void sizeValidation() {
         if (size <= 0) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
+    }
+
+    private void thumbnailValidation() {
+        if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
+    }
+
+    private void descriptionValidation() {
+        if (description.length() < 20) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
     }
