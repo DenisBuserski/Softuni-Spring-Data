@@ -8,5 +8,12 @@ public interface ExecutorService {
     String EDIT_GAME_COMMAND = "EditGame";
     String DELETE_GAME_COMMAND = "DeleteGame";
 
+    String ALL_GAMES = "AllGames";
+    String DETAIL_GAME = "DetailGame";
+    String OWNED_GAMES = "OwnedGames";
+    String ADD_ITEM = "AddItem";
+    String REMOVE_ITEM = "RemoveItem";
+    String BUY_ITEM = "BuyItem";
+
     String execute(String command);
 }

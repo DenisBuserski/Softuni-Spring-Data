@@ -35,12 +35,18 @@ public class ExecutorServiceImpl implements ExecutorService {
             case ADD_GAME_COMMAND -> addGame(commandParts);
             case EDIT_GAME_COMMAND -> editGame(commandParts);
             case DELETE_GAME_COMMAND -> deleteGame(commandParts);
+            case ALL_GAMES -> allGames(commandParts);
+            case DETAIL_GAME -> detailGame(commandParts);
+            case OWNED_GAMES -> ownedGames(commandParts);
+            case ADD_ITEM -> addItem(commandParts);
+            case REMOVE_ITEM -> removeItem(commandParts);
+            case BUY_ITEM -> buyItem(commandParts);
             default -> "Unknown command!";
         };
 
         return commandOutput;
     }
-
+    
     private String registerUser(String[] commandParts) {
         RegisterDTO registerData = new RegisterDTO(commandParts);
         User user = userService.register(registerData);
@@ -76,9 +82,34 @@ public class ExecutorServiceImpl implements ExecutorService {
     }
 
     private String editGame(String[] commandParts) {
+        return null;
     }
 
     private String deleteGame(String[] commandParts) {
+        return null;
+    }
+
+    private String allGames(String[] commandParts) {
+        return null;
+    }
+
+    private String detailGame(String[] commandParts) {
+        return null;
+    }
+    private String ownedGames(String[] commandParts) {
+        return null;
+    }
+
+    private String addItem(String[] commandParts) {
+        return null;
+    }
+
+    private String removeItem(String[] commandParts) {
+        return null;
+    }
+
+    private String buyItem(String[] commandParts) {
+        return null;
     }
 
 
