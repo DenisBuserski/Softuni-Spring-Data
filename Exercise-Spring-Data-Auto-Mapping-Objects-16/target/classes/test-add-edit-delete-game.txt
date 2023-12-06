@@ -1,7 +1,5 @@
 # Correct Add - Edit - Delete
 ## AddGame|<title>|<price>|<size>|<trailer>|<thubnailURL>|<description>|<releaseDate>
-## EditGame|<id>|<values>
-## DeleteGame|<id>
 
 
 ## User is not an admin
@@ -44,12 +42,10 @@ AddGame|incorrect|149.99|-1|www.youtube.com|test|No info|01-01-2020
 STOP
 
 
-## Add 5 games
-
-
+## Add game
 RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
 LoginUser|gosheto@abv.bg|goShkoepi4
-AddGame|Battlefield|149.99|50|www.youtube.com|https://test|The best game ever|01-01-2020
+AddGame|Battlefield|149.99|50|www.youtube.com/watch?v=edYCtaNueQY|https://|The best game I have ever played. I really like it.|01-01-2020
 Logout
 STOP
 
@@ -64,5 +60,10 @@ LoginUser|gosheto@abv.bg|goShkoepi4
 
 Logout
 STOP
+
+
+
+## EditGame|<id>|<values>
+## DeleteGame|<id>
 
 

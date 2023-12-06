@@ -1,6 +1,7 @@
 package org.example.entities.games;
 
 import org.example.exeptions.games.IncorrectGameException;
+import org.example.exeptions.registration.IncorrectEmailException;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -62,12 +63,20 @@ public class GameDTO {
     }
 
     private void trailerValidation() {
+        String trailerRegex = "www\\.youtube\\.com/watch\\?v=[a-zA-Z]{11}";
+        Pattern trailerPattern = Pattern.compile(trailerRegex);
+        Matcher trailerMatcher = trailerPattern.matcher(trailerId);
+
+        if (!trailerMatcher.matches()) {
+            throw new IncorrectGameException("Provided game data is incorrect!");
+        }
     }
 
     private void thumbnailValidation() {
-        if (!thumbnailUrl.startsWith("http://") || !thumbnailUrl.startsWith("https://")) {
+        if (!thumbnailUrl.equals("http://") && !thumbnailUrl.equals("https://")) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
+
     }
 
     private void descriptionValidation() {
