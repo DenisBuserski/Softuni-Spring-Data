@@ -21,7 +21,7 @@ public interface UserService {
 
     Game addGame(GameDTO gameData);
 
-    int editGame(int gameId, BigDecimal gamePrice);
+    void editGame(int gameId, BigDecimal gamePrice);
 
     void delete(int gameId);
 }

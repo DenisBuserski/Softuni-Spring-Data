@@ -87,21 +87,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int editGame(int gameId, BigDecimal gamePrice) {
+    public void editGame(int gameId, BigDecimal gamePrice) {
         Optional<Game> id = this.gameRepository.findById(gameId);
 
         if(!id.isPresent()) {
             throw new NotFoundGameException("Game not found!");
         }
 
-        Game game = this.gameRepository.findById(gameId).get();
-        int id1 = game.getId();
-
-
-        // int i = this.gameRepository.updatePriceById(game);
-
-        // return
-        return 1;
+        // this.gameRepository.updatePriceById(gameId, gamePrice);
     }
 
     @Override

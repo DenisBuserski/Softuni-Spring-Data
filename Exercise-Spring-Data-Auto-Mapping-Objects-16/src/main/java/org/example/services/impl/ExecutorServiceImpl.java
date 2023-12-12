@@ -18,12 +18,10 @@ import java.util.Optional;
 @Service
 public class ExecutorServiceImpl implements ExecutorService {
     private final UserService userService;
-    private final GameService gameService;
 
     @Autowired
-    public ExecutorServiceImpl(UserService userService, GameService gameService) {
+    public ExecutorServiceImpl(UserService userService) {
         this.userService = userService;
-        this.gameService = gameService;
     }
 
     @Override
@@ -88,7 +86,7 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("Added " + game.getTitle());
     }
 
-    private String editGame(String[] commandParts) {
+    private String editGame(String[] commandParts) { // TODO: Fix it
         isAdmin();
 
         int gameId = Integer.parseInt(commandParts[1]);
