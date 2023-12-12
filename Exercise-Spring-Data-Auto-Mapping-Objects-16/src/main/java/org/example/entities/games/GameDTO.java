@@ -20,7 +20,7 @@ public class GameDTO {
 
     public GameDTO(String[] commandParts) {
         this.title = commandParts[1];
-        this.price = new BigDecimal(commandParts[2]); // .setScale(2, RoundingMode.DOWN);
+        this.price = new BigDecimal(commandParts[2]);
         this.size = Float.parseFloat(commandParts[3]);
         this.trailerId = String.valueOf(commandParts[4]);
         this.thumbnailUrl = commandParts[5];
@@ -76,7 +76,6 @@ public class GameDTO {
         if (!thumbnailUrl.equals("http://") && !thumbnailUrl.equals("https://")) {
             throw new IncorrectGameException("Provided game data is incorrect!");
         }
-
     }
 
     private void descriptionValidation() {

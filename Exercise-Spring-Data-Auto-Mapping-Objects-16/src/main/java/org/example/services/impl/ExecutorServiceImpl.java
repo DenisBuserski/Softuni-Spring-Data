@@ -12,6 +12,7 @@ import org.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
@@ -82,7 +83,16 @@ public class ExecutorServiceImpl implements ExecutorService {
     }
 
     private String editGame(String[] commandParts) {
-        return null;
+        User loggedUser = this.userService.getLoggedUser();
+
+        if (!loggedUser.isAdmin()) {
+            throw new UserIsNotAdminException("User is not an Admin!");
+        }
+
+        int gameId = Integer.parseInt(commandParts[1]);
+        BigDecimal gamePrice = new BigDecimal(commandParts[2]);
+
+        return String.format("Successfully corrected " + );
     }
 
     private String deleteGame(String[] commandParts) {
