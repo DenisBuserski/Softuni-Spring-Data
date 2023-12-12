@@ -1,6 +1,6 @@
 # LoginUser
 ## LoginUser|<email>|<password>
-
+===============================
 
 ## There is not logged user
 Logout

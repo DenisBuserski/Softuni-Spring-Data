@@ -1,6 +1,6 @@
 # RegisterUser
 ## RegisterUser|<email>|<password>|<confirmPassword>|<fullName>
-
+===============================================================
 
 ## User already exists
 RegisterUser|user_1@abv.bg|Username12345|Username12345|Ivan

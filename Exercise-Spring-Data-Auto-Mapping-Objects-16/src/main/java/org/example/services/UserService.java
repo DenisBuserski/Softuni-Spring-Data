@@ -14,7 +14,7 @@ public interface UserService {
 
     Optional<User> login(LoginDTO loginDTO);
 
-    User getLoggedUser() throws UserNotLoggedInException;
+    User getLoggedUser();
 
     void logout();
 
