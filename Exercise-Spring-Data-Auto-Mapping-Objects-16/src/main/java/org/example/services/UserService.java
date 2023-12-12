@@ -7,6 +7,7 @@ import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 public interface UserService {
@@ -19,4 +20,6 @@ public interface UserService {
     void logout();
 
     Game addGame(GameDTO gameData);
+
+    int editGame(int gameId, BigDecimal gamePrice);
 }

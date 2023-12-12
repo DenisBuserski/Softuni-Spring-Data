@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.exeptions.games.IncorrectGameException;
+import org.example.exeptions.games.NotFoundGameException;
 import org.example.exeptions.games.UserIsNotAdminException;
 import org.example.exeptions.login_logout.UserNotFoundException;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
@@ -48,7 +49,8 @@ public class ConsoleRunner implements CommandLineRunner {
 
                     // Games
                     UserIsNotAdminException | // User tries to add edit or delete games
-                    IncorrectGameException // Incorrect game data
+                    IncorrectGameException | // Incorrect game data
+                    NotFoundGameException // Game not found
                             
                             exception) {
                 result = exception.getMessage();

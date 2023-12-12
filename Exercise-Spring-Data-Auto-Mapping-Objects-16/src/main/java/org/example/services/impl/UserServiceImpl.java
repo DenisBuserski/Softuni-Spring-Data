@@ -6,6 +6,7 @@ import org.example.entities.games.GameMapper;
 import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
+import org.example.exeptions.games.NotFoundGameException;
 import org.example.exeptions.registration.UserAlreadyExistsException;
 import org.example.exeptions.login_logout.UserNotFoundException;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
@@ -19,6 +20,7 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 
 @Service
@@ -82,6 +84,18 @@ public class UserServiceImpl implements UserService {
         Game gameToAdd = GameMapper.mapGameDTOToGame(gameData);
 
         return this.gameRepository.save(gameToAdd);
+    }
+
+    @Override
+    public int editGame(int gameId, BigDecimal gamePrice) {
+        Optional<Game> id = this.gameRepository.findById(gameId);
+
+        if(!id.isPresent()) {
+            throw new NotFoundGameException("Game not found!");
+        }
+
+        // return this.gameRepository.updatePriceById(gameId, gamePrice);
+        return 1;
     }
 
     public User getCurrentUser() {

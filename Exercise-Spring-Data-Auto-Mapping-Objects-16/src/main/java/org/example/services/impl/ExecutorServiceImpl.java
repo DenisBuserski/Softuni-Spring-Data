@@ -6,8 +6,8 @@ import org.example.entities.users.LoginDTO;
 import org.example.entities.users.RegisterDTO;
 import org.example.entities.users.User;
 import org.example.exeptions.games.UserIsNotAdminException;
-import org.example.exeptions.registration.IncorrectEmailException;
 import org.example.services.ExecutorService;
+import org.example.services.GameService;
 import org.example.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,10 +18,12 @@ import java.util.Optional;
 @Service
 public class ExecutorServiceImpl implements ExecutorService {
     private final UserService userService;
+    private final GameService gameService;
 
     @Autowired
-    public ExecutorServiceImpl(UserService userService) {
+    public ExecutorServiceImpl(UserService userService, GameService gameService) {
         this.userService = userService;
+        this.gameService = gameService;
     }
 
     @Override
@@ -69,12 +71,16 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("User %s successfully logged out!", loggedUser.getFullName());
     }
 
-    private String addGame(String[] commandParts) {
+    private void isAdmin() {
         User loggedUser = this.userService.getLoggedUser();
 
         if (!loggedUser.isAdmin()) {
             throw new UserIsNotAdminException("User is not an Admin!");
         }
+    }
+
+    private String addGame(String[] commandParts) {
+        isAdmin();
 
         GameDTO gameData = new GameDTO(commandParts);
         Game game = this.userService.addGame(gameData);
@@ -83,19 +89,19 @@ public class ExecutorServiceImpl implements ExecutorService {
     }
 
     private String editGame(String[] commandParts) {
-        User loggedUser = this.userService.getLoggedUser();
-
-        if (!loggedUser.isAdmin()) {
-            throw new UserIsNotAdminException("User is not an Admin!");
-        }
+        isAdmin();
 
         int gameId = Integer.parseInt(commandParts[1]);
         BigDecimal gamePrice = new BigDecimal(commandParts[2]);
 
-        return String.format("Successfully corrected " + );
+        this.userService.editGame(gameId, gamePrice);
+
+        return String.format("Successfully corrected game with id " + gameId);
     }
 
     private String deleteGame(String[] commandParts) {
+        isAdmin();
+
         return null;
     }
 
