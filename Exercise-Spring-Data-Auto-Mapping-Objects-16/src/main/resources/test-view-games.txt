@@ -1,0 +1,24 @@
+## AllGames
+============
+RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
+LoginUser|gosheto@abv.bg|goShkoepi4
+AddGame|Battlefield|149.99|50|www.youtube.com/watch?v=edYCtaNueQY|https://|The best game I have ever played. I really like it.|01-01-2020
+AddGame|GTA|999.99|60|www.youtube.com/watch?v=edYCtaNueQY|https://|The best game I have ever played. I really like it.|01-01-2005
+AddGame|Mountains|100.99|70|www.youtube.com/watch?v=edYCtaNueQY|https://|The best game I have ever played. I really like it.|01-01-2000
+AllGames
+Logout
+STOP
+
+
+## DetailGame|<gameTitle>
+===========================
+RegisterUser|gosheto@abv.bg|goShkoepi4|goShkoepi4|Georgi
+LoginUser|gosheto@abv.bg|goShkoepi4
+AddGame|Battlefield|149.99|50|www.youtube.com/watch?v=edYCtaNueQY|https://|The best game I have ever played. I really like it.|01-01-2020
+DetailGame|Battlefield
+Logout
+STOP
+
+
+## OwnedGames
+==============

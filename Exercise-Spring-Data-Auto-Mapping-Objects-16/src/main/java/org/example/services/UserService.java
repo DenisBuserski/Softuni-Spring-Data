@@ -8,6 +8,7 @@ import org.example.entities.users.User;
 import org.example.exeptions.login_logout.UserNotLoggedInException;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -24,4 +25,8 @@ public interface UserService {
     void editGame(int gameId, BigDecimal gamePrice);
 
     void delete(int gameId);
+
+    List<Game> getAllGames();
+
+    Game getGameDetails(String gameTitle);
 }

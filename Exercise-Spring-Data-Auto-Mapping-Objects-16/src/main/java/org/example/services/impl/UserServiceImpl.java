@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -106,6 +107,16 @@ public class UserServiceImpl implements UserService {
         }
 
         this.gameRepository.deleteById(gameId);
+    }
+
+    @Override
+    public List<Game> getAllGames() {
+        return this.gameRepository.findAll();
+    }
+
+    @Override
+    public Game getGameDetails(String gameTitle) {
+        return this.gameRepository.findByTitle(gameTitle);
     }
 
     public User getCurrentUser() {

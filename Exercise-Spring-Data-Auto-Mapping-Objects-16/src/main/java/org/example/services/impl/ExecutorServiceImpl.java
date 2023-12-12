@@ -13,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,7 +38,7 @@ public class ExecutorServiceImpl implements ExecutorService {
             case ADD_GAME_COMMAND -> addGame(commandParts);
             case EDIT_GAME_COMMAND -> editGame(commandParts);
             case DELETE_GAME_COMMAND -> deleteGame(commandParts);
-            case ALL_GAMES -> allGames(commandParts);
+            case ALL_GAMES -> allGames();
             case DETAIL_GAME -> detailGame(commandParts);
             case OWNED_GAMES -> ownedGames(commandParts);
             case ADD_ITEM -> addItem(commandParts);
@@ -106,12 +108,28 @@ public class ExecutorServiceImpl implements ExecutorService {
         return String.format("Successfully deleted game with id " + gameId);
     }
 
-    private String allGames(String[] commandParts) {
-        return null;
+    private String  allGames() {
+        isAdmin();
+
+        StringBuilder result = new StringBuilder();
+        this.userService.getAllGames().forEach(game ->
+                result.append(game.getTitle() + " " + game.getPrice()).append("\n")
+        );
+
+        return result.toString();
     }
 
     private String detailGame(String[] commandParts) {
-        return null;
+        String gameTitle = commandParts[1];
+
+        Game game = this.userService.getGameDetails(gameTitle);
+        StringBuilder result = new StringBuilder();
+        result.append("Title: " + game.getTitle()).append("\n")
+                .append("Price: " + game.getPrice()).append("\n")
+                .append("Description: " + game.getDescription()).append("\n")
+                .append("Release date: " + game.getReleaseDate());
+
+        return result.toString();
     }
     private String ownedGames(String[] commandParts) {
         return null;

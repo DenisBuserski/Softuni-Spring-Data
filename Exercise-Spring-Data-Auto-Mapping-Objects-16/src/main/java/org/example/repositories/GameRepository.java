@@ -14,6 +14,7 @@ import java.time.LocalDate;
 
 @Repository
 public interface GameRepository extends JpaRepository<Game, Integer> {
+    Game findByTitle(String gameTitle);
 
 //    @Modifying
 //    @Transactional
