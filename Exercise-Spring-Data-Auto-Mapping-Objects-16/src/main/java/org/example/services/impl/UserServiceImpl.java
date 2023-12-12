@@ -94,8 +94,25 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundGameException("Game not found!");
         }
 
-        // return this.gameRepository.updatePriceById(gameId, gamePrice);
+        Game game = this.gameRepository.findById(gameId).get();
+        int id1 = game.getId();
+
+
+        // int i = this.gameRepository.updatePriceById(game);
+
+        // return
         return 1;
+    }
+
+    @Override
+    public void delete(int gameId) {
+        Optional<Game> id = this.gameRepository.findById(gameId);
+
+        if(!id.isPresent()) {
+            throw new NotFoundGameException("Game not found!");
+        }
+
+        this.gameRepository.deleteById(gameId);
     }
 
     public User getCurrentUser() {

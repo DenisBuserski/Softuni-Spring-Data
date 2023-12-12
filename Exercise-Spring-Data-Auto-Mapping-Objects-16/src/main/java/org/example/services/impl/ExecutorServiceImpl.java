@@ -102,7 +102,10 @@ public class ExecutorServiceImpl implements ExecutorService {
     private String deleteGame(String[] commandParts) {
         isAdmin();
 
-        return null;
+        int gameId = Integer.parseInt(commandParts[1]);
+        this.userService.delete(gameId);
+
+        return String.format("Successfully deleted game with id " + gameId);
     }
 
     private String allGames(String[] commandParts) {
