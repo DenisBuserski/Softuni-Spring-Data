@@ -1,11 +1,11 @@
-package org.example;
+package org.example.product_shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ProductShopApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ProductShopApplication.class, args);
     }
 }
