@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public List<UserWithSoldProductDTO> getUsersWithSoldProducts() {
-
         List<User> allWithSoldProducts = this.userRepository.findAllWithSoldProducts();
 
         return allWithSoldProducts.stream()

@@ -1,5 +1,6 @@
 package org.example.product_shop.services.impl;
 
+import org.example.product_shop.entities.categories.CategoryStats;
 import org.example.product_shop.entities.products.ProductWithoutBuyerDTO;
 import org.example.product_shop.repositories.ProductRepository;
 import org.example.product_shop.services.ProductService;
@@ -25,5 +26,10 @@ public class ProductServiceImpl implements ProductService {
         BigDecimal rangeEnd = BigDecimal.valueOf(to);
 
         return this.productRepository.findAllByPriceBetweenAndBuyerIsNullOrderByPriceAsc(rangeStart, rangeEnd);
+    }
+
+    @Override
+    public List<CategoryStats> getCategoryStatistics() {
+        return this.productRepository.getCategoryStats();
     }
 }

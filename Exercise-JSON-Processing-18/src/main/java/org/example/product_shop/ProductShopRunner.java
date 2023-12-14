@@ -2,6 +2,7 @@ package org.example.product_shop;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import org.example.product_shop.entities.categories.CategoryStats;
 import org.example.product_shop.entities.products.ProductWithoutBuyerDTO;
 import org.example.product_shop.entities.users.UserWithSoldProductDTO;
 import org.example.product_shop.services.ProductService;
@@ -39,8 +40,12 @@ public class ProductShopRunner implements CommandLineRunner {
 
 //        query1ProductsInRange();
 //        query2SuccessfullySoldProducts();
+//        query3CategoriesByProductsCount();
+
 
     }
+
+
 
 
     private void query1ProductsInRange() {
@@ -52,6 +57,12 @@ public class ProductShopRunner implements CommandLineRunner {
     private void query2SuccessfullySoldProducts() {
         List<UserWithSoldProductDTO> usersWithSoldProducts = this.userService.getUsersWithSoldProducts();
         String json = this.gson.toJson(usersWithSoldProducts);
+        System.out.println(json);
+    }
+
+    private void query3CategoriesByProductsCount() {
+        List<CategoryStats> categoryStatistics = this.productService.getCategoryStatistics();
+        String json = this.gson.toJson(categoryStatistics);
         System.out.println(json);
     }
 }
