@@ -1,6 +1,6 @@
 package org.example.product_shop.entities.users;
 
-import org.example.product_shop.entities.Product;
+import org.example.product_shop.entities.products.Product;
 
 import javax.persistence.*;
 import java.util.ArrayList;

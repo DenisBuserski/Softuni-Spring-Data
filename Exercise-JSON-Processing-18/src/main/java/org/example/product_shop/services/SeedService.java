@@ -7,7 +7,7 @@ public interface SeedService {
 
     void seedCategories() throws FileNotFoundException;
 
-    void seedProducts();
+    void seedProducts() throws FileNotFoundException;
 
     default void seedAll() throws FileNotFoundException {
         seedUsers();
