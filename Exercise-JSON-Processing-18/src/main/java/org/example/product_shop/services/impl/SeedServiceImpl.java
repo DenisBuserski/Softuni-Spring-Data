@@ -19,10 +19,7 @@ import org.springframework.stereotype.Service;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -79,6 +76,7 @@ public class SeedServiceImpl implements SeedService {
                 .map(importDTO -> this.modelMapper.map(importDTO, Product.class))
                 .map(product -> setRandomSeller(product))
                 .map(product -> setRandomBuyer(product))
+                .map(product -> setRandomCategory(product))
                 .collect(Collectors.toList());
 
         this.productRepository.saveAll(products);
@@ -103,6 +101,23 @@ public class SeedServiceImpl implements SeedService {
         }
         Optional<User> buyer = getRandomUser();
         product.setBuyer(buyer.get());
+
+        return product;
+    }
+
+    private Product setRandomCategory(Product product) {
+        Random random = new Random();
+        long categoriesDBCount = this.categoryRepository.count();
+        int count = random.nextInt((int) categoriesDBCount);
+
+        Set<Category> categories = new HashSet<>();
+        for (int i = 0; i < count; i++) {
+            int randomId = random.nextInt((int) categoriesDBCount) + 1;
+            Optional<Category> randomCategory = this.categoryRepository.findById(randomId);
+            categories.add(randomCategory.get());
+        }
+
+        product.setCategories(categories);
 
         return product;
     }
