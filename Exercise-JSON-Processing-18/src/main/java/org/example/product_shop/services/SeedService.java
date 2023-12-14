@@ -1,13 +1,15 @@
 package org.example.product_shop.services;
 
-public interface SeedService {
-    void seedUsers();
+import java.io.FileNotFoundException;
 
-    void seedCategories();
+public interface SeedService {
+    void seedUsers() throws FileNotFoundException;
+
+    void seedCategories() throws FileNotFoundException;
 
     void seedProducts();
 
-    default void seedAll() {
+    default void seedAll() throws FileNotFoundException {
         seedUsers();
         seedCategories();
         seedProducts();

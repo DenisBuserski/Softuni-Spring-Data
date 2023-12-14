@@ -1,6 +1,8 @@
 package org.example.product_shop.entities;
 
 
+import org.example.product_shop.entities.users.User;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.HashSet;
