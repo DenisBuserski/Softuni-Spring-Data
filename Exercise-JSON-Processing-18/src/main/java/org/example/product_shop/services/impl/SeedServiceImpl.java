@@ -35,7 +35,9 @@ public class SeedServiceImpl implements SeedService {
 
 
     @Autowired
-    public SeedServiceImpl(UserRepository userRepository, CategoryRepository categoryRepository, ProductRepository productRepository) {
+    public SeedServiceImpl(UserRepository userRepository,
+                           CategoryRepository categoryRepository,
+                           ProductRepository productRepository) {
         this.userRepository = userRepository;
         this.categoryRepository = categoryRepository;
         this.productRepository = productRepository;
