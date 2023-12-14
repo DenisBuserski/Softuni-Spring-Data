@@ -1,4 +1,4 @@
-package org.example.product_shop.entities;
+package org.example.product_shop.entities.categories;
 
 import javax.persistence.*;
 
