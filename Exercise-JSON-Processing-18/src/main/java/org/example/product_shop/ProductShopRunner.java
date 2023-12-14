@@ -45,24 +45,23 @@ public class ProductShopRunner implements CommandLineRunner {
 
     }
 
-
-
+    private void printJson(String gson) {
+        String json = gson;
+        System.out.println(json);
+    }
 
     private void query1ProductsInRange() {
         List<ProductWithoutBuyerDTO> productsForSell = this.productService.getProductsInPriceRangeForSell(500, 1000);
-        String json = this.gson.toJson(productsForSell);
-        System.out.println(json);
+        printJson(this.gson.toJson(productsForSell));
     }
 
     private void query2SuccessfullySoldProducts() {
         List<UserWithSoldProductDTO> usersWithSoldProducts = this.userService.getUsersWithSoldProducts();
-        String json = this.gson.toJson(usersWithSoldProducts);
-        System.out.println(json);
+        printJson(this.gson.toJson(usersWithSoldProducts));
     }
 
     private void query3CategoriesByProductsCount() {
         List<CategoryStats> categoryStatistics = this.productService.getCategoryStatistics();
-        String json = this.gson.toJson(categoryStatistics);
-        System.out.println(json);
+        printJson(this.gson.toJson(categoryStatistics));
     }
 }
