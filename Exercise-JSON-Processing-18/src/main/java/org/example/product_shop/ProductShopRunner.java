@@ -29,11 +29,15 @@ public class ProductShopRunner implements CommandLineRunner {
 //        this.seedService.seedUsers();
 //        this.seedService.seedCategories();
 //        this.seedService.seedProducts();
-        this.seedService.seedAll();
+//        this.seedService.seedAll();
 
+//        query1ProductsInRange();
+
+    }
+
+    private void query1ProductsInRange() {
         List<ProductWithoutBuyerDTO> productsForSell = this.productService.getProductsInPriceRangeForSell(500, 1000);
         String json = this.gson.toJson(productsForSell);
         System.out.println(json);
-
     }
 }
