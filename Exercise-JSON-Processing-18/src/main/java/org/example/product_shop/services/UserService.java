@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface UserService {
     List<UserWithSoldProductDTO> getUsersWithSoldProducts();
+
+    List<User> getUsersWithSoldProductsOrderByCount();
 }

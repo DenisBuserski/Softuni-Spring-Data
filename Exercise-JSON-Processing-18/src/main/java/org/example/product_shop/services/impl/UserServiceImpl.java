@@ -32,4 +32,12 @@ public class UserServiceImpl implements UserService {
                 .map(user -> this.modelMapper.map(user, UserWithSoldProductDTO.class))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    @Transactional
+    public List<User> getUsersWithSoldProductsOrderByCount() {
+        List<User> all = this.userRepository.findAllWithSoldProductsOrderByCount();
+
+        all.get(0).getSellingItems().size();
+    }
 }

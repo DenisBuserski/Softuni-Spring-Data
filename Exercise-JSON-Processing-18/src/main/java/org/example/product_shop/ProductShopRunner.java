@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.example.product_shop.entities.categories.CategoryStats;
 import org.example.product_shop.entities.products.ProductWithoutBuyerDTO;
+import org.example.product_shop.entities.users.User;
 import org.example.product_shop.entities.users.UserWithSoldProductDTO;
 import org.example.product_shop.services.ProductService;
 import org.example.product_shop.services.SeedService;
@@ -41,6 +42,8 @@ public class ProductShopRunner implements CommandLineRunner {
 //        query1ProductsInRange();
 //        query2SuccessfullySoldProducts();
 //        query3CategoriesByProductsCount();
+
+        List<User> usersWithSoldProductsOrderByCount = this.userService.getUsersWithSoldProductsOrderByCount();
 
 
     }
